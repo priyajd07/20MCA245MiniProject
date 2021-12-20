@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>calender</title>
+<script>
+var MonthName=new Array('january','february','march','april','may','june','july','august','september','october','november','december','jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec');
+var DayName=new Array('sun','mon','tue','wed','thu','fri','sat');
+function getMonthName (i)
+{
+return MonthName [i];
+}
+function generateCal ()
+{
+var mon = document.getElementById ('d1') . value;
+var year = document.getElementById ('y1') . value;
+var firstDate=new Date ();
+firstDate.setDate(1);
+firstDate.setMonth(mon);
+firstDate.setYear(year);
+var mybody=document.getElementsByTagName("fieldset").item(1);
+mytable = document.createElement("TABLE");
+mytablebody = document.createElement("TBODY");
+for(j=0;j<6;j++)
+{
+mycurrent_row=document.createElement("TR");
+for(i=0;i<=6;i++)
+{
+mycurrent_cell=document.createElement("TD");
+if(j==0)
+currenttext=document.createTextNode(DayName[i]);
+else if(firstDate.getDay()==i)
+{
+currenttext = document.createTextNode(firstDate.getDate());
+firstDate.setDate(firstDate.getDate() +1);
+}
+else
+currenttext=document.createTextNode(" ");
+mycurrent_cell.appendChild(currenttext);
+mycurrent_row.appendChild(mycurrent_cell);
+}
+mytablebody.appendChild(mycurrent_row);
+}
+mytable.appendChild(mytablebody);
+mybody.appendChild(mytable);
+mytable.setAttribute("border","2");
+mytable.setAttribute("align","center");
+mytable.setAttribute("header","may");
+}
+</script>
+</head>
+<body>
+<form>
+<fieldset>
+<legend>select month and year</legend>
+<center>
+<select id="d1" name="d1" onchange="generateCal ()">
+<script>
+for(i=0;i<=11;i++)
+document.write("<option value=" + i  +">"+getMonthName(i) + "");
+</script>
+</select>
+<select  id="y1" name="y1" onchange="generateCal()">
+<script>
+for(i=1980;i<=2008;i++)
+document.write("<option value=" + i +">"+ i + "");
+</script>
+</select>
+</center>
+</fieldset>
+<fieldset>
+<legend>calender in java script by mushahida althaf</legend>
+</fieldset>
+</form>
+</body>
+</html>

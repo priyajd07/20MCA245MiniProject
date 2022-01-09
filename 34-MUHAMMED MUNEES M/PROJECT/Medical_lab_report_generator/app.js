@@ -20,8 +20,6 @@ app.engine('hbs', hbs.engine({
   layoutsDir: __dirname + '/views/layout/',
   partialsDir: __dirname + '/views/partials'
 }))
-
-app.set('view engine', 'handlebars');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(fileUpload());

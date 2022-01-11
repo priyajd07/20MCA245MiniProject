@@ -1,0 +1,47 @@
+#pip install seaborn
+#pip install matplotlib
+#pip install keras
+!pip install tensorflow
+import numpy as np
+import seaborn as sns
+import numpy as np
+from keras.preprocessing.image import load_img, img_to_array
+import matplotlib.pyplot as plt
+import os
+pic_size = 48
+base_path = "C:\\Users\\sanju\\Desktop\\Human Activity\\data\\data\\"
+action='00014'
+plt.figure(figsize=(12,12))
+for i in range(1,5,1):
+    plt.subplot(3,3,i)
+    img = load_img(base_path + "trainClips\\" + action + "\\" +os.listdir(base_path + "trainClips\\" + action)[i], target_size=(pic_size, pic_size))
+    plt.imshow(img)
+plt.show()
+action='00043'
+plt.figure(figsize=(12,12))
+for i in range(1,4,1):
+    plt.subplot(3,3,i)
+    img = load_img(base_path + "trainClips\\" + action + "\\" +os.listdir(base_path + "trainClips\\" + action)[i], target_size=(pic_size, pic_size))
+    plt.imshow(img)
+plt.show()
+action='04218'
+plt.figure(figsize=(12,12))
+for i in range(1,3,1):
+    plt.subplot(3,3,i)
+    img = load_img(base_path + "trainClips\\" + action + "\\" +os.listdir(base_path + "trainClips\\" + action)[i], target_size=(pic_size, pic_size))
+    plt.imshow(img)
+plt.show()
+action='07224'
+plt.figure(figsize=(12,12))
+for i in range(1,3,1):
+    plt.subplot(3,3,i)
+    img = load_img(base_path + "trainClips\\" + action + "\\" +os.listdir(base_path + "trainClips\\" + action)[i], target_size=(pic_size, pic_size))
+    plt.imshow(img)
+plt.show()
+action='06875'
+plt.figure(figsize=(12,12))
+for i in range(1,3,1):
+    plt.subplot(3,3,i)
+    img = load_img(base_path + "trainClips\\" + action + "\\" +os.listdir(base_path + "trainClips\\" + action)[i], target_size=(pic_size, pic_size))
+    plt.imshow(img)
+plt.show()

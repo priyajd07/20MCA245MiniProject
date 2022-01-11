@@ -1,0 +1,64 @@
+
+
+<style>
+    body{  
+    margin: 0;  
+    padding: 30px; 
+    
+    background-position: center; 
+    background-size: cover;
+    font-family: 'TimesNewRoman';  
+    
+} 
+body {
+ background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(static/assets/images/login.jpg);
+
+}
+
+.login{  
+    width: 325px;    
+    margin: 20 0 0 450px;  
+    padding: 80px;  
+   /* background: #928a8a;*/ 
+    border-radius: 15px ;
+    padding: 60px 30px;  
+          
+}  
+h2{  
+    text-align: center;  
+    color:rgb(238, 238, 238);  
+    padding: 20px;  
+    text-shadow: blanchedalmond;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+} 
+label{  
+    color:rgb(253, 251, 251);  
+    font-size: 17px;  
+} 
+input [type="submit"]{
+    border:none;
+    height: 400px;
+    border-radius: 20px;
+    background: linear-gradient(rgba(48, 46, 46, 0.5));
+}
+
+</style>
+ <body>
+     
+<div class="login">
+<form action="" method="POST">
+    {%csrf_token %}
+    <h2>LOGIN </h2>
+    <label>Username:</label>
+    <input type="text" name="username" required placeholder="username"><br><br>
+    <label>Password:</label>
+    <input type="password" name="password" required placeholder="password"><br><br>
+    <center>
+    <input type="submit" value="LOGIN">
+    </center>
+</form>
+</div>
+</body>
+

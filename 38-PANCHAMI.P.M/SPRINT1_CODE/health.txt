@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/signup_post" method="post">
+  <table width="357" border="1">
+    <tr>
+      <td width="152">Health Provider Name</td>
+      <td width="189"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" name="textfield2" id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><input type="text" name="textfield3" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><input type="text" name="textfield4" id="textfield4" /></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><input type="text" name="textfield5" id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><input type="text" name="textfield6" id="textfield6" /></td>
+    </tr>
+    <tr>
+      <td>Contact</td>
+      <td><input type="text" name="textfield7" id="textfield7" /></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="text" name="textfield8" id="textfield8" /></td>
+    </tr>
+    <tr>
+      <td>Website</td>
+      <td><input type="text" name="textfield9" id="textfield9" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><blockquote>
+        <blockquote>
+          <p>
+            <input type="submit" name="button3" id="button3" value="SignUp" />
+            <input type="reset" name="button4" id="button4" value="Cancel" />
+          </p>
+        </blockquote>
+      </blockquote></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

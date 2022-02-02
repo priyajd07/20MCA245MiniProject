@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table width="367" border="1">
+  <tr>
+    <td>Sl No</td>
+    <td>Name</td>
+    <td>Address</td>
+    <td>Contact</td>
+
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{ loop.index}}&nbsp;</td>
+    <td>&nbsp;{{ i["name"]}}</td>
+    <td>Place:-{{ i["place"]}}
+      <br>
+    Post:-{{ i["post"]}}<br>
+    Pin:-{{ i["pin"]}}
+    <br>
+    District:-{{ i["district"]}}
+    <br>
+    State:-{{ i["state"]}}</td>
+    <td>Phone Number:- {{i["number"]}}<br>Email:- {{i["email"]}}</td>
+
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>

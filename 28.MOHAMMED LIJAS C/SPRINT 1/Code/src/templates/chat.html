@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/chat_send">
+  <div align="center">
+    <table width="255" border="1" align="center">
+    <input type="hidden" name="toid" value="{{fr}}"/>
+    <tr align="center">
+      <td class="blue" width="245" scope="col">{{fname[0]}}{{fname[1]}} </td>
+    </tr>
+    {% for d in data %}
+    <tr  {% if fr == d[1]|string %} align="left"{% else %} align="right" {% endif %} >
+      <td class="blue" height="84" scope="row" >{{d[3]}}         </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <th scope="row"><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="30" rows="2" align="left" required></textarea>
+      <input type="submit" name="button" id="button" value="send" /></th>
+    </tr>
+
+  </table>
+  </div>
+</form></body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+<body><form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <div align="center">
+    <table>
+      <tr>
+        <th scope="row">Photo</th>
+        <td><label>
+          <input type="file" name="file" required />
+        </label></td>
+      </tr>
+      <tr>
+        <th scope="row">First Name </th>
+        <td><label>
+          <input type="text" name="textfield5"  required pattern="[A-Z a-z.]{3,25}"  />
+        </label></td>
+      </tr>
+      <tr>
+        <th scope="row">Last Name </th>
+        <td><label>
+          <input type="text" name="textfield6"  required pattern="[A-Z a-z.]{3,25}"  />
+        </label></td>
+      </tr>
+      <tr>
+        <th scope="row">Gender</th>
+        <td><label>
+          <input name="radiobutton" type="radio" value="Male" />
+        </label>
+        Male
+        <label>
+        <input name="radiobutton" type="radio" value="Female" />
+        Female</label></td>
+      </tr>
+      <tr>
+        <th scope="row">Dob</th>
+        <td><label>
+          <input type="date" name="textfield" required />
+        </label></td>
+      </tr>
+      <tr>
+        <th scope="row">Phone Number </th>
+        <td><label>
+          <input type="text" name="textfield2" required pattern="[6789][0-9]{9}" />
+        </label></td>
+      </tr>
+      <tr>
+        <th scope="row">Bio</th>
+        <td><label>
+          <textarea name="textarea" pattern="[A-Z a-z.]{3,100}"></textarea>
+        </label></td>
+      </tr>
+      <tr>
+        <th scope="row">UserName</th>
+        <td><label>
+          <input type="text" name="textfield3" required />
+        </label></td>
+      </tr>
+      <tr>
+        <th scope="row">Password</th>
+        <td><label>
+          <input type="password" name="textfield4" required />
+        </label></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><label>
+          <input type="submit" name="Submit" value="Signup" />
+        </label></th>
+      </tr>
+      </table>
+  </div>
+</form>  
+</body>
+</html>

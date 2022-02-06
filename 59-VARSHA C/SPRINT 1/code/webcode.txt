@@ -1,0 +1,88 @@
+@app.route('/')
+def login():
+    return render_template("login.html")
+
+
+@app.route('/viewuser')
+def viewuser():
+    qry = "SELECT * FROM user"
+    s = select(qry)
+    return render_template("viewuser.html",val=s)
+
+@app.route('/notification')
+def notification():
+    qry = "SELECT * FROM notification ORDER BY nid DESC"
+    s = select(qry)
+
+    return render_template("add notification.html",val=s)
+
+
+@app.route('/addnotification',methods=['post','get'])
+def addnotification():
+    notification=request.form['textarea']
+
+
+    qry2 = "insert into notification values(null,curdate(),%s)"
+    values = (notification)
+    iud(qry2, values)
+    return '''<script>alert('NOTIFICATION ADDED');window.location='/notification'</script>'''
+
+
+@app.route('/removoe')
+def remove():
+    id=request.args.get('id')
+    print(id)
+    q="delete from notification where nid=%s"
+    val=(id)
+    iud(q,val)
+    return '''<script>alert('deleted');window.location='/notification'</script>'''
+
+
+@app.route('/addroute',methods=['post'])
+def addroute():
+    return render_template("add route.html")
+
+
+@app.route('/manageroute')
+def manageroute():
+    return render_template("manageroute.html")
+
+
+@app.route('/viewfeedback')
+def viewfeedback():
+   return render_template("viewfeedback.html")
+
+@app.route('/trackuser')
+def trackuser():
+    return render_template("trackuser.html")
+@app.route('/homepage')
+def homepage():
+    return render_template("homepage.html")
+
+
+
+
+
+
+@app.route('/login2',methods=['post'])
+def login2():
+    uname=request.form['textfield']
+    pword=request.form['textfield2']
+    q="select * from login where username=%s and password=%s"
+    val=(uname,pword)
+    s=selectonecond(q,val)
+    if s  is None:
+        return '''<script>alert('Invalid user name or password');window.location='/'</script>'''
+    elif s[3]=='admin':
+        return '''<script>alert('login successfully');window.location='/homepage'</script>'''
+
+
+
+
+
+
+
+
+
+
+app.run(debug=True)

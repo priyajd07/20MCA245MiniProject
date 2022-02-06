@@ -1,0 +1,60 @@
+from flask import *
+app=Flask(__name__)
+from dbconn import *
+
+@app.route('/')
+def login():
+    return render_template('/login.html')
+
+@app.route('/logincode',methods=['post'])
+def logincode():
+    uname=request.form['textfield']
+    pwd=request.form['textfield2']
+    qry="SELECT * FROM login WHERE username=%s AND PASSWORD=%s"
+    val=(uname,pwd)
+    print(val)
+    res=selectone(qry,val)
+    if res is None:
+        return '''<script>alert('invalid');window.location="/"</script>'''
+    else:
+        if res[3]=='expert':
+            return redirect('/experthome')
+        else:
+            return '''<script>alert('invalid');window.location="/"</script>'''
+
+
+@app.route('/add_and_manage_treatment')
+def add_and_manage_treatment():
+    return render_template('add_and_manage_treatments.html')
+
+@app.route('/add_treatment')
+def add_treatment():
+    return render_template('add_treatment.html')
+
+@app.route('/addtips',methods=['post'])
+def addtips():
+    return render_template('addtips.html')
+
+@app.route('/addingtips',methods=['post'])
+def addingtips():
+    tips=request.form['textarea']
+    qry="INSERT INTO tips VALUES(NULL,%s,CURDATE())"
+    iud(qry,tips)
+    return '''<script>alert('tip added');window.location="/tips"</script>'''
+
+
+@app.route('/experthome')
+def experthome():
+    return render_template('experthome.html')
+
+
+@app.route('/tips')
+def tips():
+    qry="SELECT * FROM `tips`"
+    res=selectall(qry)
+    return render_template('tips.html',val=res)
+
+@app.route('/viewfeedback')
+def viewfeedback():
+    return render_template('viewfeedback.html')
+app.run(debug=True)

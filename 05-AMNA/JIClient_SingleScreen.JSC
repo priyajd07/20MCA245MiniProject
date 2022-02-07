@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+
+// Name of items should start with program no. there is no way to get it otherwise
+/*--------------------------------Class Utils -------------------------------------*/
+//----------------------------------------------------------------------------------
+class program {
+   //GenPtr is last item . CurrPos Stores Current 
+   GenPtr = -1;
+   //Gptr is last Grid. It starts from one. 
+   Gptr   =  0;
+   PrgNo  =  0;
+   PrePrg = -1;
+   CurrPos= -1;
+   SetPos = false;
+
+   constructor(Cnt) {
+      this.GenPtr = -1;
+      this.Gptr   = 0;
+      this.PrgNo  = Cnt;
+      this.PrePrg = 0;
+      this.SetPos = false;
+   }
+
+   Grids = [0];   
+   Items = [];  
+   Hybernate = [];  
+   MenuChar  = "*";
+   PrintLevel   = -1;
+   PrintCls  = [];
+
+   Widget = {ParName: ' ',ItmName: ' ',DomHand: document.body , DfCmpArr: ' ',CntTypArr: ' ',
+              LengthArr: 0 ,DecimalArr: 0 ,FontArr: 0 ,ActDis: 0 ,ActVal: 0 ,
+              SendFlg: false ,DomLabl: document.body};   
+
+   FunPanWid     = 0;        //  Width of panel where Fun key / fun butt is diplayed
+   FunKeysSts    = [13];     //  Special Keys Button Equivalents Status
+   FunKeysLbl    = [13];     //  Special Keys Prompts 
+   //this is for storing pointers of buttons created intead of function keys. 
+   FuncButtArr   = [11] ;    // 0 is escape button 
+   ListDflt  = [];           //  default value of List field    
+   Formula = [] ;            // Count in Fptr Starting from 1
+   SpkLabel = "";
+   FontArr  = "";
+
+   FunTstKey="" ;
+   FunTstTs1=true;
+   FunTstTs2=true;
+   FunTstTvf=true;
+   FunTstTtf=true;
+   FunTstLbl=" ";
+   FunTstMsg= " " ;     
+
+   PreBlock = " ";
+   ErrStr   = " ";
+   
+   GrdCur=0;
+   DspPtr=0;
+   FlyWidth=0;   
+   Fptr=0;  // function ptr   
+   font = " ";  
+//------------------------------ArParPos----------------------------------------------------
+ ArParPos(Itm)
+  {
+      var Pos =-1;
+      for(var j = 0; j <= this.GenPtr ; j++) 
+      {
+          if(this.Items[j].ItmName == Itm)
+            {
+             Pos = j;
+             break;
+          }
+      }
+    return Pos;  
+ }           
+//---------------------------Enable stored panels ------------------------
+  Show()
+  {
+    for ( var ii=0 ; ii < this.Hybernate.length; ii++)
+       this.Hybernate[ii].style.visibility="visible";
+
+    this.Hybernate = []
+
+    if (Utils.Button) {
+       for (var FB=0; FB < 11 ; FB++) {    //F0 is escape F1 is Help.  F13 and F14 are up and down .
+            if ( ( this.FunKeysSts[FB] == 6 && FB > 0 ) ||
+               ( Utils.ButtEsc && this.FunKeysSts[0]==6 && FB==0 ) ) 
+                   this.FuncButtArr[FB].style.visibility = "visible";
+       }
+    }
+    else
+       this.SpkLabel.style.visibility = "visible";
+
+    var PPos   =  this.GetParPos(this.CurrPos)
+
+       this.Items[this.CurrPos].DomHand.focus();
+ }
+//--------------Disable active panels and store the panel Pos ------------------------
+  Hide()
+  {
+    var Frame = this.Items[0].ItmName;
+    for ( var ii=1 ; ii <= this.GenPtr; ii++)
+    {
+       if (this.Items[ii].ActDis > 1 && !(this.Items[ii].DfCmpArr == "U") 
+          && !(this.Items[ii].DfCmpArr =="G")) 
+          {
+            var PP = this.ArParPos(this.Items[ii].ParName);
+            if (this.Items[PP].DfCmpArr =="G")
+              {
+                var Gro = this.Grids[this.Items[PP].DomHand];
+                var Sc  = Gro.GrdShwRec; 
+                var Cl  = this.Items[ii].DomHand; 
+ 
+                for ( var Rs = 1; Rs <= Sc; Rs++)  {
+                   var Dh = Gro.GrdDomRsc (Cl, Rs);
+                   Dh.style.visibility = "hidden";
+                   this.Hybernate.push(Dh);
+                }
+
+                if (this.Items[ii].DomLabl)  {
+                   this.Items[ii].DomLabl.style.visibility = "hidden";
+                   this.Hybernate.push(this.Items[ii].DomLabl);
+                }
+            }
+            else
+               {
+                this.Items[ii].DomHand.style.visibility = "hidden";
+                this.Hybernate.push(this.Items[ii].DomHand);
+
+                if (this.Items[ii].DomLabl) {
+                   this.Items[ii].DomLabl.style.visibility = "hidden";
+                   this.Hybernate.push(this.Items[ii].DomLabl);
+                }
+            }
+       }   //if   
+    }  // for
+
+    if (Utils.Button) {
+       for (var FB=0; FB < 11 ; FB++) { //F0 is escape F1 is Help.
+                                    //Although F13 and F14 keypresses are not 
+                                    //accepted , up and down is blocked through these 2.
+          if ( ( this.FunKeysSts[FB] == 6 && FB > 0 ) ||
+             ( Utils.ButtEsc && this.FunKeysSts[0]==6 && FB==0 ) ) 
+               this.FuncButtArr[FB].style.visibility = "hidden";
+       }
+    }
+    else
+       this.SpkLabel.style.visibility = "hidden";
+
+ } 
+
+// works only for elements - Hidden true or false to be tried
+// this.Items[ii].DomHand.style.visibility = "hidden";
+// this.Items[this.Hybernate[ii]].DomHand.style.visibility = "visible";
+
+//--------------------------------Distroying all elements --------------------------
+  Distroy()
+  {
+    var Frame = this.Items[0].ItmName;
+
+    for ( var ii=1 ; ii <= this.GenPtr; ii++)
+    {
+       if ( this.Items[ii].ParName == Frame ) {
+          const myNode = this.Items[ii].DomHand;
+          while (myNode.lastElementChild) {
+             myNode.removeChild(myNode.lastElementChild);
+          }
+          myNode.parentNode.removeChild(myNode);
+       }
+    }
+ }
+//---GetParPos-------------------------------------------------------------------
+ GetParPos(Child)
+  {
+       return  this.ArParPos(this.Items[Child].ParName);
+ }     
+//---ArrayPos-------------------------------------------------------------------
+  ArrayPos(Itm)
+  {
+      var Pos=-1;
+      for(var i=0;i<= (this.GenPtr);i++) 
+      {
+         if  (  (this.Items[i].ParName+","+this.Items[i].ItmName) == Itm) 
+            {
+              Pos =i;
+              break;
+            }
+      }
+      return Pos;
+  }
+ //------------------ Actual Grid no from GridItem-----------------------------    
+    Get_Grd(TemPos)   
+     {
+       // Actual grid of an item
+       // TemPos is the Gen pointer of an item of this Grid
+      return  this.Items[TemPos].DomHand;
+    }
+ //------------------ Column ser no of a column in grid -------------------------------------------------------------    
+   Get_Grd_Col(TemPos)   
+     {
+       //Tempos is the Gen pointer of this item which stores Col Seq no in DomHand 
+      return this.Items[TemPos].DomHand;
+    }
+//---------------------------Normall label for all items-------------------------------
+  Create_Normal_label (PosPar,Ptr) 
+  {
+     this.Items[Ptr].DomLabl = document.createElement("LABEL");  
+     this.Items[Ptr].DomLabl.style.position = "absolute";
+     this.Items[Ptr].DomLabl.style.visibility = "visible";
+     this.Items[PosPar].DomHand.appendChild(this.Items[Ptr].DomLabl);
+ }
+//---------------------------Set Location for all items-------------------------------
+  Set_Location(X,Y,W,H,Dom) 
+  {                
+    Dom.style.position = "absolute";
+    Dom.style.left = X.toString() + "px";
+    Dom.style.top = Y.toString() + "px";
+    Dom.style.width = W.toString() + "px";
+    Dom.style.height = H.toString() + "px";
+ }
+ // --------------------- Create Panel-------------------------------------------
+ Create_Panel ( Xstr,Ystr,Wstr,Hstr,Ptr)
+ {
+    var x=Xstr , y=Ystr;
+
+    this.Items[Ptr].DomHand = document.createElement("form");  
+    if (this.PrgNo > 0) {
+       if ( x < 130 )
+          x = 130; 
+ 
+       if ( y < 65 )
+          y = 65;
+    }                 
+
+    // lable of panel should be attached to panel;
+    document.body.appendChild(this.Items[Ptr].DomHand);
+    this.Set_Location(x,y,Wstr,Hstr,this.Items[Ptr].DomHand);
+    this.Create_Normal_label (Ptr,Ptr);
+
+    // if Panel and last parameter of the definition is 0,
+    // add 20 to both frame and panel to give space for Funkey label
+
+    if (this.Items[Ptr].DecimalArr == 0)  {
+       var nh = Hstr+20;
+       this.Items[Ptr].DomHand.height = nh.toString() + "px";
+       this.Create_SpecialKeys(0,Hstr-22,Wstr,22,Ptr);
+    }
+ }  
+       /* Utils.Set_Color(PanelArr[Pptr] , "PANEL");  add it before the second bracket
+       Utils.Set_Font(PanelArr[Pptr] );
+       Utils.Set_Color(PanelArr[Pptr] , "PROMPT");
+                if content type is toggle and F3 key is diabled, enable it 
+       if (  Items[GenPtr].CntTypArr == ("T") &&  !(FunKeysSts[3] == 6) ) {
+           this.FunKeysSts[3] = 6;
+           this.FunKeysLbl[3] = "Toggle";  
+       }  */
+ // --------------------- Create Items other Than Panel-------------------------------------------
+ Create_Items(Str,Xstr,Ystr,Wstr,Hstr,Ptr,PosPar,Loc)  
+ {
+    var DH;
+    
+    if (Str == "T" || Str == "D") {
+       DH = document.createElement("INPUT")
+       //((AbstractDocument) DomHand.getDocument()).setDocumentFilter(new DoctFilter(FTyp,l,d));
+    
+       if ( Str == "D")
+          DH.setAttribute("type", "password");
+       else
+          DH.setAttribute("type", "text");      
+    }
+    else if (Str == "L") {
+       DH = document.createElement("select")
+       DH.setAttribute("type", "text");      
+    }
+    else if (Str == "K")  {
+       DH = document.createElement("INPUT")
+       DH.setAttribute("type", "checkbox");      
+    }
+    else if (Str == "B")
+       DH =  document.createElement("button");
+
+    // Stray label is treated as an indiviual item unlike label attached to 
+    // items.  LablHand will be null for this item                
+
+    else if (Str == "S")
+       DH = document.createElement("LABEL");  
+                    
+    if ("TDLKBS".indexOf(Str) > -1 ) 
+    {
+       this.Items[PosPar].DomHand.appendChild(DH);                                            
+       DH.addEventListener("change", Validate); 
+       DH.addEventListener("focus", CurrLoc);
+       DH.addEventListener("keydown", KeyTrap);
+       DH.name = this.PrgNo.toString().padStart(3,"0") 
+                    + this.Items[Ptr].ParName.padEnd(8, " ")  
+                    + this.Items[Ptr].ItmName.padEnd(8, " ")+Loc;
+       this.Set_Location(Xstr,Ystr,Wstr,Hstr,DH);
+    } 
+    return DH;
+ }
+    /*  <IMP> text only add it before return statement
+    if ( Loc == ("000000") ) {  // contains number now
+        // try setting the item name as element name 
+         if ( ItmName == "DISPMESS") {
+             DspPtr = GenPtr;
+             Utils.Set_Color( Items[GenPtr].DomHand, "DISP");
+         }  
+         else {
+            Utils.Set_Color( Items[GenPtr].DomHand ,  "ENTRY" );
+            Utils.Set_Font( Items[GenPtr].DomHand );
+         }                                 
+         Items[GrnPos].DomHand.setVisible(true); 
+         // setting visibility of grid field is done in grid fields.
+         Utils.Set_Color( Items[GrnPos].DomHand , "PROMPT" );        
+         Utils.Set_Font( Items[GrnPos].DomHand );
+     else  {
+        Utils.Set_Font( Items[GenPtr].DomHand);
+
+     if ( GrdPrgHlp > 0 )     
+          Utils.Set_Color( Items[GenPtr].DomHand ,  "HLPDISP" );                             
+     else
+        Utils.Set_Color( Items[GenPtr].DomHand,  "GRIDDISP" );                            
+     }    */
+
+
+//---------------------------Cmd_Define---------------------------------------
+ Cmd_Define ( ObjStr , xStype , xParent , xChild , xXstr , xYstr,xWstr,xHstr,xLstr,xLDstr)  
+ { 
+       var    Str , Stype , Parent , Child , Loc;
+       var    Xstr , Ystr , Wstr, Hstr, Lstr , LDstr , TemPos, DefGrd;
+       
+       if (ObjStr.length > 3) {
+          Str     = ObjStr.substring(1,2);                    // Component type  1B
+          Stype   = ObjStr.substring(2,3);                    // Content type    1B
+          Parent  = ObjStr.substring(3,11);                   // Parname         8B      
+          Child   = ObjStr.substring(11,19);                  // Itmname         8B
+          Xstr    = parseInt(ObjStr.substring(19,23));// X axis          4B Decimal
+          Ystr    = parseInt(ObjStr.substring(23,27));// y axis          4B Decimal
+          Wstr    = parseInt(ObjStr.substring(27,31));// Width           4B Decimal
+          Hstr    = parseInt(ObjStr.substring(31,35));// Height          4B Decimal
+          LDstr  = parseInt(ObjStr.substring(38,39));
+          Lstr   = parseInt(ObjStr.substring(35,38));
+                                              
+          Xstr    = Xstr + 150;
+
+          if (Stype == ("D"))
+             Lstr   = 10;
+          else if (!(Stype == "N"||Str == "G"||Str == "P"))
+             LDstr  = -1;
+       }       
+       else {
+          Str     = ObjStr; Stype = xStype; Parent  = xParent; Child   = xChild;
+          Xstr    = xXstr; Ystr= xYstr;  Wstr= xWstr; Hstr = xHstr; Lstr= xLstr; LDstr   = xLDstr;
+       }
+
+       this.GenPtr   = this.GenPtr + 1;
+       this.Items[this.GenPtr] = Object.create(this.Widget);
+       this.Items[this.GenPtr].ParName = Parent;
+       this.Items[this.GenPtr].ItmName = Child;
+       this.Items[this.GenPtr].DfCmpArr = Str; 
+       this.Items[this.GenPtr].CntTypArr = Stype; 
+       this.Items[this.GenPtr].LengthArr = Lstr;
+       this.Items[this.GenPtr].DecimalArr = LDstr;
+       this.Items[this.GenPtr].FontArr  = this.FontArr;
+       this.Items[this.GenPtr].ActDis  = 5;
+       this.Items[this.GenPtr].ActVal  = 4;
+       //Items[GenPtr].SendFlg = false;
+
+       if (Str == "F")  {
+           /* There is no physical entity as FRame , however heirarchial connection of
+              window downwards will remain. destoying winodows is done by fetching all
+              logical forms ( panels) under the frame and  distroying.      
+              Form will be Panels , Group & Grids have no physical entity and 
+              all the objects in these two will be attached to Form directly */
+          this.CurrPos = 0;             
+       }
+       else if ( this.GenPtr > 0 ) {
+          var TemPos  = this.ArParPos(Parent);
+          var Attachto= this.Items[TemPos].ParName;
+          var GrnPos  = this.ArParPos(Attachto);
+
+          if ( TemPos==-1) 
+             alert("Define - Wrong Parent---" + Parent );          
+          else if (Str == "U") 
+             this.Create_Normal_label (TemPos,this.GenPtr);
+          else  {
+             // all the types mostly requires commom commands. 
+             // so they are treated together, with exception handled where required        	
+             // Since Group items U AND G are Virtual , items under these groups should
+             // be added to the parent of the group                   
+
+             if (Str == ("P"))
+                this.Create_Panel(Xstr,Ystr,Wstr,Hstr,this.GenPtr)  
+             else {
+                // 3rd char of the location for group elements related to Help grid 
+                // is set to 1.      
+
+                var Loc3 = "000";
+                if ( Str == "T"  && this.Grids.length > 1 ) {  // arr index 0 is not used for grids
+                   for ( var G = 1; G < this.Grids.length ; G++)  {
+                      if ( this.Grids[G].GrdHlp ) 
+                           Loc3 = "001"
+                   }
+                }
+                this.Items[this.GenPtr].DomHand = 
+                this.Create_Items(Str,Xstr,Ystr,Wstr,Hstr,this.GenPtr,
+                        GrnPos,Loc3+this.GenPtr.toString().padStart(3,"0"));                  
+
+                if (Str != ("S"))   
+                   this.Create_Normal_label (GrnPos,this.GenPtr);
+             }
+          }  // else of create alltypes
+     }  // else of gen ptr check
+  }  //function
+//---------------------------Update_Frame---------------------------------------
+  Update_Frame(TemPos,ActDisp,Attr,Aval,Albl)              
+  {
+     var Cut = false;
+
+     // since frame has no physical entity, we jhave to do action on panels
+     // under the frame. start from Frame +1 and exit when parent is not frame
+     for ( var ii = TemPos+1; ii < this.GenPtr; ii++)  {
+        if ( this.Items[ii].ParName != this.Items[TemPos].ItmName)
+           break;     
+
+        if (ActDisp==0 || ActDisp==1)
+           this.Items[ii].DomHand.style.visibility = "hidden";
+
+        else if (ActDisp > 1 && ActDisp < 6 )
+           this.Items[ii].DomHand.style.visibility = "visible";        
+           //if ( Attr ==1 )
+                //Utils.Set_Color(FrameArr, Albl);    
+        else if (ActDisp==6)  {
+           //  Since the class itselt will be offered for garbage collection. 
+           // Release grid classes        
+      
+           for (var Ln = 1; Ln < Grid.length ; Ln++) {              
+               this.Grids[Ln] = null;
+           }
+           //<IMP> Remove items
+           // Release grid classes        
+           //     for (var Ln = 1; Ln <= 15 ; Ln++)                
+           //         Formulas[Ln] = null;
+           Cut = true;
+        }         
+     }  
+  }
+
+//---------------------------Update_Panel---------------------------------------
+ Update_Panel (TemPos,ActDisp,Attr,Aval,Albl)
+  {
+    if (ActDisp == 1)
+       this.Items[TemPos].DomLabl.style.visibility = "hidden";
+    else if (ActDisp > 1 && ActDisp < 6 )
+       this.Items[TemPos].DomHand.style.visibility = "visible";
+    else if (ActDisp==6)
+       this.Items[TemPos].DomHand.removeAll();
+    /*if ( Attr ==1 )
+       Utils.Set_Color(PanelArr[Actptr] , Albl);*/            
+  }
+//---------------------------Update_TextField---------------------------------------
+ Update_Items (Dh,TemPos,ActDis,Attr,Aval,Albl)
+ {
+   var Dhl = this.Items[TemPos].DomLabl;
+
+   if (ActDis < 2 )    {
+      Dh.style.visibility = "hidden";
+      Dhl.style.visibility = "hidden";
+   }
+   else if  (ActDis > 3 ) {
+      Dh.style.visibility = "visible";
+      Dh.disabled = false;
+      Dhl.style.visibility = "visible";
+   }
+      // Fly help should be created after setting the width          
+   else if (ActDis==6) {
+      FlyWidth = this.Items[TemPos].LengthArr *  10;                    
+
+      if ( Attr == 0 && Albl.length() > 0)  {
+              FlyWidth = 10 * parseInt(Albl);
+              Create_FlyHelp(TemPos);
+      }              
+   }
+   else {
+      //<IMP> 2 and 3 should be differentiated with focusable
+      Dh.style.visibility = "visible";
+      Dh.disabled = true;
+      Dhl.style.visibility = "visible";
+
+/* <IMP>      if ( Albl.length() > 0 ) {
+            switch ( Attr ) {
+               case 1:
+                  Utils.Set_Color(TextArr[Actptr] , Albl);
+                  break;
+               case 2:
+                  Utils.Set_Font(TextArr[Actptr]  , Albl);
+                  break;
+               case 3:
+                  Utils.Set_Color(LabelArr[Iptr] , Albl);
+                  break;
+               case 4:
+                  Utils.Set_Font(LabelArr[Iptr]  , Albl);
+                  break;     
+         }              
+      }*/
+   }
+ }
+//-----------------------------------------Action -------------------------------------
+   Cmd_Action ( xParname , xItmname , xRecNo, xActDisp, xAttr , xAval, xAlbl )  
+    {
+      var Attr,Aval,Alen=0,RecNo,ActDisp;
+      var Parname , Itmname ,Albl="";
+      // Annexed commands . 1. Flyhelp - width of field
+      // function key - lebels
+
+      if (xParname.length > 10) {
+         Parname = xParname.substring(1,9);                    // Blkname     8B  
+         Itmname = xParname.substring(9,17);                   // Varname     8B  
+         RecNo   = parseInt(xParname.substring(17,22));// Recnumber   5B  Decimal  
+         ActDisp = parseInt(xParname.substring(22,23));// Disp/Act/Format 1B  Decimal
+         Attr    = parseInt(xParname.substring(23,24));// Attribute   2B  Decimal
+         Aval    = parseInt(xParname.substring(24,25));
+         Alen    = parseInt(xParname.substring(25,28));
+
+         if  ( Alen > 0 )
+             Albl= Parname.substring(28,28+Alen);    
+      }
+      else {
+         Parname = xParname;                    // Blkname     8B  
+         Itmname = xItmname; 
+         RecNo   = xRecNo;
+         ActDisp    = xActDisp;
+         Attr    = xAttr;
+         Aval    = xAval;
+         Alen    = Alen;
+         Albl    = xAlbl;
+      }
+
+      // if no parent and item is not frame . it is functon key
+      if (Parname==("        ") && 
+         (Itmname.substring(0,1)=="F" || Itmname.trim()=="ESCAPE" ||      
+          Itmname.trim()=="PAGEDOWN"  || Itmname.trim()=="PAGEUP")||
+          Itmname.trim()=="DELETE")
+          {
+          // HOME and END are used by windows to goto the beg and 
+          // end of a field. so it is not used here
+          // to chenge color or font of fk label it comes with F with out FK number
+
+          var FunVal=0;
+
+          if (Itmname.trim()=="ESCAPE")
+             Itmname = 'F0';
+          else if (Itmname.trim()=="PAGEUP")
+             Itmname = 'F13';
+          else if (Itmname.trim()=="PAGEDOWN")
+             Itmname = 'F14';
+          else if (Itmname.trim()=="DELETE")
+             Itmname = 'F2';
+  
+          if (Itmname.substring(0,1)==("F"))
+          {
+            if ( Itmname.length > 1) {
+               FunVal = parseInt(Itmname.substring(1,Itmname.length));
+               this.FunKeysSts[FunVal] = ActDisp;
+            }
+            else {
+               if ( !Utils.Button) {
+                  if ( Attr == 3)
+                     this.SpkLabel.style.color = Albl; 
+
+                  if ( Attr == 4)
+                     Utils.Set_Font( SpkLabel , Albl);
+               }               
+            }  
+            if(Aval ==9   && Albl.length > 0  )
+             {
+              this.FunKeysLbl[FunVal] = Albl;  
+             }                          
+          }
+          this.SpcKey_Lbl();                      
+       }
+       else {
+          var AType,TemPos;   
+          var TemPos   = this.ArrayPos(Parname+","+Itmname);
+          var ParPos   = this.ArParPos(Parname);
+    
+          if ( TemPos==-1 ) 
+              alert("Action - Wrong item" + Parname+" "+Itmname );
+          else {
+             if ( ActDisp > 0)
+                this.Items[TemPos].ActDis = ActDisp;
+
+             if ( Aval > 0)
+                this.Items[TemPos].ActVal = Aval;
+
+             if (this.Items[TemPos].DfCmpArr==("F")) 
+                this.Update_Frame(TemPos,ActDisp,Attr,Aval,Albl);              
+
+             else if (this.Items[TemPos].DfCmpArr==("P"))
+                this.Update_Panel(ParPos,TemPos,ActDisp,Attr,Aval,Albl);
+
+             else
+                this.Update_Items(this.Items[TemPos].DomHand,TemPos,ActDisp,Attr,Aval,Albl);
+           }
+      }  	 
+   }
+//-----------------------------------Prompt of Items-------------------------------------
+  Prompt_Items ( Dl , Dh, Xstr, Ystr, Hstr , Tit )  
+   {
+      var x=Xstr, y=Ystr, w=0;
+
+      if (x==0) {
+         x = parseInt(Dh.style.left);  
+         x = x-Tit.length*10 ;
+       }
+
+      if (y==0)
+         y = parseInt(Dh.style.top);  
+
+      w = 10*Tit.length;
+      Dl.style.left       = x.toString() + "px";
+      Dl.style.top        = y.toString() + "px";
+      Dl.style.width      = w.toString() + "px";
+      Dl.style.height     = "22px";
+      Dl.style.fontFamily = "courier,sans-serif";
+      Dl.style.fontWeight = "bold";
+      Dl.innerHTML=Tit;
+  }
+//-----------------------------------------Prompt -------------------------------------
+   Cmd_Prompt ( xParname , xItmname , xXstr, xYstr, xHstr , xTit,recno )  
+    {
+      var Parname , Itmname ,  Tit ; 
+      var Xstr,Lstr , Ystr, Hstr , TemPos ,ParPos,K,wid; 
+   
+      if (xParname.length > 10) {    
+         Parname = xParname.substring(1,9);                    // Blkname        8b      
+         Itmname = xParname.substring(9,17);                   // Varname        8b
+         Xstr    = parseInt(xParname.substring(17,21));// X axis         4B  Decimal
+         Ystr    = parseInt(xParname.substring(21,25));// y axis         4B  Decimal
+         Hstr    = parseInt(xParname.substring(25,27));// Font size      2B  Decimal
+         Lstr    = parseInt(xParname.substring(27,30));// Length of text 3B  Decimal
+         Tit     = xParname.substring(30,30+Lstr);             // value  Text
+      }
+      else {
+         Parname = xParname;                    // Blkname     8B  
+         Itmname = xItmname; 
+         RecNo   = xRecNo;
+         Xstr    = xXstr;
+         Ystr    = xYstr;
+         Hstr    = xHstr;
+         Tit     = xTit;
+      }
+      
+      if (Tit)  {
+         TemPos = this.ArrayPos(Parname+","+Itmname);                       
+         ParPos  = this.ArParPos(Parname);
+
+         if (TemPos==-1) 
+            alert ("Prompt - Wrong item" + Itmname  + Parname);
+         else 
+         {	    
+       	    //FontArr[TemPos] = Hstr;     
+       	    if (this.Items[TemPos].DfCmpArr == ("P"))
+               {
+                  if(Xstr==0) {
+                     wid= parseInt(this.Items[TemPos].DomHand.style.width)/2;  
+                     wid = wid-Tit.length*20/2    //Text.length*30;
+                      Xstr = wid;
+                  }          
+                  wid = 20*Tit.length;
+                  this.Items[TemPos].DomLabl.style.left = Xstr.toString() + "px";;
+                  this.Items[TemPos].DomLabl.style.top  = Ystr.toString() + "px";;
+                  this.Items[TemPos].DomLabl.style.width = wid.toString()+"px";
+                  this.Items[TemPos].DomLabl.style.height = "30px";
+                  this.Items[TemPos].DomLabl.style.fontFamily = "courier,sans-serif";
+                  this.Items[TemPos].DomLabl.style.fontSize = Hstr;
+                  this.Items[TemPos].DomLabl.style.fontWeight = "bold";
+                  this.Items[TemPos].DomLabl.style.fontSize = "xx-large";
+                  this.Items[TemPos].DomLabl.innerHTML=Tit;
+             }
+             // F doesnot have physical entity
+             else if (this.Items[TemPos].DfCmpArr == ("F"))
+             {
+               var a='11';
+               //K = ArParPos(GetParPos(TemPos));
+               //this.Items[K].title = Tit;
+              } 
+             else 
+             {
+               this.Prompt_Items ( this.Items[TemPos].DomLabl ,this.Items[TemPos].DomHand, Xstr, Ystr, Hstr , Tit ); 
+             }
+          }   // else of tempos    
+      }  // tit 
+  }    	
+//-----------------------------------------Action -------------------------------------
+   Cmd_Others_P()
+   {
+     if ( !this.SetPos) {
+        Ln = this.Items.length;
+        for ( var Ps = 1; Ps < Ln ; Ps++) {
+           if ("TLBKSD".indexOf(this.Items[Ps].DfCmpArr) > -1 && 
+                       this.Items[Ps].ActDis > 2)    {
+              this.CurrPos = Ps;
+              break;
+           }
+        }
+        this.SetPos = true;
+     }
+
+     this.PreBlock = this.Items[this.CurrPos].ParName;
+     var Ppos   = this.ArParPos(this.PreBlock);
+     var ii     = 0;
+
+        var Hit = false;
+        for (var ii = this.CurrPos+1 ; ii <= this.GenPtr ; ii++) {
+           if (this.Items[ii].ActDis > 3) {
+               Hit = true;
+               break;
+            }
+           if ( this.Items[ii].ParName != this.PreBlock) 
+              break;     
+        }
+        if ( !Hit) {
+           for ( ii = 0; ii <= this.CurrPos;  ii--) {
+               if (this.Items[ii].ActDis > 3 && this.Items[ii].ParName == this.PreBlock){
+                  Hit = true;
+                  break;
+               }
+           }
+        }
+         this.CurrPos = ii;
+        this.Items[this.CurrPos].DomHand.focus();
+        this.SetPos = true;
+  }
+//-----------------------------------------Action -------------------------------------
+  Cmd_Locate(xParname , xItmname ,xRecNo)   
+   {
+     var RecNo;
+     var Parname,Itmname;                  
+                  
+     if ( xParname.length > 10)  {            
+        Parname = xParname.substring(1,9);                    //Blkname           8b      
+        Itmname = xParname.substring(9,17);                   //Varname           8b     
+        RecNo   = parseInt(xParname.substring(17,22));//Recnumber 5B Decimal 
+     }
+     else {
+        Parname = xParname;                    //Blkname           8b      
+        Itmname = xItmname;                     //Varname           8b     
+        RecNo   = parseInt(xRecNo);            //Recnumber 5B Decimal 
+     }
+     
+     var ActPtr=0,IPos,PPos=0;
+     var Tp="", Loc="000000";                  
+
+     IPos = this.ArrayPos(Parname+","+Itmname);
+
+     if ( IPos==-1) 
+        alert ("Locat - Wrong item" + Parname+" "+Itmname);
+     else 
+     {	    
+       PPos    = this.ArParPos(Parname);
+       // <GRID> refine movement by asserting next/prev/first/last  editable item
+       // IMPORTANT -- Itemname Should not be a Group item
+                    
+       ActPtr = this.Items[IPos].DomHand;
+                    
+       if (!(Itmname.trim()))  // Null Item
+          {
+           // item name is spaces. Used for going prev , next , first , or last fields
+           //  it can also be used to locate to a grid while cursor is outside the grid
+           // GRID: record 0 means ,the previous current item of the grid
+           //<IMP>                                     
+           var FstItem="",LatItem="";
+
+           for (var iC=0;  iC <= this.GenPtr ;  iC++) 
+           {
+              if (this.Items[iC].ParName==Parname)
+                 {
+                   if (FstItem==(""))
+                      FstItem=this.Items[iC].ItmName;
+                   LatItem=this.Items[iC].ItmName;
+                 }
+           }
+
+           if (RecNo== -1)
+              Itmname=this.Items[this.CurrPos-2].ItmName;
+           else if(RecNo== -2)
+              Itmname=this.Items[this.CurrPos].ItmName;
+           else if(RecNo== -3)
+              Itmname= FstItem;
+           else if (RecNo == -4)
+              Itmname= LatItem;
+           else
+              Itmname= FstItem;
+   
+           IPos = this.ArrayPos(Parname+","+Itmname);
+        
+           if ( IPos > -1) 
+              ActPtr = this.Items[IPos].DomHand;
+        }  // if of not null
+
+        if ( IPos==-1) 
+           alert ("Locate - Wrong item" + Parname+" "+Itmname);
+        else 
+        {	    
+          Tp  = this.Items[IPos].DfCmpArr;
+
+            this.Items[IPos].DomHand.focus();
+            this.CurrPos   = IPos;
+            this.SetPos    = true;
+
+            // if locate Command is received in a Screen conatining Grid 0,
+            //    ( first 3 character of Loc in name = "001")
+            // Set the first line of the Grid 0 in selected colour. 
+
+            if ( this.Items[IPos].DomHand.name.substring(19,22)=="001")  {
+               for ( var G = 1; G < this.Grids.length ; G++)  {
+                  if ( this.Grids[G].GrdHlp ) {
+                     this.Grids[G].Set_Row_color("HLPSEL",1,0);
+                     this.Grids[G].GrdCurRsc = 1;
+                  } // if
+               }  // for 
+            }  // if
+          }   // else                     
+        }  // else of inner Ipos
+ } 
+//------------------------------------------------Set Value  V ---------------------------------------------------------                       
+  Set_Value(ToSet,ItmPos,RecordNum )   
+     {
+      var defChk=null, DefVal=null, Done=false;
+      var ActPtr = 0, Cl , PapPos =0 , Gno=0 , TmpPos=ItmPos , 
+          RecNo=RecordNum;
+            	            	
+      var Pappa  = this.Items[TmpPos].ParName;                       
+      var PapPos = this.ArParPos(Pappa);
+      var Gno    = this.Items[PapPos].DomHand;
+      var Dh     = this.Items[TmpPos].DomHand;
+      var Dl     = this.Items[TmpPos].DomLabl;
+
+               
+      if ( Dh && (this.Items[TmpPos].DfCmpArr=="T" || ToSet ) ) 
+      {
+         if (this.Items[TmpPos].DfCmpArr=="P")
+            Dl.innerHTML = ToSet; 
+            
+         else if (this.Items[TmpPos].DfCmpArr=="B")
+            Dh.innerHTML = ToSet;
+            
+         else if (this.Items[TmpPos].DfCmpArr=="T")
+            Dh.value = ToSet;
+            
+         else if (this.Items[TmpPos].DfCmpArr=="K")
+             Dh.value=ToSet.toLowerCase;
+
+         else if (this.Items[TmpPos].DfCmpArr=="L")
+         {
+            defChk = ToSet.substring(0,1);  
+            DefVal = ToSet.substring(1,ToSet.length);
+
+            if(defChk=="~")
+               Dh.value = DefVal;
+               //    Dh.prop('selected', true); alternative
+            else
+            {
+               var option = document.createElement("option"); // set name same as value
+               option.value = ToSet;
+               option.text  = ToSet;
+               Dh.appendChild(option);
+               //Dh.add(option)  alternative
+               //<IMP>if (!(Dh.prop('selected')))  correct later          
+               //   Dh.setSelectedIndex(0);
+            } 
+         }
+      }     
+  }       
+///---Delete entry from Item With SubComponent having one selection -------------
+     Delete_Entry(Pos,InItPo)
+     {
+       var Par =0 , Sel;
+       Par = this.ArParPos(this.Items[Pos].ParName);	
+       
+       if ( this.Items[Pos].DfCmpArr=='L') {
+          if (this.Items[Par].DfCmpArr=="G")  
+             this.Grids[this.Items[Par].DomHand].Grd_Del_Ent(this.Items[Pos].DomHand,InItPo);  //Column_number     
+          else 
+          { 
+            Sel = this.Items[Pos].DomHand;      
+            for (var i = 0 ; i < Sel.length ;  i++) {
+               if ( InItPo == i+1 || InItPo == 0 )
+       	            Sel.remove(i);
+             }
+          } 
+       }
+  }  
+// ------------------------------  Leaf item clearing ------------------------   
+     Clr_Leaf_Itm(Pos)
+     {     	 
+         var Irec=0 ;
+         Irec = this.ArParPos(this.Items[Pos].ParName);
+       
+            if ( this.Items[Pos].DfCmpArr=="T") 
+               this.Items[Pos].DomHand.value = "";
+            else
+               this.Items[Pos].DomHand.innerHtml= "";
+     }     
+//---Clr Item---------------------------------------------------------------------
+// Clearing the screen item. If Item is a parent , every thing under the item is cleared 
+// except list item and check box item
+// If Item is blank , par is taken as the item
+
+     ClrItm(Par, Itm, Sub)
+     {
+      var Pos, Typ , Nam;
+      
+      // if item is null then get the item by iterating 
+      //.other wise check the type of the item and it single    
+      if ( Itm == "        ") {
+         Pos = this.ArParPos(Par);
+         Nam = Par;
+      }   
+      else  {
+         Pos = this.ArrayPos(Par+','+Itm);
+         Nam = Itm;
+      }    
+      
+     if ( Pos==-1) 
+           alert ("Wrong item in Clear item command--> " + Par+" "+Itm);
+     else 
+     {	        
+      Typ = this.Items[Pos].DfCmpArr;             
+
+      if ( "FPU".indexOf(Typ) > -1 )  {
+         for(var iC=0; iC<=this.GenPtr; iC++)  {            	      	
+             if (this.Items[iC].ParName==Nam && this.Items[iC].DfCmpArr == "F")
+                this.ClrItm(Nam,this.Items[iC].ItmName,0);
+
+             else if (this.Items[iC].ParName==Nam && this.Items[iC].DfCmpArr == "P")
+                this.ClrItm(Nam,this.Items[iC].ItmName,0);
+     
+             else if (this.Items[iC].ParName==Nam && Typ == "U")
+                 this.Clr_Leaf_Itm(iC);
+         }                 
+      }    
+      else  {
+         Pos = this.ArrayPos(Par+','+Itm);         
+         if ( Pos > 0 )  
+            this.Clr_Leaf_Itm(Pos);                  
+      }    
+    }
+  }  
+//------------------------Check Status of Special Keys -------------------------
+CheckFunStat(KeyInx)
+{
+  var K=0;
+
+  if (KeyInx > 111 && KeyInx < 124)
+      K = KeyInx - 111;
+
+  if ( this.FunKeysSts [K]==6 )
+     return true;
+  else
+     return false; 
+}
+//----------------Create Special Keys Button Equivalents------------------------ 
+Create_SpecialKeys(x,y,w,h,Ptr) 
+     {           
+       this.FunPanWid = w;
+
+       if ( this.PrgNo == 0) {
+         this.FunKeysSts [0 ] = 1;  //"ESCAPE" ; 
+         this.FunKeysSts [1 ] = 1;  // "F1"     ;  
+         this.FunKeysSts [5 ] = 1;  // "F5"
+      }
+      else {
+         this.FunKeysSts [0 ] = 6;  //"ESCAPE" ; 
+         this.FunKeysSts [1 ] = 6;  // "F1"     ;  
+         this.FunKeysSts [5 ] = 6;  // "F5"
+      }
+      this.FunKeysSts [2 ] = 1;  // "F2"
+      this.FunKeysSts [3 ] = 1;  // "F3"
+      this.FunKeysSts [4 ] = 1;  // "F4"
+      this.FunKeysSts [6 ] = 1;  // "F6"
+      this.FunKeysSts [7 ] = 1;  // "F7"
+      this.FunKeysSts [8 ] = 1;  // "F8"
+      this.FunKeysSts [9 ] = 1;  // "F9"
+      this.FunKeysSts [10] = 1;  // "F10"
+      this.FunKeysSts [11] = 1;  // "F11"
+      this.FunKeysSts [12] = 1;  // "F12" 
+
+      this.FunKeysLbl [0 ] = "Back"    ;
+      this.FunKeysLbl [1 ] = "List Of Values"   ;
+      this.FunKeysLbl [2 ] = "Del"       ;
+      this.FunKeysLbl [3 ] = "Find"   ;
+      this.FunKeysLbl [4 ] = "Ins"       ;
+      this.FunKeysLbl [5 ] = "Cancel" ;
+      this.FunKeysLbl [6 ] = "Approve";
+      this.FunKeysLbl [7 ] = "Close"  ;
+      this.FunKeysLbl [8 ] = "OK"       ;
+      this.FunKeysLbl [9 ] = "Print"  ;
+      this.FunKeysLbl [10] = "Update" ;
+      this.FunKeysLbl [11] = ""       ;
+      this.FunKeysLbl [12] = ""       ;
+      
+
+      // This Routine Should Be Run Only Once In Program
+      if (Utils.Button) {
+         var X = x,strt=1;  
+         // Create fucntion key buttons, if util.Button is true
+         if (Utils.ButtEsc)
+             strt=0
+         var FB = 0, FK=0;
+         for ( FB=strt; FB < 11 ; FB++) {    //F0 is escape F1 is Help.
+               //Show button eq.to F2 to F12.subscript here is 2 lass than actual                                                          
+   	    //this.FuncButtArr[FB].setHorizontalAlignment(SwingConstants.CENTER);	        
+            this.FuncButtArr[FB] = document.createElement("button");
+            this.FuncButtArr[FB].style.position = "absolute";
+            this.FuncButtArr[FB].style.left     = X.toString() + "px";
+            this.FuncButtArr[FB].style.top      = (y+10).toString() + "px";
+            this.FuncButtArr[FB].style.width    = "90px";
+            this.FuncButtArr[FB].style.height   = "20px";
+            this.FuncButtArr[FB].onclick = FuncButts;       
+            FK = FB + 11; 
+
+            if ( FB==0  ) {
+               if (Utils.ButtEsc)
+                  this.FuncButtArr[0].name = this.PrgNo.toString().padStart(3,"0") + "2700000";
+            }
+            else
+               this.FuncButtArr[FB].name = this.PrgNo.toString().padStart(3,"0")    
+                  + FK.toString()+"00000";
+
+            this.Items[Ptr].DomHand.appendChild(this.FuncButtArr[FB]);            
+            this.FuncButtArr[FB].style.color = "Red"; 
+            this.FuncButtArr[FB].style.background = "Yellow"; 
+            this.FuncButtArr[FB].type="button";
+            this.FuncButtArr[FB].innerHTML=this.FunKeysLbl[FB];
+            //Utils.Set_Font(this.FuncButtArr[FB]);
+            X = X + 70;                   
+         }  // for loop 	
+         this.SpcKey_Lbl();      
+     }
+     else  {
+        //SpkLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        this.SpkLabel = document.createElement("LABEL"); 
+        this.SpkLabel.style.position = "absolute";
+        this.SpkLabel.style.left     = x.toString() + "px";
+        this.SpkLabel.style.top      = (y+10).toString() + "px";
+        this.SpkLabel.style.width    = "90px";
+        this.SpkLabel.style.height   = "20px";
+        this.SpkLabel.style.visibility = "visible"
+        this.Items[Ptr].DomHand.appendChild(this.SpkLabel);            
+        this.SpkLabel.style.color = "Red"; 
+        this.SpkLabel.style.background = "Yellow"; 
+        this.SpkLabel.style.fontFamily = "courier,sans-serif";
+        this.SpkLabel.style.fontWeight = "bold"
+        //this.SpkLabel.type="Lable";
+        this.SpcKey_Lbl() ;
+        //Utils.Set_Font( this.SpkLabel );
+     }      
+  }
+//----------------------Concatenate Special KeyPrompt--------------
+   SpcKey_Lbl()  
+     {
+      if (Utils.Button) {
+	 var x=0,Wid=0,FB = 0,strt=1;
+            
+         if (Utils.ButtEsc)
+            strt=0;
+
+         for (FB=strt; FB < 11 ; FB++) {    //F0 is escape F1 is Help.  F13 and F14 are up and down .
+            if (this.FunKeysSts[FB] == 6)
+               x = x+100;  
+         }
+      	                      
+      	 x = (this.FunPanWid-x)/2;     
+      	          	          
+         for ( FB=strt; FB < 11 ; FB++) {    //F0 is escape F1 is Help.  F13 and F14 are up and down .                                                  // so button is needed only for F2 to F12. Arr subscript is 2 lass than actual                                                           
+            if ( ( this.FunKeysSts[FB] == 6 && FB > 0 ) ||
+               ( Utils.ButtEsc && this.FunKeysSts[0]==6 && FB==0 ) ) {
+               this.FuncButtArr[FB].style.left       = x.toString() + "px";
+               this.FuncButtArr[FB].style.visibility = "visible"
+               x = x + 100;         
+            }
+            else
+               this.FuncButtArr[FB].style.visibility = "hidden";
+         }  // For
+      }
+      else 
+      {
+         var Lbl="Esc";       
+         for(i=1;i<=14;i++)
+         {
+            if (this.FunKeysSts[i]==6) 
+            {
+               if (i>=1 && i<=12)
+                  Lbl =Lbl+", F"+i+"="+this.FunKeysLbl[i]; 
+               else
+                  Lbl =Lbl+", "+this.FunKeysLbl[i]; 
+            }
+
+      	    x = (this.FunPanWid-x)/2;     
+            this.SpkLabel.style.left = x.toString() + "px";
+            this.SpkLabel.innerHTML=Lbl;
+         } 
+    }  
+  } 
+}       
+//-------------------------End of program class-------------------------- 
+//---------------------------------- Analyse commands----------------------------
+function Analyse(FromMw) {
+   var SrvStr = FromMw;
+   const Cmd = "DRTALVFMOSP";
+   var FstCar;
+   var mark;
+   var Stype;
+   var Str;
+   var Opeyed = false;
+   var ToSrv  = false;
+
+   //Waiting = false;  // server synchronisation flag;
+
+   while( SrvStr != "" )   {
+     //try {
+        FstCar = SrvStr.substring(0,1);
+        mark   = Cmd.indexOf(FstCar);
+
+        if (mark < 0) {
+           alert(SrvStr.substring(0,20)+"**Command Charater Missing " );
+           SrvStr = "";               
+        }
+
+        //<IMP>implemet P later
+
+        //---Definition command------------------------------------------                 
+        if(FstCar=="D")
+          {
+            Stype   = SrvStr.substring(0,39);
+            SrvStr  = SrvStr.substring(39,SrvStr.length);
+
+            Programs[CurrPrg].Cmd_Define(Stype);
+         }               
+         //--- Redefinition R -----------------------------------
+         else if(FstCar=="R")
+         {
+            mark        = Number(SrvStr.substring(19,21));
+            //length of string after namer and number 2B     Decimal
+            Stype       = SrvStr.substring(0,21+mark);
+            SrvStr      = SrvStr.substring(21+mark,SrvStr.length);                  
+            Programs[CurrPrg].Cmd_ReDef(Stype);                  
+         }
+         //---Set Prompt  T ----------------------------------------------
+         else if(FstCar=="T")
+            {    
+              mark    = parseInt(SrvStr.substring(27,30),10); 
+              // Length of text 3B  Decimal
+              
+              Stype   = SrvStr.substring(0,30+mark);            
+              SrvStr  = SrvStr.substring(30+mark,SrvStr.length); 
+                  
+              Programs[CurrPrg].Cmd_Prompt(Stype);    
+          }   
+          //---Set Value  V------------------------------------------------
+          else if(FstCar=="V")
+          {
+              // in the case of pending data , no need for calling methods of client objects
+              var StrIdx  = parseInt(SrvStr.substring(22,27));//Length of text 5B     Decimal
+              var Parname = SrvStr.substring(1,9);   //Blkname           8b      
+              var Itmname = SrvStr.substring(9,17);  //Varname           8b   
+              var TemPos  = Programs[CurrPrg].ArrayPos(Parname+","+Itmname);
+
+              mark    =  parseInt(SrvStr.substring(17,22));
+              var Val =  SrvStr.substring(27,27+StrIdx);
+                  
+              // Data Pending 
+              if (  mark == -1 ) 
+              {                                       
+                 if ( Val == ("I"))  
+                 { 
+                    // check and make it last command
+               	    if (SrvStr.length == 27 + StrIdx )  
+                    { 
+                       SrvStr  = SrvStr.substring(27+StrIdx,SrvStr.length);
+                       ToSrv = true;
+
+                       if (   DfCmpArr[TemPos] == ("G")  )          
+         
+                          Stype = Seqno+CurrPrg.string().padStart(3,'0')+
+                             Parname.padEnd(8,'0')+Itmname.padEnd(8,'0')+
+                             Programs[CurrPrg].Grids[mark].GrdRno.toString.padStart(5,"0")+
+                             '82'+"";                             
+                       else
+                          Stype = Seqno+CurrPrg.string().padStart(3,'0')+
+                             Parname.padEnd(8,'0')+Itmname.padEnd(8,'0')+"00000"+'82'+"";                             
+                          break;
+                    }    
+                    else
+                       SrvStr  = SrvStr.substring(27+StrIdx,SrvStr.length)  +
+                                 SrvStr.substring(0,27+StrIdx);                      	    
+               	  }
+                  else  
+                  {
+                     TemPos = Programs[CurrPrg].Items[TemPos].DomHand;
+                     Programs[CurrPrg].Grids[TemPos].GrdRecPnd = true;
+                     SrvStr  = SrvStr.substring(27+StrIdx,SrvStr.length);
+                  }    
+              }	                  
+              else
+              {
+                 SrvStr  = SrvStr.substring(27+StrIdx,SrvStr.length);
+                 Programs[CurrPrg].Set_Value( Val , TemPos , mark);
+                 Programs[CurrPrg].Items[TemPos].DomHand.value = Val; 
+              } 
+          }                 
+          //---Menu Command  M --------------------------------------------          
+          else if (FstCar=="M")
+          {           
+             Str     = SrvStr.substring(1,2);                                                                                          
+
+               if (Str == 'C' || Str == 'E')  // MC Start of menu or ME End of Menu
+              {
+                 if (Str == 'C' )
+                    Mnu = new Menu(Programs[0].Items[0].DomHand); 
+   
+                 SrvStr   = SrvStr.substring(2,SrvStr.length);
+                 Mnu.MenuCmd(Str,"","");   	
+              }
+             else
+              {                         	
+                 Stype = SrvStr.substring(2,4);
+                 mark  = parseInt(SrvStr.substring(4,7));
+                 Itmname = SrvStr.substring(7,mark+7);   
+                 //  MSLM003LMS  -- MS system LM systemcode length 3 LMS title
+                 //  MM!"025.....-- MM Menu   !" Id length 25 Titel
+                 //  MP@#010.....   MP Prog   @# Id Length 25 Title
+        
+                 Mnu.MenuCmd(Str,Stype,Itmname);
+   	
+                 mark = mark+7;     
+
+                 if ( SrvStr.length > mark )  
+                    SrvStr  = SrvStr.substring(mark,SrvStr.length);
+                 else
+                    SrvStr  = "";      
+              }
+          }  
+          //---Action Command A--------------------------------------------
+          else if(FstCar=="A")
+           {
+              // function key is followed by label. Label length can be zero or more
+                  
+              var Alen = parseInt(SrvStr.substring(25,28)) + 28 ;                  
+              Stype = SrvStr.substring(0,Alen);                  
+              SrvStr  = SrvStr.substring(Alen,SrvStr.length);
+              // Cmd_action is not returning anything . the why this check ???    
+              if (Programs[CurrPrg].Cmd_Action(Stype))
+                  Programs[CurrPrg] = null;  
+          }   
+          //--- Locate Cursor  L-------------------------------------------
+          else if(FstCar=="L")
+          {
+            Stype  = SrvStr.substring(0,22);
+                 
+            if ( Opeyed )  {
+               Opeyed = false;
+               SrvStr  = SrvStr.substring(0,SrvStr.length-2);                     
+            }
+
+            SrvStr  = SrvStr.substring(22,SrvStr.length);
+            Programs[CurrPrg].Cmd_Locate(Stype);    
+          }
+          //---Other Commands O -------------------------------------------
+          else if(FstCar=="O")
+          {
+             Stype= SrvStr.substring(1,2);
+
+             if (Stype == "E") 
+             {
+                var ButCnt = parseInt(SrvStr.substring(2,3));     
+                mark   = parseInt(SrvStr.substring(3,6));
+                Str    = SrvStr.substring(6,mark+6);
+                var k  = parseInt(SrvStr.substring(mark+6,mark+9));
+                var Hd = SrvStr.substring(mark+9,mark+9+k);      
+                mark   = mark+9+k;
+                k = parseInt(ButCnt);
+
+                if ( k==0)
+                    k=1;
+
+                var BM = SrvStr.substring(mark,mark+k*8); // all 3 but name 3*8
+
+                if ( SrvStr.length > mark+k*8 )
+                   SrvStr = SrvStr.substring(mark+k*8,SrvStr.length);
+                else
+                   SrvStr = "";
+
+                if (k==1)
+                   alert("Just alert:--> " + Str);
+                else {
+                   var Cnf = confirm(Str);
+                   if (Cnf) 
+                      Str = BM.substring(0,8);
+                   else
+                      Str = BM.substring(8,16);
+                   To_Server(Seqno + Pg.toString().padStart(3,"0") + 
+                      "ERROR   " + Str + "0000010") ;
+                }                    
+             }            
+             else if(Stype == "K") 
+             {              
+               // now Ok is used only on return from lookup as last command.
+               // If genralisation is needed,if SrvStr is not empty , call toserver and dont break.
+               SrvStr  = SrvStr.substring(2,SrvStr.length);                                                      
+               var stlen = Help.length;
+               var p = Programs[CurrPrg].CurrPos;
+               var x = Programs[CurrPrg].Items[p].DomHand;
+               var z = x.name;
+
+               // if more than one item is to be set, all are set before sending the 
+               // first item to server. rest are to be sent on user key press
+
+               for ( var sl=0; sl < stlen; sl++) {                
+                  var Val     = HelpStack[sl];
+                  Programs[CurrPrg].Set_Value( Val , p+sl , 0); //current record
+               }
+
+               HelpStack = [];
+               var y = x.value;   
+               z = StoreLoc (z,x);
+               Stype   = Seqno+z +'10'+y;           
+               ToSrv = true; 
+               break;
+             }
+             else if (Stype == "F") {
+                if ( SrvStr == "OF")
+                     SrvStr = ""; 
+                else
+                   SrvStr  = SrvStr.substring(2,SrvStr.length);     
+             }     		
+             else if (Stype == "P") {  
+                // if Op or Of Comes in the middle of SrvStr, take it to the end
+                // and if any commnad which effects location is found, take it off from SrvStr 
+                    
+                var Bl = SrvStr.length;
+                     
+                if ( Bl > 2)  {                     
+                   SrvStr  = SrvStr.substring(2,Bl); 
+                   if (!Opeyed)
+                      SrvStr = SrvStr + "OP";                         
+                   Opeyed = true;  
+                } 
+                else
+                {
+                   SrvStr  = "";    
+                   Opeyed = false;
+                   Programs[CurrPrg].Cmd_Others_P();
+                }                      
+                Stype = "";
+             }
+             else if (Stype=="R")
+             {  
+               SrvStr  = SrvStr.substring(2,SrvStr.length);     
+
+               if ( Opeyed )  {
+                  Opeyed = false;
+                  SrvStr  = SrvStr.substring(0,SrvStr.length-2);                     
+               }
+                       
+               var Myath = CurrPrg;
+               Shift_Program(Myath , Programs[CurrPrg].PrePrg, true); 
+             }
+             else if (Stype=="I")
+             {  
+                if ( Opeyed )  {
+                  Opeyed = false;
+                  SrvStr  = SrvStr.substring(0,SrvStr.length-2);                     
+                }
+
+                mark     = SrvStr.indexOf(','); 
+                Parname  = SrvStr.substring(2,mark);
+                Parname  = Parname.padEnd(8,' ');
+                SrvStr   = SrvStr.substring(mark+1,SrvStr.length);
+
+                mark     = SrvStr.indexOf(',');
+                Itmname  = SrvStr.substring(0,mark);
+                Itmname  = Itmname.padEnd(8,' ');
+                SrvStr  = SrvStr.substring(mark+1,SrvStr.length);     
+
+                Programs[CurrPrg].ClrItm(Parname,Itmname,0) ;
+             }
+             else if (Stype=="G")
+                {                       
+                  var K=0;
+                     
+                  if ( Opeyed )  {
+                     Opeyed = false;
+                     SrvStr  = SrvStr.substring(0,SrvStr.length-2);                     
+                  }
+                  mark     = SrvStr.indexOf(','); 
+                  Parname  = SrvStr.substring(2,mark);
+                  Parname  = Parname.padEnd(8,' ');
+                  SrvStr   = SrvStr.substring(mark+1,SrvStr.length);
+   
+                  mark     = SrvStr.indexOf(',');
+                  Itmname  = SrvStr.substring(0,mark);
+                  Itmname  = Itmname.padEnd(8,' ');
+                  SrvStr   = SrvStr.substring(mark+1,SrvStr.length);
+                     
+                  mark     = SrvStr.indexOf(',');
+                  TmpStr   = SrvStr.substring(0,mark);
+                  SrvStr   = SrvStr.substring(mark+1,SrvStr.length);                          
+
+                  TemPos   =  Programs[CurrPrg].ArrayPos(Parname+","+Itmname);
+                  K        =  DomHand[TemPos];
+                     
+                  //Check if it is a 2 Dim Grid. If so this is a clear command for one subscript
+                  //Other wise the next parameter is a second dime grid
+                  if (  Grids[K].Check2Dim() )   // it is 
+                     ClrItm(Parname, Itmname, parseInt(TmpStr)); 
+                  else  {
+                     TmpStr   =  TmpStr.padEnd(8,' ');
+                     TemPos   =  Programs[CurrPrg].ArrayPos(Parname+","+TmpStr);
+                     TemPos   =  DomHand[TemPos];
+                    
+                     // Set the original grid as related to a 2 Dim Grid
+                     Grids[K].Add_Relation(TemPos);
+                     	
+                     // Setthe  Grid as 2 Dim
+                     Grids[TemPos].Second_Dim ();                      	
+                  }
+              }
+             else if (Stype == "D")
+                    {  
+                     mark     = SrvStr.indexOf(','); 
+                     Parname  = SrvStr.substring(2,mark);
+                     Parname  = Parname.padEnd(8,' ');
+                     SrvStr   = SrvStr.substring(mark+1,SrvStr.length);
+                     
+                     mark     = SrvStr.indexOf(',');
+                     Itmname  = SrvStr.substring(0,mark);
+                     Itmname  = Itmname.padEnd(8,' ');
+                     SrvStr   = SrvStr.substring(mark+1,SrvStr.length);
+                
+                     mark     = SrvStr.indexOf(',');
+                     var ElNum= parseInt(SrvStr.substring(0,mark));
+
+                     SrvStr  = SrvStr.substring(mark+1,SrvStr.length);     
+                     Mark    = Programs[CurrPrg].ArrayPos(Parname+','+Itmname);
+          
+                     if ( Mark==-1) 
+                        Show_Error ("Delete - Wrong item" + Itm);
+                     else
+                        Programs[CurrPrg].Delete_Entry(Mark,ElNum);
+                  }
+             else if (Stype == "S") 
+                    {                     
+                     /*block this for Testing AWT thread problem 
+                     if(!OmRec)
+                       {  
+                        UPDSrv.set_disp_var( Get_Disp_Fld());
+                        OmRec= true; 
+                       }*/ 
+                     SrvStr  = SrvStr.substring(2,SrvStr.length);     
+                   }
+             else if (Stype == "Q")
+                    {                       
+                     Clean_And_Exit();
+                     break;
+                    }
+             else if (Stype == "A") 
+             {
+                var PrePrg  = CurrPrg;
+                CurrPrg = parseInt(SrvStr.substring(2,5));     
+                SrvStr  = SrvStr.substring(5,SrvStr.length);
+
+                if ( PrePrg != CurrPrg )
+                   Shift_Program ( PrePrg , CurrPrg,false);
+             }
+             else
+             {
+                SrvStr  = SrvStr.substring(2,SrvStr.length);     
+             }
+          }   
+          //----Formula Command F------------------------------------------                       
+          else if (FstCar == "F")
+          {	
+              mark = parseInt(SrvStr.substring(20,24));  //Format Byte 1B  Decimals
+              Formula_Parse( SrvStr.substring(0,mark+24)) ;
+              SrvStr  = SrvStr.substring(mark+24,SrvStr.length);
+          }              
+          //--- Print Command P --------------------------
+          else if (FstCar == "P") 
+          {
+            if (SrvStr.substring(1,2) == "P")  {
+               var Lvl = Programs[CurrPrg].PrintLevel;
+
+               // if this is a drill down report, suppress the previous report
+               if (Lvl > -1)
+                  Programs[CurrPrg].PrintCls[Lvl].CleanPage();
+
+               Lvl++;
+               Programs[CurrPrg].PrintCls[Lvl] = new Report(CurrPrg);
+               Programs[CurrPrg].PrintLevel = Lvl;
+            }
+     
+            var Stype = Programs[CurrPrg].PrintCls[Programs[CurrPrg].PrintLevel].ActPrt(SrvStr);
+
+            //if call back req , then send call back code. This is received as
+            //PAEC. Only C is passed back
+            if ( Stype == "C" )    {     	
+               Stype = Seqno+CurrPrg.string().padStart(3,'0')+"PRINT<<<"+"        "+"00000" +'85'+"";
+               ToSrv = true;
+            }
+            // Data pending. Call for more data  , Record number should containg the 
+            // token received
+            else if ( Stype.substring(0,1) == 'P') {   
+               Stype = Stype.substring(1,Stype.length); 
+               Stype = Seqno+CurrPrg.string().padStart(3,'0')+"PRINT<<<"+"        "+
+                                            Stype+'82'+"";                             
+               ToSrv = true;
+            }
+            else
+               Stype = "";
+
+            break;                             
+          }     
+    }  
+    if (ToSrv) 
+       ToServer(Stype);          
+}
+//------------------------- End of Class Program ---------------------
+// -------------------------- Events Listener of menu buttons-------------------- 
+// MenuTrap traps key press on menu buttons
+// Validate traps change on Items
+// CurrLoc traps Focus gain
+// KeyTrap  traps Function Key Press
+// FuncButts traps buttons representing  Function keys
+
+function MenuTrap(Evnt) {
+   var alerted = false;
+   for ( var G = 1; G < Programs[CurrPrg].Grids.length ; G++)  {
+      if ( Programs[CurrPrg].Grids[G].GrdHlp ) {
+         alert("Please goback from lookup screen by pressing ESC key before shifting to any other program");
+         alerted = true;
+         break;
+      }
+   }
+
+   if ( alerted )   
+      return;
+
+   var x = event.target;
+   var z = x.name;
+   // SeqNo + Prog + Parent .  z = Type+System +'10'+Id
+   if (z.substring(0,1) == 'S') 
+      Mnu.ShowMenu(parseInt(z.substring(1,z.length),10),'S');
+   else if ( z.substring(0,1) == 'M' )
+      Mnu.ShowMenu(-1,z);
+   else if ( z.substring(0,1) == 'P' ) {
+      var Hit=0;
+      for ( var ii=1; ii<=PrgPtr; ii++)
+       {
+         if (ProgStat[ii] < "X"  && Programs[ii].MenuChar == z.substring(1,z.length))
+          {
+            Shift_Program(CurrPrg , Programs[ii].PrgNo , false);
+            Hit = ii;
+            break;
+          }       
+       }
+
+       if ( Hit == 0 )          
+       {
+          SentChar = z.substring(1,z.length);
+          ToServer(Seqno+'000GRIDMENU' + SentChar);
+       }
+   }
+   else {
+      Clean_And_Exit(Seqno+'000'+z.substring(1,z.length));
+      // Logout name is ELOGOUT<< 
+   }
+}
+// ---------------------- Event Listener of Program -------------------   
+function Validate(Evnt) {
+   var x = event.target;
+   var y = x.value;
+   var z = x.name;
+   
+   // To stop firing the chage event after handling this in windows
+   if (!KeyTrapped) {
+      z = StoreLoc (z,x);
+      ToServer(Seqno+z +'10'+y);
+   }
+   else
+      KeyTrapped = false;
+}
+
+function CurrLoc(Evnt) {
+   var x = event.target;
+   var z = x.name;
+   z = StoreLoc (z,x);   
+}
+// ----------------------------- Key Trap-----------------------------------------
+function KeyTrap(e) {
+   var KeyInx = e.keyCode || e.which;
+   var x = e.target;
+   var y = x.value;
+   var z = x.name;  
+
+   // To stop firing the chage event after handling this in windows
+   if (KeyInx == 13) {
+      KeyInx = 10;
+   }
+   KeyTrapped = true;
+
+   // Check for help grid related text field (Loc = "001'). 
+   // Here the focus is on a single field outside the help grid. 
+   // Hanlding  search variables of programs having help grid.
+   // Warning: It should not change CurrPos. 
+   // If Record shifting keys, shift record and set KeyInx to 0 to stop foloow through
+   // If F10 and 10 , send values of Help grid variable having actdisp = 3 while 
+   //    and Leave KeyInx unchanges to follow through to send values of the event variable
+   // if F3  Dont do anything
+ 
+   if ( z.substring(19,22)=="001")  {
+      var shft = false, psh = false; 
+
+      if (KeyInx == 40 || KeyInx == 38 || KeyInx == 33 || KeyInx == 34 )
+          shft = true;
+      else if ( KeyInx == 121 || (KeyInx == 10 && y < " "))
+          psh = true;
+ 
+      for ( var G = 1; G < Programs[CurrPrg].Grids.length ; G++)  {
+         if ( Programs[CurrPrg].Grids[G].GrdHlp ) {
+            var sc=Programs[CurrPrg].Grids[G].GrdCurRsc;  
+            // Record No of the Help Grid on screen
+
+            if ( psh)  {  // Push grid values to Stack implemented by array HelpStack
+               var ky , gval , fath , child , pg = z.substr(0,3);
+               for( var cl=1; cl<=Programs[CurrPrg].Grids[G].GrdCno; cl++) {
+                  ps = Programs[CurrPrg].Grids[G].GrdColSer[cl] ;
+                  if (Programs[CurrPrg].Items[ps].ActDis == 3) {
+                     gval  = Programs[CurrPrg].Grids[G].ScrGetVal (cl , sc);
+                     HelpStack.push(gval);
+                  }
+               } 
+            }
+
+            if ( shft ) {    // Shift record
+                Programs[CurrPrg].Grids[G].Record_Shift ( sc , KeyInx , 0 ) ;
+                KeyInx = 0;
+                break;
+             }
+         }
+      }
+   }
+   
+   if (KeyInx == 27)
+      ToServer(Seqno+CurrPrg.toString().padStart(3,"0") + " ".padStart(21,"0") + 
+         KeyInx.toString().padStart(2,"0"));
+
+   else if (KeyInx==9||KeyInx==10|| KeyInx==33|| KeyInx==34||KeyInx==37||KeyInx==38||            KeyInx==39||KeyInx==40)
+   { 
+     z = StoreLoc (z,x);   
+     ToServer(Seqno+z +KeyInx.toString().padStart(2,"0")+y);
+   }
+   else if (KeyInx > 111 && KeyInx < 124) 
+    {   
+     // Function keys
+     if ( Programs[PrgPtr].CheckFunStat(KeyInx)) {
+        LastKey = KeyInx;           
+        z = StoreLoc (z,x);   
+        if ( KeyInx > 100 )
+              KeyInx = KeyInx - 100;             
+        ToServer(Seqno+z + KeyInx.toString().padStart(2,"0") + y);
+    }
+    e.stopPropagation()
+        /*ToServer(Seqno + CurrPrg.toString().padStart(3,"0") + 
+        Programs[CurrPrg].Items[Loc].ParName.padEnd(8," ") + 
+        Programs[CurrPrg].Items[Loc].ItmName.padEnd(8," ") +
+        "00000" + Fk.toString().padStart(2,"0") );  */
+   }            
+}
+// ------------------------------- Func Butts------------------------------------
+function FuncButts(Evnt) {
+   var x = event.target;
+   var z = x.name;
+
+   var Pg   = z.substring(0,3);
+   var Fk   = z.substring(3,5);    
+   var Rc   = z.substring(5,10);    
+   var PgNo = parseInt(Pg);
+   var Pos  = Programs[PgNo].CurrPos;   
+
+   // name of print stop equivalent to escape should have -1 and 82
+
+   z = Seqno + Pg +
+       Programs[PgNo].Items[Pos].ParName.padEnd(8," ") + 
+       Programs[PgNo].Items[Pos].ItmName.padEnd(8," ") +
+       Rc + Fk ;
+
+   ToServer(z);
+}
+//----------------------------- Shift program ------------------------
+function Clean_And_Exit(Prm) 
+{
+      if ( Mnu ) {
+         var x = Mnu.MenuDistroy();
+         Mnu = null;
+         ToServer(Prm);
+      }
+
+      var Prg = PrgPtr;
+      while ( Prg >= 0 && ProgStat[Prg] == "A") {
+         var y = Programs[Prg].Distroy();
+         Programs[Prg]=null;
+         Prg--;
+      }
+
+      Programs = null;
+      ProgStat = null;
+      CurrPrg = -1;
+      Utils = null;
+      document.body.innerHTML = "Loggeded   Out";   
+      window.close();
+  }
+//--------------------------Shift Program----------------------------------
+ function Shift_Program(Pre , Curr , Back)
+  {
+    if (Curr > PrgPtr || ProgStat[Curr] == "X")
+     {
+       if ( Curr > PrgPtr )
+          PrgPtr = Curr;
+
+       Programs[Curr] = new program(PrgPtr);
+       Programs[Curr].MenuChar = SentChar;
+    }
+    else if ( Curr > 0 )
+       Programs[Curr].Show();
+
+    CurrPrg = Curr;
+    ProgStat[Curr] = "A";
+
+    if (Back) {   // OR Command
+       Programs[Pre].Distroy();
+       Programs[Pre]=null;
+       ProgStat[Pre] = "X";
+    }
+    else
+    {
+       if ( Pre > 0  &&  ProgStat[Pre] == "A")   
+          // Log in and menu should not be suppressed
+        {
+          Programs[Curr].PrePrg = Pre;
+          try {    
+             ProgStat[Pre] = "P";
+             Programs[Pre].Hide();
+          }
+          catch {}
+       }
+     }
+ }	   
+// -------------------------- Store Location ------------------------
+function  StoreLoc(IndStr,Dh) {
+   CurrPrg = parseInt(IndStr.substring(0,3));
+   var   z = IndStr.substr(0,19);
+   var Loc = IndStr.substr(19,25).padStart(6,'0');
+   var  It = IndStr.substr(11,19);
+   var  Pr = IndStr.substr(3,11)
+
+   // in grid , 2 digits each for Gridno , column , record
+   // normal 2 digits 0 , 4 digits for position in Items
+   if ( Loc.substring(0,2) == "00" ) 
+   {
+     Programs[CurrPrg].CurrPos = parseInt(Loc.substring(3,6));
+     Loc = "00000";
+   }
+   return (z+Loc)
+}
+// ---------- Send validation to server and receive command from server----------------
+function ToServer(Valid) {
+    if ( Waiting )
+       alert("waiting for server");
+
+    //<IMP>   SendFlg[Ptr] = true;
+    try {
+       var xhttp = new XMLHttpRequest();
+       xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+             Waiting = false;             
+             Analyse ( this.responseText);
+          }
+       }
+    }
+    catch {
+       alert( "cannot connect to server");
+    }
+
+    xhttp.open("GET", Valid, true);
+    Waiting = true;
+    xhttp.send();
+}
+
+function start() {
+  PrgPtr = -1;
+
+  for ( var ii=0; ii  < 25; ii++)
+     ProgStat = ["X"] ;       
+
+  Utils = new JIUtils();
+  ToServer(Seqno);
+}
+
+// Since menu program is only 1,keeping menu out side the class will save memory of menu
+// in all other classes
+// When access is allowed to diff programs simultaneousely, it is a problem to 
+// identify the item on whcih event is created. So name attribute will be set for
+// all the elements on whcih event is expected. 
+// Format
+// 3 digit zero filled Program no 8 char parent 8 char child 5 digit zero-filled rec.no
+// PrgNo variable and PrgName variables inside the class will be set on instantiation 
+// Sever sends a program code before the first command sequencer, to enable JS to 
+// determine, for which program the commands are
+// SEQNO: received seq no first five is seq no and next three is the 
+// subscript of array which stores the client details;
+      
+
+HelpStack= [];
+Programs = ["x"] ;       
+ProgStat = ["X"] ;       
+PrgPtr = -1;
+LastKey = -1;
+CurrPrg = -1;
+Waiting = false;
+Mnu    = null;
+Utils  = null;
+SentChar = "*";
+KeyTrapped = false;
+Seqno = "10000000";  
+window.onload = start;
+
+</script>
+</body>
+</html>

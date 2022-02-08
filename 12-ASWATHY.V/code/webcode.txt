@@ -1,0 +1,94 @@
+from flask import *
+from src.dbconnection import *
+app=Flask(__name__)
+app.secret_key="1232"
+@app.route('/')
+def main():
+    return render_template('login.html')
+@app.route('/login',methods=['get','post'])
+def login():
+    uname=request.form['textfield']
+    password=request.form['textfield2']
+    q="select* from login where username=%s and password=%s"
+    v=(uname,password)
+    s=select1(q,v)
+    if s is None:
+        return '''<script>alert("invalid username or password");window.location='/' </script>'''
+    elif s[3]=='admin':
+        return '''<script>alert("login successfuly");window.location='/adminhome' </script>'''
+    else:
+        return '''<script>alert("invalid");window.location='/' </script>'''
+
+@app.route('/deleteoff')
+def deleteoff():
+       id=request.args.get('id')
+       q="delete from officers where lid=%s"
+       q1="delete from login where id=%s"
+       iud(q,id)
+       iud(q1,id)
+       return'''<script>alert("deleted successfuly");window.location='/officersview' </script>'''
+
+@app.route('/officersview')
+def officerview():
+      q="SELECT * FROM `officers` "
+      s=selectalla(q)
+      return render_template('officers.html',val=s)
+
+@app.route('/add_manage_officer',methods=['get','post'])
+def add_manage_officer():
+       return render_template('registration.html')
+@app.route('/adminhome')
+def adminhome():
+    return render_template('adminhome.html')
+@app.route('/regoffcr',methods=['get','post'])
+def regoffcr():
+       # depid=request.form['select']
+       fname=request.form['textfield']
+       lname=request.form['textfield4']
+       dob=request.form['textfield5']
+       gender= request.form['radiobutton']
+       place= request.form['textfield6']
+       post = request.form['textfield7']
+       phone = request.form['textfield8']
+       email = request.form['textfield9']
+       Aadharno= request.form['textfield10']
+       username = request.form['textfield11']
+       password=request.form['textfield3']
+       q="insert into login values(null,%s,%s,'officer')"
+       v=username,password
+       lid=iud(q,v)
+       q1="insert into officers values(null,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+       v1=(lid,fname,lname,dob,gender,post,place,phone,email,Aadharno)
+       iud(q1,v1)
+       return '''<script>alert("registration successfully");window.location='/officersview'</script>'''
+@app.route('/editoff',methods=['get','post'])
+def editoff():
+       id=request.args.get('id')
+       session['id']=id
+       q="select * from officers where lid='"+str(id)+"'"
+       s=select1a(q)
+       return render_template('editoff.html',val=s)
+
+
+@app.route('/updateoff',methods=['get','post'])
+def updateoff():
+       fname = request.form['textfield']
+       lname = request.form['textfield4']
+       dob = request.form['textfield5']
+       gender = request.form['radiobutton']
+       place = request.form['textfield6']
+       post = request.form['textfield7']
+       phone = request.form['textfield8']
+       email = request.form['textfield9']
+       Aadharno = request.form['textfield10']
+       q="update officers set fname=%s,lname=%s,dob=%s,gender=%s,position=%s,place=%s,phone=%s,email=%s,aadharno=%s where lid=%s"
+       v=(fname,lname,dob,gender,post,place,phone,email,Aadharno,session['id'])
+       iud(q,v)
+       return '''<script>alert("updated successfuly");window.location='/officersview' </script>'''
+
+@app.route('/view_feedback')
+def viewfeedback():
+       q="select feedback.*,user.Username from user join  feedback on feedback.uid=user.lid"
+       s=selectalla(q)
+       return render_template('view feedback.html',val=s)
+app.run(debug=True)

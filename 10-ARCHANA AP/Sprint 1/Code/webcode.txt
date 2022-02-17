@@ -1,0 +1,140 @@
+from flask import *
+
+from src.dbconnection import *
+app=Flask(__name__)
+app.secret_key="aaa"
+
+@app.route('/')
+def main():
+    return render_template('login.html')
+
+@app.route("/loginnew",methods=['post'])
+def loginnew():
+    uname=request.form['textfield']
+    passwd=request.form['textfield2']
+
+    qry="select * from login where username=%s and password=%s"
+    val = (uname,passwd)
+    res=select1(qry,val)
+    print(res)
+    if res is None :
+
+        return '''<script>alert("invalid username or password");window.location="/"</script>'''
+
+    elif res[3]=='police':
+
+            return '''<script>alert("welcome");window.location="/policehome"</script>'''
+
+
+@app.route('/managecriminal')
+def managecriminal():
+    return render_template('manage criminal.html')
+
+@app.route('/viewevidence')
+def viewevidence():
+    return render_template('view evidence.html')
+@app.route('/viewcomplaint')
+def viewcomplaint():
+    return render_template('view complaint.html')
+@app.route('/policehome')
+def adminhome():
+    return render_template('policehome.html')
+@app.route('/mngcrimetypes')
+def mngcrimetypes():
+    qry="select * from crime_type"
+    res=selectalla(qry)
+    return render_template('manage crimetype.html',val=res)
+@app.route('/addcrimetypes',methods=['post'])
+def addcrimetypes():
+    return render_template('add crimetype.html')
+@app.route('/addcrimetypes1',methods=['post'])
+def addcrimetypes1():
+    ctype=request.form['textfield']
+    des=request.form['textarea']
+    qry="insert into crime_type values(NULL,%s,%s)"
+    val=(ctype,des)
+    iud(qry,val)
+    return redirect('/mngcrimetypes')
+@app.route('/dlttype')
+def dlttype ():
+    id=request.args.get('id')
+    q="delete from crime_type where type_id=%s"
+    v=str(id)
+    iud(q,v)
+    return '<script>alert("delete successfully");window.location="/mngcrimetypes"</script>'''
+
+
+
+
+
+
+@app.route('/addcrime',methods=['post'])
+def addcrime():
+    qry="select *from criminals "
+    res=selectalla(qry)
+    q="select*from crime_type "
+    r=selectalla(q)
+    return render_template('add crime.html',val=res,val1=r)
+@app.route('/addcrime1',methods=['post'])
+def addcrime1():
+    criminal = request.form['select1']
+    ctype = request.form['select2']
+    place=request.form['textfield2']
+    qry="insert into crimes values(NULL,%s,%s,%s,curdate())"
+    val=(criminal,ctype,place)
+    iud(qry,val)
+    return redirect('/mngcrimes')
+
+
+
+@app.route('/addcriminal')
+def addcriminal():
+    return render_template('add criminal.html')
+
+@app.route('/mngcrimes')
+def mngcrimes():
+    qry="SELECT `criminals`.`name`,`crime_type`.`crime_type`,`crimes`.`place`,`crimes`.`date`,`crimes`.`crime_id` FROM `crimes` JOIN `criminals` ON `crimes`.`criminal_id`=`criminals`.`id` JOIN `crime_type` ON `crime_type`.`type_id`=`crimes`.`type_id`"
+    res=selectalla(qry)
+
+    return render_template('manage crimes.html',val=res)
+
+@app.route('/dltcrime')
+def dltcrime ():
+    id=request.args.get('id')
+    q="delete from crimes where crime_id=%s"
+    v=str(id)
+    iud(q,v)
+    return '<script>alert("delete successfully");window.location="/mngcrimes"</script>'''
+
+
+
+@app.route('/editcrime')
+def editcrime ():
+    id=request.args.get('id')
+    session['rid']=id
+    q="select * from criminals "
+    res=selectalla(q)
+    q1="select * from crime_type"
+    res1=selectalla(q1)
+    q3="select*from crimes where crime_id=%s"
+    val=str(id)
+    res2=select1(q3,val)
+    return render_template('edit crime.html',val=res,val1=res1,val2=res2)
+@app.route('/updatecrime',methods=['post'])
+def updatecrime ():
+    c=session['rid']
+    criminal = request.form['select1']
+    ctype = request.form['select2']
+    place = request.form['textfield2']
+    qry="UPDATE `crimes` SET `criminal_id`=%s,`type_id`=%s,`place`=%s WHERE `crime_id`=%s "
+    val=(criminal,ctype,place,c)
+    print(val)
+    iud(qry,val)
+    return '<script>alert("update successfully");window.location="/mngcrimes"</script>'''
+
+
+
+
+
+
+app.run(debug=True)

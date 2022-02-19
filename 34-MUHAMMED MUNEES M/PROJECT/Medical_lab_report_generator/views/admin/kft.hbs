@@ -175,32 +175,17 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Patients</h3>
-                        <div><a class="btn btn-primary" role="button" href="/admin/addpatients"><i
-                                    class="fas fa-plus fa-sm text-white-50"></i>&nbsp;ADD</a></div>
-
-                    </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Employee Info</p>
+                            <p class="text-primary m-0 fw-bold">Kidney Function Test</p>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label class="form-label">Show&nbsp;<select
-                                                class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
-                                            class="form-label"><input type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
+                                    <div class="">
+                                        <label class="form-label">Reference Doctor&nbsp;</label>
+                                            <input class="form-control" type="text" name="refdr">
+                                        </div>
                                 </div>
                             </div>
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
@@ -211,69 +196,42 @@
                                             <td><strong>Test</strong></td>
                                             <td><strong>Result Unit</strong></td>
                                             <td><strong>Reference Range</strong></td>
-                                            <td><strong>Status</strong></td>
-                                            <td><strong></strong></td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>Serum Urea</td>
-                                            <td><input type="text"></td> 
+                                            <td><input class="form-control" type="text"></td> 
                                             <td>(15-45 mg/dl)</td>
-                                            <td></td>
-                                             <td></td>
+                                            
                                         </tr>
                                         <tr>
                                             <td>Serum Creatinine</td>
-                                            <td><input type="text"></td> 
+                                            <td><input class="form-control" type="text"></td> 
                                             <td>(0.6 – 1.2 mg/dl)</td>
-                                            <td></td>
-                                             <td></td>
+                                          
                                         </tr>
                                          <tr>
                                             <td>Serum Uric acid</td>
-                                            <td><input type="text"></td> 
+                                            <td><input class="form-control" type="text"></td> 
                                             <td>(males 3.5-7.2 mg/dl,<br> females 2.6-6 mg/dl)</td>
-                                            <td></td>
-                                             <td></td>
+                                            
                                         </tr>
                                          <tr>
                                             <td>Total protein</td>
-                                            <td><input type="text"></td> 
+                                            <td><input class="form-control" type="text"></td> 
                                             <td>(6.4-8.1 g/dl)</td>
-                                            <td></td>
-                                             <td></td>
+                                            
                                         </tr>
                                          <tr>
                                             <td>Serum albumin </td>
-                                            <td><input type="text"></td> 
+                                            <td><input class="form-control" type="text"></td> 
                                             <td>(3.2-4.6 g/dl)</td>
-                                            <td></td>
-                                             <td></td>
+                                          
                                         </tr>
                                     </tbody>
                                     
                                 </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 align-self-center">
-                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
-                                        Showing 1 to 10 of 27</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <nav
-                                        class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                        <ul class="pagination">
-                                            <li class="page-item disabled"><a class="page-link" href="#"
-                                                    aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                        aria-hidden="true">»</span></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
                             </div>
                         </div>
                     </div>

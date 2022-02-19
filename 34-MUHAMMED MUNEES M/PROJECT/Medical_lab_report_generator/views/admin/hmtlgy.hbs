@@ -175,17 +175,20 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Patients</h3>
-                        <div><a class="btn btn-primary" role="button" href="/admin/addpatients"><i
-                                    class="fas fa-plus fa-sm text-white-50"></i>&nbsp;ADD</a></div>
-
-                    </div>
+                 <form method="post" action="/admin/addhmtlgy">
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Haematology</p>
                         </div>
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 text-nowrap">
+                                    <div class="">
+                                        <label class="form-label">Reference Doctor&nbsp;</label>
+                                            <input class="form-control" type="text" name="refdr">
+                                        </div>
+                                </div>
+                            </div>
                            
                             <div class="table-responsive table " id="dataTable" role="grid"
                                 aria-describedby="dataTable_info">
@@ -201,43 +204,43 @@
                                     <tbody>
                                         <tr>
                                             <td>RBC</td>
-                                            <td><input type="text" name="RBC"></td>
+                                            <td><input class="form-control" type="number" step="any" name="RBC"></td>
                                             <td>male:(4.54-5.78)<br>female:(3.85-5.16)</td>
                                             
                                         </tr>
                                         <tr>
                                             <td>WBC</td>
-                                            <td><input type="text" name="WBC"></td>
+                                            <td><input class="form-control" type="number" step="any" name="WBC"></td>
                                             <td>male:(3.7-9.7)<br>female:(3.9-11.7)</td>
                                             
                                         </tr>
                                         <tr>
                                             <td>ESR</td>
-                                            <td><input type="text" name="ESR"></td>
+                                            <td><input class="form-control" type="number" step="any" name="ESR"></td>
                                             <td>male:(13-3.-17.2)<br>female:(12.0-15.0)</td>
                                             
                                         </tr>
                                         <tr>
                                             <td>HB</td>
-                                            <td><input type="text" name="HB"></td>
+                                            <td><input class="form-control" type="number" step="any" name="HB"></td>
                                             <td>male :(130 - 180)<br>female:(115 - 165)</td>
                                            
                                         </tr>
                                         <tr>
                                             <td>MCHC</td>
-                                            <td><input type="text" name="MCHC"></td>
+                                            <td><input class="form-control" type="number" step="any" name="MCHC"></td>
                                             <td>(320 - 360)</td>
                                             
                                         </tr>
                                         <tr>
                                             <td>MVC</td>
-                                            <td><input type="text" name="MVC"></td>
+                                            <td><input class="form-control" type="number" step="any" name="MVC"></td>
                                             <td>male:(81.2-94.0)<br>female:(78-5.-96.4)</td>
                                             
                                         </tr>
                                         <tr>
                                             <td>Platelet Count</td>
-                                            <td><input type="text" name="PC"></td>
+                                            <td><input class="form-control" type="number" name="PC" step="any"></td>
                                             <td>male:(135-317 billion/L)<br>
                                                 female:(157-371 billion/L)</td>
                                             
@@ -247,13 +250,15 @@
                                     </tbody>
 
                                 </table>
+                                <input type="text" name="uid" value="{{id}}" hidden>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 align-self-center">
-                                   
+                                <div class="text-center">
+                                   <button class="btn-primary form-control" type="submit">Submit</button>
                                 </div>
-                               
+                              
                             </div>
+                             </form>
                         </div>
                     </div>
                 </div>

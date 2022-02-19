@@ -44,18 +44,38 @@ router.get('/hmtlgy/:id', function(req, res, next) {
   let id=req.params.id
   res.render("admin/hmtlgy",{id});
 });
+router.post('/addhmtlgy',async (req, res) => {
+  let data= await adminHelpers.addheamrslt(req.body)
+    console.log(data)
+  res.redirect('/admin/index')
+})
 router.get('/lft/:id', function(req, res, next) {
   let id=req.params.id
   res.render("admin/lft",{id});
 });
+router.post('/addlft',async (req, res) => {
+  let data= await adminHelpers.addlftrslt(req.body)
+    console.log(data)
+  res.redirect('/admin/index')
+})
 router.get('/rft/:id', function(req, res, next) {
   let id=req.params.id
   res.render("admin/rft",{id});
 });
+router.post('/addrft',async (req, res) => {
+  let data= await adminHelpers.addbiorslt(req.body)
+    console.log(data)
+  res.redirect('/admin/index')
+})
 router.get('/kft/:id', function(req, res, next) {
   let id=req.params.id
   res.render("admin/kft",{id});
 });
+router.post('/addkft',async (req, res) => {
+  let data= await adminHelpers.addkftrslt(req.body)
+    console.log(data)
+  res.redirect('/admin/index')
+})
 router.post('/addpatients',async (req, res) => {
   adminHelpers.addpatients(req.body).then((response) => {
     console.log(response)

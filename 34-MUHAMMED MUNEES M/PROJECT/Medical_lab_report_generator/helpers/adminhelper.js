@@ -16,7 +16,9 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             userData.password = password
             console.log(password);
-            db.get().collection(collection.USER_COLLECTION).insertOne(userData)
+            db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((info)=>{
+                resolve(info)
+            })
         })
     },
     send: (reciever) => {
@@ -56,6 +58,47 @@ module.exports = {
             let users=await db.get().collection(collection.USER_COLLECTION).find().toArray()
             resolve(users)
         })
+    },
+    addheamrslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            Data.date = new Date()
+            console.log(Data.date);
+            db.get().collection(collection.HEAMETOLOGY).insertOne(Data).then((info)=>{
+                resolve(info)
+            })
+            
+        })
+    },
+    addlftrslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            Data.date = new Date()
+            console.log(Data.date);
+            db.get().collection(collection.LIVERFUNCTION).insertOne(Data).then((info)=>{
+                resolve(info)
+            })
+            
+        })
+    },
+    addbiorslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            Data.date = new Date()
+            console.log(Data.date);
+            db.get().collection(collection.BIOCHEMISTRY).insertOne(Data).then((info)=>{
+                resolve(info)
+            })
+            
+        })
+    },
+    addkftrslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            Data.date = new Date()
+            console.log(Data.date);
+            db.get().collection(collection.RENOFUNCTION).insertOne(Data).then((info)=>{
+                resolve(info)
+            })
+            
+        })
     }
+
 
 }

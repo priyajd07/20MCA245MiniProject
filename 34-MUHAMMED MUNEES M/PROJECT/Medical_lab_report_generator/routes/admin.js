@@ -14,13 +14,7 @@ router.get('/', function(req, res, next) {
   res.render("admin/login");
 });
 router.get('/index', function(req, res, next) {
-  let admin = req.session.admin
-  if (req.session.loggedIn) {
     res.render("admin/index");
-  } else {
-    res.render('admin/login', { "LoginErr": req.session.LoginErr })
-    req.session.LoginErr = false
-  }
 });
 router.post('/login',(req, res, next)=> {
   console.log(req.body);
@@ -33,12 +27,34 @@ router.post('/login',(req, res, next)=> {
   }
 });
 //view patients
-router.get('/patients', function(req, res, next) {
-  res.render("admin/patients");
+router.get('/patients',async function(req, res, next) {
+  let patients=await adminHelpers.viwqpatients(req,res)
+  console.log(patients);
+  res.render("admin/patients",{patients});
 });
 // add patients
 router.get('/addpatients', function(req, res, next) {
   res.render("admin/addpatients");
+});
+router.get('/reports/:id', function(req, res, next) {
+  let id=req.params.id
+  res.render("admin/reports",{id});
+});
+router.get('/hmtlgy/:id', function(req, res, next) {
+  let id=req.params.id
+  res.render("admin/hmtlgy",{id});
+});
+router.get('/lft/:id', function(req, res, next) {
+  let id=req.params.id
+  res.render("admin/lft",{id});
+});
+router.get('/rft/:id', function(req, res, next) {
+  let id=req.params.id
+  res.render("admin/rft",{id});
+});
+router.get('/kft/:id', function(req, res, next) {
+  let id=req.params.id
+  res.render("admin/kft",{id});
 });
 router.post('/addpatients',async (req, res) => {
   adminHelpers.addpatients(req.body).then((response) => {
@@ -49,4 +65,5 @@ router.post('/addpatients',async (req, res) => {
   adminHelpers.send(req.body)
   res.redirect('/admin/patients') 
 })
+
 module.exports = router;

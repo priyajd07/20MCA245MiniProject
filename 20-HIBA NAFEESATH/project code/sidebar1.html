@@ -1,0 +1,81 @@
+
+<html>
+<title>nav</title>
+<body>
+    <link href="/static/dashboard/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/css/style.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    <link href="/static//dashboard/assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
+      <nav class="navbar-default navbar-static-side" role="navigation">
+            <!-- sidebar-collapse -->
+            <div class="sidebar-collapse">
+                <!-- side-menu -->
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <!-- user image section-->
+                        <div class="user-section">
+                            <div class="user-section-inner">
+                                {% if user.is_superuser %}
+                                <img src="/static/dashboard/assets/img/user.jpg" alt="" width="30px" height="40px">
+                                {% else %}
+                                <img src="{{user.register.image.url}}" alt="" width="30px" height="40px">
+                                {% endif %}
+                            </div>
+
+                            <div class="user-info">
+                                <div><strong>{{user.register.user_type}}</strong></div>
+                                <div class="user-text-online">
+                                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
+                                </div>
+                            </div>
+                        </div>
+                        <!--end user image section-->
+                    </li>
+                    
+                    <!--<li class="selected">
+                        <a href=""><i style="text-transform: uppercase;">{{user.first_name}} {{user.last_name}}</i></a>
+                        <p></p>
+                    </li>-->
+                    <li class="selected">
+                        <a href="{% url 'index' %}"><i class="fa fa-dashboard fa-fw"></i>Home</a>
+                    </li>
+                    <li class="selected">
+                        <a href="{% url 'dashboard' %}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                    </li>
+                    <!--<li class="selected">
+                        <a href="{% url 'all_complaint' %}"><i class="fa fa-dashboard fa-fw"></i>Previous Uploads</a>
+                    </li>-->
+                  
+                    
+                   
+                  
+                {% if user.register.user_type == 'public' %}
+               
+            
+                <li>
+                    <a href="{% url 'complaint' %}"><i class="fa fa-edit fa-fw"></i>Check News </a>
+                </li>
+
+            {% endif %}       
+                        <!-- second-level-items -->
+                    
+                   
+                <!-- end side-menu -->
+            </div>
+            <!-- end sidebar-collapse -->
+        </nav>
+        <script src="static/dashboard/assets/plugins/jquery-1.10.2.js"></script>
+        <script src="static/dashboard/assets/plugins/bootstrap/bootstrap.min.js"></script>
+        <script src="/static/dashboard/assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="/static/dashboard/assets/plugins/pace/pace.js"></script>
+        
+        <!-- Page-Level Plugin Scripts-->
+        <script src="static/dashboard/assets/plugins/morris/raphael-2.1.0.min.js"></script>
+        <script src="static/dashboard/assets/plugins/morris/morris.js"></script>
+        <script src="static/dashboard/assets/scripts/dashboard-demo.js"></script>
+        </body>
+        </html>

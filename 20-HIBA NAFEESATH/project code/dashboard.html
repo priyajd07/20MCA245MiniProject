@@ -1,0 +1,225 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection </title>
+    <!-- Core CSS - Include with every page -->
+    <link href="/static/dashboard/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/css/style.css" rel="stylesheet" />
+    <link href="/static/dashboard/assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    <link href="/static/dashboard/assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+   </head>
+   <style type="text/css">
+    .form-style-9{
+        max-width: 450px;
+        background: #FAFAFA;
+        padding: 30px;
+        margin: 50px auto;
+        box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+        border-radius: 10px;
+        border: 6px solid #305A72;
+    }
+    .form-style-9 ul{
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+    .form-style-9 ul li{
+        display: block;
+        margin-bottom: 10px;
+        min-height: 35px;
+    }
+    .form-style-9 ul li  .field-style{
+        box-sizing: border-box; 
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box; 
+        padding: 8px;
+        outline: none;
+        border: 1px solid #B0CFE0;
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+    
+    }.form-style-9 ul li  .field-style:focus{
+        box-shadow: 0 0 5px #B0CFE0;
+        border:1px solid #B0CFE0;
+    }
+    .form-style-9 ul li .field-split{
+        width: 100%;
+    }
+    .form-style-9 ul li .field-full{
+        width: 100%;
+    }
+    .form-style-9 ul li input.align-left{
+        float:left;
+    }
+    .form-style-9 ul li input.align-right{
+        float:right;
+    }
+    .form-style-9 ul li textarea{
+        width: 100%;
+        height: 100px;
+    }
+    .form-style-9 ul li input[type="button"], 
+    .form-style-9 ul li input[type="submit"] {
+        -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+        -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+        box-shadow: inset 0px 1px 0px 0px #3985B1;
+        background-color: #216288;
+        border: 1px solid #17445E;
+        display: inline-block;
+        cursor: pointer;
+        color: #FFFFFF;
+        padding: 8px 18px;
+        text-decoration: none;
+        font: 12px Arial, Helvetica, sans-serif;
+    }
+    .form-style-9 ul li input[type="button"]:hover, 
+    .form-style-9 ul li input[type="submit"]:hover {
+        background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+        background-color: #28739E;
+    }
+   
+    </style>
+
+
+<body>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            
+            <div class="navbar-header">
+                <h4><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>FAKE NEWS DETECTOR</u></b></h4>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <!-- <img src="/static/dashboard/assets/img/logo.png" alt="" /> -->
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <!-- <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i> -->
+                    </a>
+                    <!-- dropdown-messages -->
+                    
+                    <!-- end dropdown-messages -->
+                </li>
+
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <!-- <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i> -->
+                    </a>
+                    <!-- dropdown alerts-->
+                    <!-- end dropdown-alerts -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="{% url 'update_profile' %}"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>
+                        <li><a href="{% url 'change_password' %}"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'signout' %}"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+                <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+
+        </nav>
+        <!-- end navbar top -->
+{% include 'dashboard/sidebar1.html' %}
+        <!-- navbar side -->
+  
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+        {% block content %}
+        <div id="page-wrapper">
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">Dashboard</h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+            
+    <section id="welcome_post" class="col-9">
+        <h2>Welcome, <span id="prof_name"><strong style="text-transform: capitalize;">{{user}} </strong>.</span> </h2>
+        <h4 style="font-weight: 300;">It's good to have you here.</h4>   
+    {% if user.is_superuser or user.register.user_type == 'staff' %}
+    <h1>Check Details </h1>
+    {% else %}
+    
+        <!-- <div class="text-center curr_bal">  -->
+            {% if messages %}
+            {% for msg in messages %}<h2 style="text-transform: capitalize; color:red;">{{msg}}</h2> {% endfor %}
+            <div>
+         
+            {% if user.register.user_type == 'public'  %}
+            <center>
+                <button style="background-color: burlywood; width: 400px; align-items: center;"><a href="{% url 'public_details' %}" style="margin-top: auto;"><h4 style="color: brown;">Next</h4></a></button>
+            </center>
+           
+            {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="form-style-5">
+            
+ 
+		        {% endif %}
+
+        </div>
+        {% endif %}
+        
+    </section>
+
+
+{% endblock %}
+                
+    <!-- Core Scripts - Include with every page -->
+    <script src="/static/dashboard/assets/plugins/jquery-1.10.2.js"></script>
+    <script src="/static/dashboard/assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="/static/dashboard/assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/dashboard/assets/plugins/pace/pace.js"></script>
+    
+    <!-- Page-Level Plugin Scripts-->
+    <script src="/static/dashboard/assets/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="/static/dashboard/assets/plugins/morris/morris.js"></script>
+    <script src="/static/dashboard/assets/scripts/dashboard-demo.js"></script>
+    
+</body>
+
+</html>

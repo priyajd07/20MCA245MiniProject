@@ -1,0 +1,139 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Fake News Checker</title>
+
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+  </head>
+  <body>
+<!--header-->
+{% include 'nav.html' %}
+<!-- //header -->
+<!-- main-slider -->
+{% block content %}
+<section class="w3l-main-slider" id="home">
+    <div class="companies20-content">
+        <div class="owl-one owl-carousel owl-theme">
+            <div class="item">
+                <li>
+                    <div class="slider-info banner-view bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg text-left">
+                                    <h1>{% for msg in messages %}{{msg}}{% endfor %}</h1>
+                                    <p> </p>
+                                    <h5>Fake News Detector</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="item">
+                <li>
+                    <div class="slider-info  banner-view banner-top1 bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg text-left">
+                                    <p>For Users</p>
+                                    <h5>Can Check News is Fake or Not</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        
+            <div class="item">
+                <li>
+                    <div class="slider-info banner-view banner-top3 bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg text-left">
+                                    <p>Help For Online Users</p>
+                                    <h5>You can easily check fake news</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /main-slider -->
+<!-- banner image bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor">
+            </path>
+        </svg>
+    </div>
+</div>
+<!-- //banner image bottom shape -->
+<!-- home page block1 -->
+
+<!-- //home page block1 -->
+<!-- middle -->
+	<!--  -->
+	<!-- //middle -->
+
+<!-- /bottom-grids-->
+
+<!-- //bottom-grids-->
+<!-- stats -->
+
+<!-- //stats -->
+<!-- bg -->
+
+<!-- //bg -->
+
+
+
+<section class="w3l-clients py-5" id="clients">
+    <div class="call-w3 py-lg-5 py-md-4">
+        <div class="container">
+            <!--<h3 class="title-big text-center">Whom we work with</h3>
+            <div class="company-logos text-center mt-5">
+                <div class="row logos">
+                    <div class="col-lg-2 col-md-3 col-4">
+                        <img src="/static/assets/images/brand1.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4">
+                        <img src="/static/assets/images/brand2.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4">
+                        <img src="/static/assets/images/brand3.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4 mt-md-0 mt-4">
+                        <img src="/static/assets/images/brand4.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                        <img src="/static/assets/images/brand5.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                        <img src="/static/assets/images/brand6.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</section>
+<!-- footer 14 -->
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+
+</html>

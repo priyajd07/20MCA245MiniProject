@@ -1,0 +1,16 @@
+{% extends 'temp/admin_home1.html' %}
+{% block pages %}
+<form method="post">
+{% csrf_token %}
+<table>
+    <tr>
+        <td>Location</td>
+        <td><input type="text" name="loc"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="submit"></td>
+    </tr>
+</table>
+</form>
+{% endblock %}

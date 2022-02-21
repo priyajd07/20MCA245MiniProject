@@ -176,6 +176,7 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="card shadow">
+                       <form method="post" action="/admin/addkft">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Kidney Function Test</p>
                         </div>
@@ -201,39 +202,46 @@
                                     <tbody>
                                         <tr>
                                             <td>Serum Urea</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" name="SU" type="number" step="any" ></td> 
                                             <td>(15-45 mg/dl)</td>
                                             
                                         </tr>
                                         <tr>
                                             <td>Serum Creatinine</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" name="SC" type="number" step="any"></td> 
                                             <td>(0.6 – 1.2 mg/dl)</td>
                                           
                                         </tr>
                                          <tr>
                                             <td>Serum Uric acid</td>
-                                            <td><input class="form-control" type="text"></td> 
-                                            <td>(males 3.5-7.2 mg/dl,<br> females 2.6-6 mg/dl)</td>
+                                            <td><input class="form-control" name="SUC" type="number" step="any"></td> 
+                                            <td>(males 3.5-7.2 mg/dl),<br> (females 2.6-6 mg/dl)</td>
                                             
                                         </tr>
                                          <tr>
                                             <td>Total protein</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" name="TP" type="number" step="any"></td> 
                                             <td>(6.4-8.1 g/dl)</td>
                                             
                                         </tr>
                                          <tr>
                                             <td>Serum albumin </td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" name="SA" type="number" step="any"></td> 
                                             <td>(3.2-4.6 g/dl)</td>
                                           
                                         </tr>
                                     </tbody>
                                     
                                 </table>
+                            <input type="text" name="uid" value="{{id}}" hidden>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="text-center">
+                                   <button class="btn-primary form-control" type="submit">Submit</button>
+                                </div>
+                              
+                            </div>
+                        </div></form>
                     </div>
                 </div>
             </div>

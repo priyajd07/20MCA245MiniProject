@@ -7,7 +7,7 @@
     <title>Table - Brand</title>
     <link rel="stylesheet" href="/login/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
-        href="/login/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="/login/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="/login/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/login/assets/fonts/fontawesome5-overrides.min.css">
@@ -175,7 +175,7 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                   
+                    <form method="post" action="/admin/addlft">
                     <div class="card shadow">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Employee Info</p>
@@ -204,42 +204,49 @@
                                     <tbody>
                                         <tr>
                                             <td>ALT</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" type="number" name="ALT" step="any"></td> 
                                             <td>( 7 - 55 U/L )</td>
 
                                         </tr>
                                         <tr>
                                             <td>AST</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" type="number" name="AST" step="any"></td> 
                                             <td>( 8 - 48 U/L)</td>
                                         </tr>
                                          <tr>
                                             <td>LD</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" type="number" name="LD" step="any"></td> 
                                             <td>(122 to 222 U/L)</td>
                                         </tr>
                                          <tr>
                                             <td>ALP</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" type="number" name="ALP" step="any"></td> 
                                             <td>( 40 - 129 U/L )</td>
                                         </tr> 
                                          <tr>
                                             <td>GGT</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" type="number" name="GGT" step="any"></td> 
                                             <td> ( 8 - 61 U/L )</td>
                                         </tr>
                                          <tr>
                                             <td>BILIRUBIN</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" type="number" name="BILIRUBIN" step="any"></td> 
                                             <td> ( 0.1 to 1.2 mg/dL )</td>
                                         </tr>
                                     </tbody>
                                     
                                 </table>
+                            <input type="text" name="uid" value="{{id}}" hidden>
                             </div>
-                            
+                            <div class="row">
+                                <div class="text-center">
+                                   <button class="btn-primary form-control" type="submit">Submit</button>
+                                </div>
+                              
+                            </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
             <footer class="bg-white sticky-footer">

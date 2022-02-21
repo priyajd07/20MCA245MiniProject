@@ -19,6 +19,7 @@
     "morgan": "~1.9.1",
     "nodemailer": "^6.7.2",
     "nodemon": "^2.0.15",
+    "print-js": "^1.6.0",
     "promise": "^8.1.0",
     "serve-favicon": "^2.5.0"
   }

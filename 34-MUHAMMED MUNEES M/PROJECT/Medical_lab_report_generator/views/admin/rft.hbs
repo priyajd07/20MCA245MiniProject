@@ -176,6 +176,7 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="card shadow">
+                        <form method="post" action="/admin/addrft">
                         <div class="card-header py-3">
                             <p class="text-primary m-0 fw-bold">Biochemistry</p>
                         </div>
@@ -202,21 +203,28 @@
                                     <tbody>
                                         <tr>
                                             <td>Blood Glucose(2Hr. pp)</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" name="bg" type="number" step="any"></td> 
                                             <td>( 80 - 140mg/dl )</td>
                                             
                                         </tr>
                                         <tr>
                                             <td>Blood Glucose(Fasting)</td>
-                                            <td><input class="form-control" type="text"></td> 
+                                            <td><input class="form-control" name="bgf" type="number" step="any"></td> 
                                             <td>( 70 - 110 mg/dl)</td>
                                      
                                         </tr>
                                     </tbody>
                                     
                                 </table>
+                            <input type="text" name="uid" value="{{id}}" hidden>
                             </div>
-                            
+                            <div class="row">
+                                <div class="text-center">
+                                   <button class="btn-primary form-control" type="submit">Submit</button>
+                                </div>
+                              
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

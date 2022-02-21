@@ -74,77 +74,128 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <a href="/hmtlgyrslts/{{user._id}}" class="nav-link ">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-primary text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Hematology</p>
-                                            <p class="text-white-50 small m-0">RBC|WBC|ESR|PCV|HB|PCHC|MVC|Platelet Count</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <a href="/lftrslts/{{user._id}}" class="nav-link ">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-success text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Liver Function Test</p>
-                                            <p class="text-white-50 small m-0">ALT|AST|ALP|Bilirubin</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <a href="/kftrslts/{{user._id}}" class="nav-link ">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-info text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Kidney Function Test</p>
-                                            <p class="text-white-50 small m-0">urea|creatinine|uric acid</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <a href="/biorslts/{{user._id}}" class="nav-link ">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Biochemistry</p>
-                                            <p class="text-white-50 small m-0">#f6c23e</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                {{!-- <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Danger</p>
-                                            <p class="text-white-50 small m-0">#e74a3b</p>
-                                        </div>
-                                    </div>
+                <div class="container-fluid" id="printable">
+                    <div class="card shadow">
+
+                        <div class="row card-header py-3">
+                            <div class="col-md-6 text-nowrap">
+                                <div class="">
+                                    <label class="form-label">Name :-&nbsp;</label>
+                                    {{user.name}}
                                 </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Secondary</p>
-                                            <p class="text-white-50 small m-0">#858796</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                                <div class="">
+                                    <label class="form-label">Age :-&nbsp;</label>
+                                    {{user.age}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Phone :-&nbsp;</label>
+                                    {{user.phone}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Reference Doctor :-&nbsp;</label>
+                                    {{data.refdr}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Liver Function Test</p>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                                aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <td><strong>Test</strong></td>
+                                            <td><strong>Result Unit</strong></td>
+                                            <td><strong>Reference Range</strong></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>ALT</td>
+                                            <td>{{data.ALT}}</td> 
+                                            <td>( 7 - 55 U/L )</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>AST</td>
+                                            <td>{{data.AST}}</td> 
+                                            <td>( 8 - 48 U/L)</td>
+                                        </tr>
+                                         <tr>
+                                            <td>LD</td>
+                                            <td>{{data.LD}}</td> 
+                                            <td>(122 to 222 U/L)</td>
+                                        </tr>
+                                         <tr>
+                                            <td>ALP</td>
+                                            <td>{{data.ALP}}</td> 
+                                            <td>( 40 - 129 U/L )</td>
+                                        </tr> 
+                                         <tr>
+                                            <td>GGT</td>
+                                            <td>{{data.GGT}}</td> 
+                                            <td> ( 8 - 61 U/L )</td>
+                                        </tr>
+                                         <tr>
+                                            <td>BILIRUBIN</td>
+                                            <td>{{data.BILIRUBIN}}</td> 
+                                            <td> ( 0.1 to 1.2 mg/dL )</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row .no-print container">
+                    <div class=" d-flex justify-content-center">
+                        <button class="btn-primary form-control print">
+                            Print this
+                        </button>
+                    </div>
+
+                </div>
             </div>
-            
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © HexPeak 2022</span></div>
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <script src="/login/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/login/assets/js/theme.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.2/jQuery.print.min.js"
+        integrity="sha512-t3XNbzH2GEXeT9juLjifw/5ejswnjWWMMDxsdCg4+MmvrM+MwqGhxlWeFJ53xN/SBHPDnW0gXYvBx/afZZfGMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.2/jQuery.print.js"
+        integrity="sha512-BaXrDZSVGt+DvByw0xuYdsGJgzhIXNgES0E9B+Pgfe13XlZQvmiCkQ9GXpjVeLWEGLxqHzhPjNSBs4osiuNZyg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+        $(document).ready(function () {
+            $('.print').click(function () {
+                $("#printable").print({
+
+                    addGlobalStyles: true,
+                    stylesheet: null,
+                    rejectWindow: true,
+                    noPrintSelector: ".no-print",
+                    iframe: true,
+                    append: null,
+                    prepend: "<div class='bg-light p-5'><h1 style='color:black'>MEDLAR<h1><a class=''>www.medlar.in</a></div>"
+
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

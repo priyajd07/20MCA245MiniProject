@@ -24,10 +24,10 @@ router.get('/', function (req, res, next) {
 router.get('/login', function(req, res, next) {
   res.render("user/login");
 });
-router.get('/', function(req, res, next) {
+router.get('/',verifyLogin, function(req, res, next) {
   res.render("user/index");
 });
-router.get('/profile',async function(req, res, next) {
+router.get('/profile',verifyLogin,async function(req, res, next) {
   let user=req.session.user
   let data=await userhelper.viewsuagar(user._id)
   let data1=await userhelper.viewcreatinin(user._id)

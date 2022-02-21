@@ -176,87 +176,69 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Patients</h3>
-                        <div><a class="btn btn-primary" role="button" href="/admin/addpatients"><i
-                                    class="fas fa-plus fa-sm text-white-50"></i>&nbsp;ADD</a></div>
-
+                        <h3 class="text-dark mb-0">Dashboard</h3><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
                     </div>
-                    <div class="card shadow">
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Patients Info</p>
+                    <div class="row">
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="card shadow mb-4"></div>
                         </div>
-                        <div class="card-body">
+                    </div>
+                    <div class="row">
+                        <div class="col">
                             <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <label class="form-label">Show&nbsp;<select
-                                                class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
-                                            class="form-label"><input type="search" class="form-control form-control-sm"
-                                                aria-controls="dataTable" placeholder="Search"></label></div>
-                                </div>
-                            </div>
-                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <td><strong>Name</strong></td>
-                                            <td><strong>Age</strong></td>
-                                            <td><strong>email</strong></td>
-                                            <td><strong>Phone</strong></td>
-                                            <td><strong></strong></td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {{#each patients}}
-                                        <tr>
-                                            <td>{{this.name}}</td>
-                                            <td>{{this.age}}</td> 
-                                            <td>{{this.email}}</td>
-                                            <td>{{this.phone}}</td>
-                                             <td><a class="btn btn-primary" href="/admin/reports/{{this._id}}">ADD</a>
-                                             <a class="btn btn-primary" href="/admin/viewreports/{{this._id}}">Results</a></td>
-                                        </tr>
-                                        {{/each}}
-
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td><strong>Name</strong></td>
-                                            <td><strong>Age</strong></td>
-                                            <td><strong>email</strong></td>
-                                            <td><strong>Phone</strong></td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 align-self-center">
-                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
-                                        Showing 1 to 10 of 27</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <nav
-                                        class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                        <ul class="pagination">
-                                            <li class="page-item disabled"><a class="page-link" href="#"
-                                                    aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
-                                                        aria-hidden="true">»</span></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                {{#each data}}
+                                <div class="col-lg-6 mb-4">
+                                    <a href="/admin/hmtlgyrst/{{this._id}}" class="nav-link ">
+                                    <div class="card textwhite bg-primary text-white shadow">
+                                        <div class="card-body">
+                                            <p class="m-0">Heamatology</p>
+                                            <p class="m-0">{{this.date}} | {{this.time}}</p>
+                                            <p class="text-white-50 small m-0">Doctor :{{this.refdr}}</p>
+                                        </div>
+                                    </div></a>
+                                    </div>
+                                    {{/each}}
+                                    {{#each data1}}
+                                <div class="col-lg-6 mb-4">
+                                    <a href="/admin/lftrst/{{this._id}}" class="nav-link ">
+                                    <div class="card textwhite bg-warning text-white shadow">
+                                        <div class="card-body">
+                                            <p class="m-0">Liver Function Test</p>
+                                            <p class="m-0">{{this.date}} | {{this.time}}</p>
+                                            <p class="text-white-50 small m-0">Doctor :{{this.refdr}}</p>
+                                        </div>
+                                    </div></a>
+                                    </div>
+                                    {{/each}}
+                                    {{#each data2}}
+                                <div class="col-lg-6 mb-4">
+                                    <a href="/admin/biorst/{{this._id}}" class="nav-link ">
+                                    <div class="card textwhite bg-info text-white shadow">
+                                        <div class="card-body">
+                                            <p class="m-0">Biochemistry</p>
+                                            <p class="m-0">{{this.date}} | {{this.time}}</p>
+                                            <p class="text-white-50 small m-0">Doctor :{{this.refdr}}</p>
+                                        </div>
+                                    </div></a>
+                                    </div>
+                                    {{/each}}
+                                    {{#each data3}}
+                                <div class="col-lg-6 mb-4">
+                                    <a href="/admin/kftrst/{{this._id}}" class="nav-link ">
+                                    <div class="card textwhite bg-danger text-white shadow">
+                                        <div class="card-body">
+                                            <p class="m-0">Renal Function Test</p>
+                                            <p class="m-0">{{this.date}} | {{this.time}}</p>
+                                            <p class="text-white-50 small m-0">Doctor :{{this.refdr}}</p>
+                                        </div>
+                                    </div></a>
+                                    </div>
+                                    {{/each}}
+                                    
+                                    
+                                
                             </div>
                         </div>
                     </div>
@@ -264,7 +246,7 @@
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
+                    <div class="text-center my-auto copyright"><span>Copyright © HexPeak 2022</span></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>

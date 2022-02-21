@@ -76,35 +76,32 @@
                 </nav>
                 <div class="container-fluid" id="printable">
                     <div class="card shadow">
-                        
-                        <div class="card-header py-3">
-                            <p class="text-primary text-center m-0 fw-bold">Profile</p>
-                        </div>
+
                         <div class="row card-header py-3">
-                                <div class="col-md-6 text-nowrap">
-                                    <div class="">
-                                        <label class="form-label">Name :-&nbsp;</label>
-                                        {{user.name}}
-                                    </div>
-                                    <div class="">
-                                        <label class="form-label">Age :-&nbsp;</label>
-                                        {{user.age}}
-                                    </div>
-                                    <div class="">
-                                        <label class="form-label">Phone :-&nbsp;</label>
-                                        {{user.phone}}
-                                    </div>
-                                    <div class="">
-                                        <label class="form-label">e-mail :-&nbsp;</label>
-                                        {{user.email}}
-                                    </div>
+                            <div class="col-md-6 text-nowrap">
+                                <div class="">
+                                    <label class="form-label">Name :-&nbsp;</label>
+                                    {{data.user.name}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Age :-&nbsp;</label>
+                                    {{data.user.age}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Phone :-&nbsp;</label>
+                                    {{data.user.phone}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Reference Doctor :-&nbsp;</label>
+                                    {{data.refdr}}
                                 </div>
                             </div>
-                        
-                        <div class="card-body">
-                            <div class="card-header py-3">
-                            <p class="text-primary text-center m-0 fw-bold">Current Status</p>
                         </div>
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Liver Function Test</p>
+                        </div>
+                        <div class="card-body">
+
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
                                 aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
@@ -113,46 +110,57 @@
                                             <td><strong>Test</strong></td>
                                             <td><strong>Result Unit</strong></td>
                                             <td><strong>Reference Range</strong></td>
-                                            <td><strong>Date</strong></td>
-
                                         </tr>
                                     </thead>
-                                    <tbody>{{#each data}}
+                                    <tbody>
                                         <tr>
-                                            <td>Blood Glucose(2Hr. pp)</td>
-                                            <td>{{this.bg}}  mg/dl</td>
-                                            <td>( 80 - 140mg/dl )</td>
-                                            <td>{{this.date}} | {{this.time}}</td>
+                                            <td>ALT</td>
+                                            <td>{{data.ALT}}</td> 
+                                            <td>( 7 - 55 U/L )</td>
 
                                         </tr>
                                         <tr>
-                                            <td>Blood Glucose(Fasting)</td>
-                                            <td>{{this.bgf}}  mg/dl</td>
-                                            <td>( 70 - 110 mg/dl)</td>
-                                            <td>{{this.date}} | {{this.time}}</td>
-
+                                            <td>AST</td>
+                                            <td>{{data.AST}}</td> 
+                                            <td>( 8 - 48 U/L)</td>
                                         </tr>
-                                        {{/each}}
-                                        {{#each data1}}
-                                        <tr>
-                                            <td>Creatinine</td>
-                                            <td>{{this.SC}}  mg/dl</td>
-                                            <td>(0.6 – 1.2 mg/dl)</td>
-                                            <td>{{this.date}} | {{this.time}}</td>
-
+                                         <tr>
+                                            <td>LD</td>
+                                            <td>{{data.LD}}</td> 
+                                            <td>(122 to 222 U/L)</td>
                                         </tr>
-                                        {{/each}}
+                                         <tr>
+                                            <td>ALP</td>
+                                            <td>{{data.ALP}}</td> 
+                                            <td>( 40 - 129 U/L )</td>
+                                        </tr> 
+                                         <tr>
+                                            <td>GGT</td>
+                                            <td>{{data.GGT}}</td> 
+                                            <td> ( 8 - 61 U/L )</td>
+                                        </tr>
+                                         <tr>
+                                            <td>BILIRUBIN</td>
+                                            <td>{{data.BILIRUBIN}}</td> 
+                                            <td> ( 0.1 to 1.2 mg/dL )</td>
+                                        </tr>
                                     </tbody>
 
                                 </table>
-                            </div>
-                            
 
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="row .no-print container">
+                    <div class=" d-flex justify-content-center">
+                        <button class="btn-primary form-control print">
+                            Print this
+                        </button>
+                    </div>
+
+                </div>
             </div>
-            
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
@@ -170,14 +178,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.2/jQuery.print.js"
         integrity="sha512-BaXrDZSVGt+DvByw0xuYdsGJgzhIXNgES0E9B+Pgfe13XlZQvmiCkQ9GXpjVeLWEGLxqHzhPjNSBs4osiuNZyg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(function () {
-            $("#printable").find('.print').on('click', function () {
-                $.print("#printable");
-            });
-        });
-    </script>
-   <script>
+
+  <script>
         $(document).ready(function () {
             $('.print').click(function () {
                 $("#printable").print({
@@ -187,14 +189,13 @@
                     rejectWindow: true,
                     noPrintSelector: ".no-print",
                     iframe: true,
-                    append: "<div style='position:fixed;bottom:0;right:0'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Twitter_Verified_Badge.svg/640px-Twitter_Verified_Badge.svg.png' style='width:150px'></div>",
+                    append: null,
                     prepend: "<div class='bg-light p-5'><h1 style='color:black'>MEDLAR<h1><a class=''>www.medlar.in</a></div>"
 
                 });
             });
         });
     </script>
-
 </body>
 
 </html>

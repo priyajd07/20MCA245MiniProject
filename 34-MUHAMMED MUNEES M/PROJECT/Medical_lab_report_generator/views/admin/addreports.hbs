@@ -151,51 +151,126 @@
                                 <div class="shadow dropdown-list dropdown-menu dropdown-menu-end"
                                     aria-labelledby="alertsDropdown"></div>
                             </li>
-
-                </nav>
-                <div class="container" style="max-width: 60%;">
-                    <div class="row justify-content-center">
-                        <div class="col-md-9 col-lg-12 col-xl-10">
-                            <div class="card shadow-lg o-hidden border-0 my-5">
-                                <div class="card-body p-0">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="p-5">
-                                                <div class="text-center">
-                                                    <h4 class="text-dark mb-4">Add new Patients</h4>
-                                                </div>
-                                                <form class="user" method="post" action="/admin/addpatients">
-                                                    <div class="mb-3"><input class="form-control form-control-user"
-                                                            type="text" id="name" aria-describedby="usernameHelp"
-                                                            placeholder="Enter Name..." name="name"></div>
-                                                    <div class="mb-3"><input class="form-control form-control-user"
-                                                            type="email" id="emailHelp" placeholder="Emter Email..."
-                                                            name="email"></div>
-                                                    <div class="mb-3"><input class="form-control form-control-user"
-                                                            type="text" id="phone" placeholder="Phone Number..."
-                                                            name="phone"></div>
-                                                    <div class="mb-3"><input class="form-control form-control-user"
-                                                            type="text" id="age" aria-describedby="ageHelp"
-                                                            placeholder="Age..." name="age"></div>
-
-
-                                                    <div class="mb-3">
-
-                                                    </div><button class="btn btn-primary d-block btn-user w-100"
-                                                        type="submit">ADD Patients</button>
-
-                                                    <hr>
-                                                </form>
-                                            </div>
-                                        </div>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
+                                        aria-expanded="false" data-bs-toggle="dropdown" href="#"><span
+                                            class="d-none d-lg-inline me-2 text-gray-600 small">Valerie Luna</span><img
+                                            class="border rounded-circle img-profile"
+                                            src="assets/img/avatars/avatar1.jpeg"></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a
+                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity
+                                            log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i
+                                                class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
                                     </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Patients</h3>
+                        <div><a class="btn btn-primary" role="button" href="/admin/addpatients"><i
+                                    class="fas fa-plus fa-sm text-white-50"></i>&nbsp;ADD</a></div>
+
+                    </div>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Employee Info</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 text-nowrap">
+                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                        <label class="form-label">Show&nbsp;<select
+                                                class="d-inline-block form-select form-select-sm">
+                                                <option value="10" selected="">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>&nbsp;</label></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label
+                                            class="form-label"><input type="search" class="form-control form-control-sm"
+                                                aria-controls="dataTable" placeholder="Search"></label></div>
+                                </div>
+                            </div>
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                                aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <td><strong>Test</strong></td>
+                                            <td><strong>Result Unit</strong></td>
+                                            <td><strong>Reference Range</strong></td>
+                                            <td><strong>Statis</strong></td>
+                                            <td><strong></strong></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each patients}}
+                                        <tr>
+                                            <td>{{this.name}}</td>
+                                            <td>{{this.age}}</td> 
+                                            <td>{{this.email}}</td>
+                                            <td>{{this.phone}}</td>
+                                             <td><a class="btn btn-primary" href="/admin/addreports/{{this._id}}">ADD</a>
+                                             <a class="btn btn-primary" href="/admin/viewreports">Results</a></td>
+                                        </tr>
+                                        {{/each}}
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td><strong>Name</strong></td>
+                                            <td><strong>Age</strong></td>
+                                            <td><strong>email</strong></td>
+                                            <td><strong>Phone</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 align-self-center">
+                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
+                                        Showing 1 to 10 of 27</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <nav
+                                        class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li class="page-item disabled"><a class="page-link" href="#"
+                                                    aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span
+                                                        aria-hidden="true">»</span></a></li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <script src="/login/assets/bootstrap/js/bootstrap.min.js"></script>
-                <script src="/login/assets/js/theme.js"></script>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2022</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="/login/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/login/assets/js/theme.js"></script>
 </body>
 
 </html>

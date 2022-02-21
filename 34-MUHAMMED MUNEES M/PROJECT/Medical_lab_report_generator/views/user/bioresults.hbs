@@ -75,67 +75,37 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                                class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="card shadow mb-4"></div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <div class="row">
-                                <a href="/hmtlgyrslts/{{user._id}}" class="nav-link ">
+                                {{#each data}}
                                 <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-primary text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Hematology</p>
-                                            <p class="text-white-50 small m-0">RBC|WBC|ESR|PCV|HB|PCHC|MVC|Platelet Count</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <a href="/lftrslts/{{user._id}}" class="nav-link ">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-success text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Liver Function Test</p>
-                                            <p class="text-white-50 small m-0">ALT|AST|ALP|Bilirubin</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <a href="/kftrslts/{{user._id}}" class="nav-link ">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-info text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Kidney Function Test</p>
-                                            <p class="text-white-50 small m-0">urea|creatinine|uric acid</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                <a href="/biorslts/{{user._id}}" class="nav-link ">
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Biochemistry</p>
-                                            <p class="text-white-50 small m-0">#f6c23e</p>
-                                        </div>
-                                    </div>
-                                </div></a>
-                                {{!-- <div class="col-lg-6 mb-4">
+                                    <a href="/bio/{{this._id}}" class="nav-link ">
                                     <div class="card textwhite bg-danger text-white shadow">
                                         <div class="card-body">
-                                            <p class="m-0">Danger</p>
-                                            <p class="text-white-50 small m-0">#e74a3b</p>
+                                            <p class="m-0">{{this.date}}</p>
+                                            <p class="text-white-50 small m-0">Doctor :{{this.refdr}}</p>
                                         </div>
+                                    </div></a>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card textwhite bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            <p class="m-0">Secondary</p>
-                                            <p class="text-white-50 small m-0">#858796</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                                    {{/each}}
+                                    
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © HexPeak 2022</span></div>

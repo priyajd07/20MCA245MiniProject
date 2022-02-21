@@ -16,7 +16,9 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             userData.password = password
             console.log(password);
-            db.get().collection(collection.USER_COLLECTION).insertOne(userData)
+            db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((info) => {
+                resolve(info)
+            })
         })
     },
     send: (reciever) => {
@@ -38,7 +40,7 @@ module.exports = {
             subject: 'Sending Email using Node.js',
             html: '<div style="margin: 20px;padding: 50px; background-color:black;border-radius: 15px;border:5px lightgray solid"><div style="justify-content:center;display: flex;"><h2 class="" style="font-family:cursive; color: blueviolet;font-weight: 700;">MEDLAR</h2></div>' +
                 '<div><p style="color: rgb(161, 161, 161);"><b>Welcom to MEDLAR.Here you get your current health status and medical reports</b></p>' +
-                '<table style="color: cornflowerblue;""><tr><th>email</th><td>:'+username+'</td></tr><tr><th>password</th><td>:'+password+'</td></tr></table><br><a href="medlar.tech">medlar.tech</a></div></div>'
+                '<table style="color: cornflowerblue;""><tr><th>email</th><td>:' + username + '</td></tr><tr><th>password</th><td>:' + password + '</td></tr></table><br><a href="medlar.tech">medlar.tech</a></div></div>'
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
@@ -50,6 +52,77 @@ module.exports = {
                 console.log(responseData.message);
             }
         });
+    },
+    viwqpatients: () => {
+        return new Promise(async (resolve, reject) => {
+            let users = await db.get().collection(collection.USER_COLLECTION).find().toArray()
+            resolve(users)
+        })
+    },
+    addheamrslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            date_ob = new Date()
+            let day = ("0" + date_ob.getDate()).slice(-2);
+            // current month
+            let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+            // current year
+            let year = date_ob.getFullYear();
+            Data.date=day+"-"+month+"-"+year
+            console.log(Data.date);
+            db.get().collection(collection.HEAMETOLOGY).insertOne(Data).then((info) => {
+                resolve(info)
+            })
+
+        })
+    },
+    addlftrslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            date_ob = new Date()
+            let day = ("0" + date_ob.getDate()).slice(-2);
+            // current month
+            let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+            // current year
+            let year = date_ob.getFullYear();
+            Data.date=day+"-"+month+"-"+year
+            console.log(Data.date);
+            db.get().collection(collection.LIVERFUNCTION).insertOne(Data).then((info) => {
+                resolve(info)
+            })
+
+        })
+    },
+    addbiorslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            date_ob = new Date()
+            let day = ("0" + date_ob.getDate()).slice(-2);
+            // current month
+            let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+            // current year
+            let year = date_ob.getFullYear();
+            Data.date=day+"-"+month+"-"+year
+            console.log(Data.date);
+            db.get().collection(collection.BIOCHEMISTRY).insertOne(Data).then((info) => {
+                resolve(info)
+            })
+
+        })
+    },
+    addkftrslt: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            date_ob = new Date()
+            let day = ("0" + date_ob.getDate()).slice(-2);
+            // current month
+            let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+            // current year
+            let year = date_ob.getFullYear();
+            Data.date=day+"-"+month+"-"+year
+            console.log(Data.date);
+            db.get().collection(collection.RENOFUNCTION).insertOne(Data).then((info) => {
+                resolve(info)
+            })
+
+        })
     }
+
 
 }

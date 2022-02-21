@@ -1,0 +1,156 @@
+*{
+overflow:none;
+}
+
+#list {
+position:absolute;
+display:flex;
+
+top:40px;
+
+
+}
+bt{
+}
+
+#list table {
+
+width:99%;
+border:1px solid #aaaaaa;
+}
+
+#list td,th {
+
+text-align:center;
+}
+
+#list th {
+background-color:#bf4040;
+color:#ffffff;
+font-size:17pt;
+height:50px;
+}
+
+#list td {
+height:60px;
+font-size:14pt;
+}
+
+#list tr {
+border:1px solid #cccccc;
+}
+
+#list tr:nth-child(even) {
+background-color:#f2f2f2;
+}
+
+#list tr:hover {
+background-color:#ddd;
+}
+.buybutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+
+
+.button{
+font:bold 11px Arial;
+text-decoration:none;
+background-color:#EEEEEE;
+color:#333333;
+padding:2px 6px 2px 6px;
+border-top:1px solid #CCCCCC;
+border-right:1px solid #333333;
+border-bottom:1px solid #333333;
+border-left:1px solid #CCCCCC;
+
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #808080;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 8px;
+  padding:5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover {
+background-color:#404040;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+  background-color:#404040;
+}
+
+.button:visited {
+color:white;
+}
+.d{
+width:760px;
+}
+h1{
+text-align:center;
+}
+
+nav {
+  flex: 1;
+  text-align: right;
+}
+nav ul {
+  display: inline-block;
+  list-style: none;
+}
+nav ul li {
+  display: inline-block;
+  margin-right: 70px;
+}
+nav ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: brown;
+  font-family: sans-serif;
+}
+nav ul li button {
+  font-size: 20px;
+  color: brown;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+nav ul li button:hover {
+  color: aqua;
+}
+nav ul li a:hover {
+  color: aqua;
+}

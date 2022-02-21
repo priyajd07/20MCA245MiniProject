@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>base</title>
+    <link rel="stylesheet" href="static/css/homestyle.css" />
+  </head>
+  <body>
+    <div class="full-page">
+      <div class="navbar">
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="/">Home</a></li>
+            <li><a href="/loginpage">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="card">
+
+        
+        <form name="product" action="/" method="post">
+           {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category,message in messages %}
+                <div class="alert alert-{{category}}">{{message}}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="inner-box">
+        <label class="radio"> 
+            <input type="radio" id="phone" name="choice" value="phone" required> Phone </input>
+            <span></span>
+        </label>
+    
+        <label class="radio">
+            <input type="radio" id="laptop" name="choice" value="laptop"> Laptop </input>
+            <span></span>
+        </label>
+        <label class="radio">
+            <input type="radio" id="watches" name="choice" value="watches"> Watches </input>
+            <span></span>
+        </label>
+        <label class="radio">
+            <input type="radio" id="shoes" name="choice" value="shoes"> Shoes </input>
+            <span></span>
+        </label>
+        <label class="radio">
+            <input type="radio" id="tab" name="choice" value="tab"> Tablet </input>
+            <span></span>
+        </label>
+         </div>
+
+        
+         <div id="searchbox">
+            <input type="text" name="name_in" id="in" placeholder="search product">
+            <input type="submit" value="search" id="aj">
+        </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

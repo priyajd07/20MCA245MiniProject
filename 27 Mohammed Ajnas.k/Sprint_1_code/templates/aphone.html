@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/css/pro_detail_style.css">
+<style>
+
+#main {
+margin-top:90px;
+}
+
+#image {
+position:absolute;
+left:90px;
+top:165px;
+}
+
+h3 {
+font-family: 'Aclonica';
+font-size:22pt;
+}
+</style>
+
+</head>
+<body>
+  <nav>
+          <ul id="MenuItems">
+            <li><a href="/pro_detail">common product</a></li>
+          </ul>
+  </nav>
+<form id="form1" name="form1" method="post" action="">
+    <div id="list">
+        <div class="d">
+            <h1>AMAZON</h1>
+  <table width="1" border="3" bordercolor="black" cellpadding="4" cellspacing="0" >
+    <tr>
+      <th width="30%"><font size="5">Name</font></th>
+      <th width="17%"><font size="5">Price</font></th>
+      <th width="17%"><font size="5">View on Amazon</font></th>
+
+    </tr>
+
+    {% for i in val1 %}
+    <tr>
+      <td width="30%">{{i[1]}}</td>
+      <td width="20%">{{i[2]}}</td>
+
+      <td><center><a class="bt" href="{{i[3]}}" target="_blank">buy</a></center></td>
+    </tr>
+    {% endfor %}
+  </table>
+            </div>
+        <div class="d">
+            <h1>FLIPKART</h1>
+        <table>
+             <tr>
+
+      <th width="30%"><font size="5">Name</font></th>
+      <th width="17%"><font size="5">Price</font></th>
+      <th width="17%"><font size="5">View on Flipkart</font></th>
+
+
+    </tr>
+                    {% for j in val2 %}
+
+    <tr>
+      <td width="30%">{{j[1]}}</td>
+      <td width="20%">{{j[2]}}</td>
+
+<td><center><a class="anchor" href="{{j[3]}}" target="_blank"><button class="buybutton" style="vertical-align:middle"><span>Buy</span></button></a></center></td>
+    </tr>
+    {% endfor %}
+        </table>
+</div>
+        </div>
+</form>
+</body>
+</html>

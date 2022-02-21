@@ -84,6 +84,33 @@ router.post('/addpatients',async (req, res) => {
   })
   adminHelpers.send(req.body)
   res.redirect('/admin/patients') 
-})
+});
+router.get('/viewreports/:id',async function(req, res, next) {
+  let data=await adminHelpers.viewhmtlgy(req.params.id)
+  let data1=await adminHelpers.viewlft(req.params.id)
+  let data2=await adminHelpers.viewbio(req.params.id)
+  let data3=await adminHelpers.viewkft(req.params.id)
+  res.render("admin/results",{data,data1,data2,data3});
+});
+router.get('/hmtlgyrst/:id',async function(req, res, next) {
+  let data=await adminHelpers.hmtlgy(req.params.id)
+  console.log("00000000000000000",data);
+  res.render("admin/hmtlgyrst",{data});
+});
+router.get('/lftrst/:id', async function(req, res, next) {
+  let data=await adminHelpers.lft(req.params.id)
+  console.log("00000000000000000",data);
+  res.render("admin/lftrst",{data});
+});
+router.get('/biorst/:id',  async function(req, res, next) {
+  let data=await adminHelpers.bio(req.params.id)
+  console.log("00000000000000000",data);
+  res.render("admin/biorst",{data});
+});
+router.get('/kftrst/:id',async function(req, res, next) {
+  let data=await adminHelpers.kft(req.params.id)
+  console.log("00000000000000000",data);
+  res.render("admin/kftrst",{data});
+});
 
 module.exports = router;

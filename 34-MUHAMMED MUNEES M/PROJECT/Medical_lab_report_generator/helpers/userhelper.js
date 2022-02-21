@@ -59,13 +59,6 @@ module.exports = {
             resolve(data)
         })
     },
-    viewbioo: (id) => {
-        return new Promise(async (resolve, reject) => {
-            let data = await db.get().collection(collection.BIOCHEMISTRY).find({uid:id}).toArray()
-            console.log("123458",data.bg);
-            resolve(data)
-        })
-    },
     viewkft: (id) => {
         return new Promise(async (resolve, reject) => {
             let data = await db.get().collection(collection.RENOFUNCTION).find({uid:id}).toArray()

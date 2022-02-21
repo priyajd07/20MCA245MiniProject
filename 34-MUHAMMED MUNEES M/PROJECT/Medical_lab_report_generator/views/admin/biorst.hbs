@@ -76,35 +76,32 @@
                 </nav>
                 <div class="container-fluid" id="printable">
                     <div class="card shadow">
-                        
-                        <div class="card-header py-3">
-                            <p class="text-primary text-center m-0 fw-bold">Profile</p>
-                        </div>
-                        <div class="row card-header py-3">
-                                <div class="col-md-6 text-nowrap">
-                                    <div class="">
-                                        <label class="form-label">Name :-&nbsp;</label>
-                                        {{user.name}}
-                                    </div>
-                                    <div class="">
-                                        <label class="form-label">Age :-&nbsp;</label>
-                                        {{user.age}}
-                                    </div>
-                                    <div class="">
-                                        <label class="form-label">Phone :-&nbsp;</label>
-                                        {{user.phone}}
-                                    </div>
-                                    <div class="">
-                                        <label class="form-label">e-mail :-&nbsp;</label>
-                                        {{user.email}}
-                                    </div>
+                       <div class="row card-header py-3">
+                            <div class="col-md-6 text-nowrap">
+                                <div class="">
+                                    <label class="form-label">Name :-&nbsp;</label>
+                                    {{data.user.name}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Age :-&nbsp;</label>
+                                    {{data.user.age}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Phone :-&nbsp;</label>
+                                    {{data.user.phone}}
+                                </div>
+                                <div class="">
+                                    <label class="form-label">Reference Doctor :-&nbsp;</label>
+                                    {{data.refdr}}
                                 </div>
                             </div>
+                        </div>
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Biochemistry</p>
+                        </div>
                         
                         <div class="card-body">
-                            <div class="card-header py-3">
-                            <p class="text-primary text-center m-0 fw-bold">Current Status</p>
-                        </div>
+                            
                             <div class="table-responsive table mt-2" id="dataTable" role="grid"
                                 aria-describedby="dataTable_info">
                                 <table class="table my-0" id="dataTable">
@@ -113,35 +110,22 @@
                                             <td><strong>Test</strong></td>
                                             <td><strong>Result Unit</strong></td>
                                             <td><strong>Reference Range</strong></td>
-                                            <td><strong>Date</strong></td>
 
                                         </tr>
                                     </thead>
-                                    <tbody>{{#each data}}
+                                    <tbody>
                                         <tr>
                                             <td>Blood Glucose(2Hr. pp)</td>
-                                            <td>{{this.bg}}  mg/dl</td>
+                                            <td>{{data.bg}}</td>
                                             <td>( 80 - 140mg/dl )</td>
-                                            <td>{{this.date}} | {{this.time}}</td>
 
                                         </tr>
                                         <tr>
                                             <td>Blood Glucose(Fasting)</td>
-                                            <td>{{this.bgf}}  mg/dl</td>
+                                            <td>{{data.bgf}}</td>
                                             <td>( 70 - 110 mg/dl)</td>
-                                            <td>{{this.date}} | {{this.time}}</td>
 
                                         </tr>
-                                        {{/each}}
-                                        {{#each data1}}
-                                        <tr>
-                                            <td>Creatinine</td>
-                                            <td>{{this.SC}}  mg/dl</td>
-                                            <td>(0.6 – 1.2 mg/dl)</td>
-                                            <td>{{this.date}} | {{this.time}}</td>
-
-                                        </tr>
-                                        {{/each}}
                                     </tbody>
 
                                 </table>
@@ -151,6 +135,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="row .no-print container">
+                                <div class=" d-flex justify-content-center">
+                                    <button class="btn-primary form-control print ">Save</button>
+                                </div>
+
+                            </div>
             </div>
             
             <footer class="bg-white sticky-footer">

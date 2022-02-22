@@ -1,0 +1,90 @@
+<section>
+    <div class="container mt-5">
+        <form action="" id="checkout-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Enter Delivery Details</h2><br>
+                    <div>
+
+                        <label for="">Event Name</label>
+                        <input class="form-control" type="text" placeholder="John weds Julie" id="eventname" name="eventname">
+                        
+                         <label for="">Event Date</label>
+                        <input class="form-control" type="date" id="eventdate" name="eventdate">
+
+                        <label for="">Event Starting time</label>
+                        <input class="form-control" type="time" id="eventtime" name="eventtime">
+
+                        <label for="">Number of guests</label>
+                        <input class="form-control" type="text" id="noguests" name="noguests">
+
+                        <label for="">Address</label>
+                        <input class="form-control" type="text" id="address" name="address" placeholder="ABC Auditorium ABC Street ABC city kerala ">
+
+                        <label for="">Pincode</label>
+                        <input class="form-control" type="text" id="pincode" name="pincode">
+
+                        <label for="">Mobile</label>
+                        <input class="form-control" type="text" id="mobile" name="mobile">
+                        <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+                        <input type="text" name="userName" id="" value="{{user.Name}}" hidden>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="container mt-5 ml-5 checkout">
+                        <h5>Total Amount : Rs. {{total}}</h5>
+                        <hr>
+                        <div class="payment">
+                            <p>Payment method</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="COD"checked>Direct Payment 
+                            </label><br>
+                            <label class="radio-inline mt-2">
+                                <input type="radio" name="payment-method" value="ONLINE">Online payment
+                            </label>
+                            <button class="btn btn-primary float-right mt-3" type="submit">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    $("#checkout-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:'/place-order',
+            method:'post',
+            data:$('#checkout-form').serialize(),
+            success:(response)=>{
+                alert(response)
+                if(response.status){
+                    location.href='/order-success'
+                }
+            }
+        })
+    })
+
+</script>
+
+<style>
+    input[type=radio]{
+        width: 20px;
+        height: 20px;
+    }
+    label.radio-inline{
+        display: flex;
+        align-items: center;
+    }
+    .checkout{
+        border: 1px solid;
+        border-radius: 3px;
+        padding: 30px;
+    }
+    .payment{
+        padding-bottom: 16px;
+    }
+</style>

@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-6 m-auto">
+    <div class="container mt-5 pl-5">
+        
+
+            
+                <h2 class="text-center">Login</h2>
+                <form id="loginForm" method="post" action="admin/login">
+                {{#if loginErr}}
+                    <p class="error">{{loginErr}}</p>
+                {{/if}}
+                    <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" name="Name" id="name" class="form-control" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                     <label for="">Password</label>
+                    <input type="password" id="password" name="Password" class="form-control">
+                    </div>
+                    
+                   
+                    <br><br>
+                    <button type="submit" class="btn btn-primary float-right" onclick="adminlogin()">Login</button>
+                        
+                        
+
+                </form>
+            </div>
+        </div>
+    </div>

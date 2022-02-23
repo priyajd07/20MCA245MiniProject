@@ -114,6 +114,7 @@
                                             <td><strong>Result Unit</strong></td>
                                             <td><strong>Reference Range</strong></td>
                                             <td><strong>Date</strong></td>
+                                            <td><strong>Status</strong></td>
 
                                         </tr>
                                     </thead>
@@ -123,6 +124,7 @@
                                             <td>{{this.bg}}  mg/dl</td>
                                             <td>( 80 - 140mg/dl )</td>
                                             <td>{{this.date}} | {{this.time}}</td>
+                                            <td>{{#gt this.bg 80}} {{#lt this.bg  120}}Normal{{/lt}}{{/gt}}{{#gt this.bg 120}}{{#lt this.bg 140}}<span style="color: rgb(255, 217, 0);"> prediabetes</span>{{/lt}}{{/gt}}{{#gt this.bg 140}}<span style="color: rgb(255, 72, 0);"> diabetes</span>{{/gt}}</td>                                        
 
                                         </tr>
                                         <tr>
@@ -130,6 +132,8 @@
                                             <td>{{this.bgf}}  mg/dl</td>
                                             <td>( 70 - 110 mg/dl)</td>
                                             <td>{{this.date}} | {{this.time}}</td>
+                                            <td>{{#gt this.bgf 70}} {{#lt this.bgf  110}}Normal{{/lt}}{{/gt}}{{#gt this.bgf 110}}{{#lt this.bgf 125}}<span style="color: rgb(255, 217, 0);"> prediabetes</span>{{/lt}}{{/gt}}{{#gt this.bgf 125}}<span style="color: rgb(255, 72, 0);"> diabetes</span>{{/gt}}</td>                                        
+
 
                                         </tr>
                                         {{/each}}
@@ -139,7 +143,16 @@
                                             <td>{{this.SC}}  mg/dl</td>
                                             <td>(0.6 – 1.2 mg/dl)</td>
                                             <td>{{this.date}} | {{this.time}}</td>
-
+                                            <td>{{#gt this.SC 0.6}} {{#lt this.SC  1.2}}Normal{{/lt}}{{/gt}}{{#gt this.SC 1.2}}<span style="color: red;"> your kidneys have experienced severe damage</span>{{/gt}}</td>                                        
+                                        </tr>
+                                        {{/each}}
+                                        {{#each data2}}
+                                        <tr>
+                                            <td>Blood Pressure</td>
+                                            <td>{{this.sys}}/{{this.dia}}</td>
+                                            <td></td>
+                                            <td>{{this.date}} | {{this.time}}</td>
+                                            <td>{{#lt this.sys 120}}{{#lt this.dia 80}}<span class="text-primary fw-bold m-0">NORMAL</span>{{/lt}}{{/lt}}{{#gt this.sys 120}}{{#lt this.sys 129}}<span class="text-warning fw-bold m-0">Elevated</span>{{/lt}}{{/gt}}{{#gt this.sys 130}}<span class="text-danger fw-bold m-0">High Blood Pressure</span{{/gt}}></td>                                        
                                         </tr>
                                         {{/each}}
                                     </tbody>

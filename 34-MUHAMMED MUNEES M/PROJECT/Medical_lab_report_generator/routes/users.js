@@ -6,6 +6,8 @@ const verifyLogin = (req, res, next) => {
   if (req.session.loggedIn) {
     next()
   } else {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    req.session.destroy();
     res.redirect('/')
   }
 }
@@ -27,43 +29,57 @@ router.get('/login', function(req, res, next) {
 router.get('/',verifyLogin, function(req, res, next) {
   res.render("user/index");
 });
+router.get('/bp',verifyLogin, async function(req, res, next) {
+  let user=req.session.user
+  let data1=await userhelper.viewbp(user._id)
+  res.render("user/bp",{user,data1});
+});
+router.post('/bp',async (req, res) => {
+  let data= await userhelper.addbp(req.body)
+    console.log(data)
+  res.redirect('/')
+})
 router.get('/profile',verifyLogin,async function(req, res, next) {
   let user=req.session.user
+  let data2=await userhelper.viewbp(user._id)
   let data=await userhelper.viewsuagar(user._id)
   let data1=await userhelper.viewcreatinin(user._id)
-  res.render("user/profile",{data,data1,user});
+  console.log(data.bg);
+  res.render("user/profile",{data,data1,data2,user});
 });
-router.get('/hmtlgyrslts/:id',async function(req, res, next) {
+router.get('/hmtlgyrslts/:id',verifyLogin,async function(req, res, next) {
   let data=await userhelper.viewhmtlgy(req.params.id)
   let user=req.session.user
   console.log(data);
   res.render("user/hmresults",{data,user});
 });
-router.get('/lftrslts/:id',async function(req, res, next) {
+router.get('/lftrslts/:id',verifyLogin,async function(req, res, next) {
   let data=await userhelper.viewlft(req.params.id)
   let user=req.session.user
   console.log(data);
   res.render("user/lftresults",{data,user});
 });
-router.get('/biorslts/:id',async function(req, res, next) {
+router.get('/biorslts/:id',verifyLogin,async function(req, res, next) {
   let data=await userhelper.viewbio(req.params.id)
   let user=req.session.user
   console.log(data);
   res.render("user/bioresults",{data,user});
 });
-router.get('/results/:id',async function(req, res, next) {
+router.get('/results/:id',verifyLogin,async function(req, res, next) {
   let user=req.session.user
-  let data=await userhelper.viewbio(req.params.id)
+  let data1=await userhelper.viewsuagar(user._id)
+  let data=await userhelper.viewbioo(req.params.id)
   console.log(data);
-  res.render("user/reports",{data,user});
+  res.render("user/reports",{data,data1,user});
 });
-router.get('/creatinin/:id',async function(req, res, next) {
+router.get('/creatinin/:id',verifyLogin,async function(req, res, next) {
   let user=req.session.user
-  let data=await userhelper.viewkft(req.params.id)
+  let data=await userhelper.viewkftt(req.params.id)
+  let data1=await userhelper.viewcreatinin(user._id)
   console.log(data);
-  res.render("user/creatinin",{data,user});
+  res.render("user/creatinin",{data,data1,user});
 });
-router.get('/kftrslts/:id',async function(req, res, next) {
+router.get('/kftrslts/:id',verifyLogin,async function(req, res, next) {
   let data=await userhelper.viewkft(req.params.id)
   let user=req.session.user
   console.log(data);
@@ -104,7 +120,7 @@ router.post('/login',async (req, res) => {
       res.redirect('/')
     } else {
       req.session.loginErr = true
-      res.redirect('/login')
+      res.redirect('/')
     }
 
 
@@ -113,6 +129,9 @@ router.post('/login',async (req, res) => {
 router.get('/logout', (req, res) => {
   req.session.loggedIn = false
   req.session.user = null
-  res.redirect('/')
+  req.session.loggedIn = false
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.redirect('/'); //Inside a callback… bulletproof!
+
 })
 module.exports = router;

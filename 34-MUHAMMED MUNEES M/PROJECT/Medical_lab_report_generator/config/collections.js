@@ -3,5 +3,6 @@ module.exports={
     HEAMETOLOGY:'heametology',
     LIVERFUNCTION:'liverfunction',
     BIOCHEMISTRY:'biochemistry',
-    RENOFUNCTION:'renofuntion'
+    RENOFUNCTION:'renofuntion',
+    BLOODPRESSURE:'bloodpressure'
 }

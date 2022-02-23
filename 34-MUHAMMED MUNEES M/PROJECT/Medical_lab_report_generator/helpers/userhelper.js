@@ -31,9 +31,28 @@ module.exports = {
             }
         })
     },
+    addbp: (Data) => {
+        return new Promise(async (resolve, reject) => {
+            date_ob = new Date()
+            let day = ("0" + date_ob.getDate()).slice(-2);
+            // current month
+            let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+            // current year
+            let year = date_ob.getFullYear();
+            Data.date=day+"-"+month+"-"+year
+            let hour =date_ob.getHours()
+            let minutes = date_ob.getMinutes()
+            Data.time=hour+":"+minutes
+            console.log(Data.date);
+            db.get().collection(collection.BLOODPRESSURE).insertOne(Data).then((info) => {
+                resolve(info)
+            })
+
+        })
+    },
     viewhmtlgy: (id) => {
         return new Promise(async (resolve, reject) => {
-            let data = await db.get().collection(collection.HEAMETOLOGY).find({uid:id}).toArray()
+            let data = await db.get().collection(collection.HEAMETOLOGY).find({uid:id}).sort({ _id: -1 }).toArray()
             console.log(data);
             resolve(data)
         })
@@ -41,6 +60,7 @@ module.exports = {
     viewsuagar: (id) => {
         return new Promise(async (resolve, reject) => {
             let data = await db.get().collection(collection.BIOCHEMISTRY).find({uid:id}).sort({_id:-1}).limit(1).toArray()
+            data.old=await db.get().collection(collection.BIOCHEMISTRY).find({uid:id}).sort({_id:1}).limit(1).toArray()
             console.log(data);
             resolve(data)
         })
@@ -52,9 +72,23 @@ module.exports = {
             resolve(data)
         })
     },
+    viewbp: (id) => {
+        return new Promise(async (resolve, reject) => {
+            let data = await db.get().collection(collection.BLOODPRESSURE).find({uid:id}).sort({_id:-1}).limit(1).toArray()
+            console.log(data);
+            resolve(data)
+        })
+    },
     viewbio: (id) => {
         return new Promise(async (resolve, reject) => {
-            let data = await db.get().collection(collection.BIOCHEMISTRY).find({uid:id}).toArray()
+            let data = await db.get().collection(collection.BIOCHEMISTRY).find({uid:id}).sort({ _id: -1 }).toArray()
+            console.log(data);
+            resolve(data)
+        })
+    },
+    viewbioo: (id) => {
+        return new Promise(async (resolve, reject) => {
+            let data = await db.get().collection(collection.BIOCHEMISTRY).find({uid:id}).sort({ _id: -1 }).toArray()
             console.log(data);
             resolve(data)
         })
@@ -66,9 +100,16 @@ module.exports = {
             resolve(data)
         })
     },
+    viewkftt: (id) => {
+        return new Promise(async (resolve, reject) => {
+            let data = await db.get().collection(collection.RENOFUNCTION).find({uid:id}).toArray()
+            console.log(data);
+            resolve(data)
+        })
+    },
     viewlft: (id) => {
         return new Promise(async (resolve, reject) => {
-            let data = await db.get().collection(collection.LIVERFUNCTION).find({uid:id}).toArray()
+            let data = await db.get().collection(collection.LIVERFUNCTION).find({uid:id}).sort({ _id: -1 }).toArray()
             console.log(data);
             resolve(data)
         })

@@ -13,6 +13,7 @@
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "generate-password": "^1.7.0",
+    "handlebars-helpers": "^0.10.0",
     "hbs": "^4.2.0",
     "http-errors": "~1.6.3",
     "mongodb": "^4.3.0",

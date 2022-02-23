@@ -30,7 +30,7 @@
                     <li class="nav-item"><a class="nav-link" href="/results/{{user._id}}"><i
                                 class="fas fa-chart-line"></i><span>Blood Sugar Level</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="/creatinin/{{user._id}}"><i
-                                class="fas fa-chart-line"></i><span>Creatinine Level</span></a></li>            
+                                class="fas fa-chart-line"></i><span>Creatinine Level</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout"><i
                                 class="far fa-user-circle"></i><span>Logout</span></a></li>
                     <li class="nav-item"></li>
@@ -50,7 +50,7 @@
                                         class="fas fa-search"></i></button></div>
                         </form>
                         <ul class="navbar-nav flex-nowrap ms-auto">
-                           
+
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
@@ -62,8 +62,8 @@
                                             class="dropdown-item" href="#"><i
                                                 class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a
                                             class="dropdown-item" href="#"><i
-                                                class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;   Settings</a><a
-                                            class="dropdown-item" href="#"><i
+                                                class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;
+                                            Settings</a><a class="dropdown-item" href="#"><i
                                                 class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity
                                             log</a>
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i
@@ -74,52 +74,89 @@
                         </ul>
                     </div>
                 </nav>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-7 col-xl-8">
-                                        <div class="card shadow mb-4">
-                                            <div class="card-header d-flex justify-content-between align-items-center">
-                                                
-                                                <h6 class="text-primary fw-bold m-0">Bloodsugar Overview</h6>
-                                                <div class="dropdown no-arrow"><button
-                                                        class="btn btn-link btn-sm dropdown-toggle"
-                                                        aria-expanded="false" data-bs-toggle="dropdown" type="button"><i
-                                                            class="fas fa-ellipsis-v text-gray-400"></i></button>
-                                        
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <div class="chart-area"><canvas
-                                                        data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;0&quot{{#each data}},&quot;{{this.date}}&quot;{{/each}}],&quot;datasets&quot;:[{&quot;label&quot;:&quot;blood sugar&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;80&quot;{{#each data}},&quot;{{this.bg}}&quot;{{/each}}],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
-                                                </div>
-                                                <div class="container p-2 mb-2"><h6 class="text-primary fw-bold m-0">Bloodsugar (Fasting)</h6></div>
-                                                <div class="chart-area"><canvas
-                                                        data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;0&quot{{#each data}},&quot;{{this.date}}&quot;{{/each}}],&quot;datasets&quot;:[{&quot;label&quot;:&quot;blood sugar&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;70&quot;{{#each data}},&quot;{{this.bgf}}&quot;{{/each}}],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+
+                                    <h6 class="text-primary fw-bold m-0">Bloodsugar Overview</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle"
+                                            aria-expanded="false" data-bs-toggle="dropdown" type="button"><i
+                                                class="fas fa-ellipsis-v text-gray-400"></i></button>
+
                                     </div>
-                                    
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area"><canvas
+                                            data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;0&quot{{#each data}},&quot;{{this.date}}&quot;{{/each}}],&quot;datasets&quot;:[{&quot;label&quot;:&quot;blood sugar&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;80&quot;{{#each data}},&quot;{{this.bg}}&quot;{{/each}}],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
+                                    </div>
+                                    <div class="container p-2 mb-2">
+                                        <h6 class="text-primary fw-bold m-0">Bloodsugar (Fasting)</h6>
+                                    </div>
+                                    <div class="chart-area"><canvas
+                                            data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;0&quot{{#each data}},&quot;{{this.date}}&quot;{{/each}}],&quot;datasets&quot;:[{&quot;label&quot;:&quot;blood sugar&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;70&quot;{{#each data}},&quot;{{this.bgf}}&quot;{{/each}}],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}]}}}"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i
-                            class="fas fa-angle-up"></i></a>
-                </div>
-                <footer class="bg-white sticky-footer">
-                    <div class="container my-auto">
-                        <div class="text-center my-auto copyright"><span>Copyright © HexPeak 2022</span></div>
-                    </div>
-                </footer>
-            </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-        </div>
 
-        <script src="/login/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/login/assets/js/theme.js"></script>
-        <script src="/login/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/login/assets/js/chart.min.js"></script>
-        <script src="/login/assets/js/bs-init.js"></script>
-        <script src="/login/assets/js/theme1.js"></script>
+                    </div>
+                    <div class="card-body">
+                        {{#each data1}}
+                        {{#lt this.bg 80}}
+                        <div>
+                            <ul>
+                                <li>You have indicated that your <span style="color: brown;font-weight: bold;">  Blood Glucose Level is {{this.bg}} | {{this.bgf}}(f) mg / dl.</span></li>
+                                <li>You have a lower level of blood sugar.</li>
+                                <li>Please repeat the test and if it is still low consult your doctor immediately.</li>
+                                <li>Avoid falling unconscious by consuming 15-20 grams of sugar or carbohydrate.</li>
+                            </ul>
+                        </div>
+                        {{/lt}}
+                        {{#gt this.bg 80}}
+                        {{#lt this.bg 140}}
+                        <div>
+                            <ul>
+                                <li>You have indicated that your<span style="color: brown;font-weight: bold;">  Blood Glucose Level is {{this.bg}} | {{this.bgf}}(f) mg / dl.</span></li>
+                                <li>Though your blood glucose level is within normal limits, random blood glucose level
+                                    alone cannot be used to confirm that you do not have diabetes. Please check your
+                                    fasting blood glucose level for a confirmed diagnosis.</li>
+                            </ul>
+                        </div>
+
+                        {{/lt}}
+                        {{/gt}}
+                        {{#gt this.bg 140}}
+
+                        <div>
+                            <ul>
+                                <li>You have indicated that your<span style="color: brown;font-weight: bold;">  Blood Glucose Level is {{this.bg}} | {{this.bgf}}(f) mg / dl.</span></li>
+                                <li class="text-danger">You have indicated that your Random Blood Glucose Level is 145
+                                    mg / dl.</li>
+                                <li>If you did not take any food for an hour before the test then your level is above
+                                    normal and this mean you have Early Diabetes. However we suggest that you repeat the
+                                    test in the morning when you are fasting, as a single reading of Random Blood
+                                    Glucose Level cannot be used for the confirmation of diabetes .</li>
+                            </ul>
+                        </div>
+                        {{/gt}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+
+    <script src="/login/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/login/assets/js/theme.js"></script>
+    <script src="/login/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/login/assets/js/chart.min.js"></script>
+    <script src="/login/assets/js/bs-init.js"></script>
+    <script src="/login/assets/js/theme1.js"></script>
 
 </body>
 

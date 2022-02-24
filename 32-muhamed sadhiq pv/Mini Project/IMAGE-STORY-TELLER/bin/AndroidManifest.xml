@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.image_story_teller"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="26" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/bb"
+        android:label="@string/app_name"
+        android:logo="@drawable/bb"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.image_story_teller.LOGIN"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.SIGN_UP"
+            android:label="@string/title_activity_sign__up" >
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.USER_HOME"
+            android:label="@string/title_activity_user__home" >
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.SENDFEEDBACK"
+            android:label="@string/title_activity_sendfeedback" >
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.STORY_UPLOAD"
+            android:label="@string/title_activity_story__upload" >
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.Uploadresult"
+            android:label="@string/title_activity_uploadresult" >
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.Custimg"
+            android:label="@string/title_activity_custimg" >
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.IPSET"
+            android:label="@string/title_activity_ipset" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.image_story_teller.Custom"
+            android:label="@string/title_activity_custom" >
+        </activity>
+    </application>
+
+</manifest>

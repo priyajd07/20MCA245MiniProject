@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IMAGE-STORY-TELLER</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_sign__up">SIGN_UP</string>
+    <string name="title_activity_user__home">USER_HOME</string>
+    <string name="title_activity_sendfeedback">SENDFEEDBACK</string>
+    <string name="title_activity_story__upload">STORY_UPLOAD</string>
+    <string name="title_activity_uploadresult">Uploadresult</string>
+    <string name="title_activity_custimg">Custimg</string>
+    <string name="title_activity_ipset">IMAGE-STORY-TELLER</string>
+    <string name="title_activity_custom">Custom</string>
+
+</resources>

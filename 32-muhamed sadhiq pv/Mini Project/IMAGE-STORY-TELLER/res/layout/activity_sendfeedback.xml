@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/b"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/comp" >
+
+        </TableRow>
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="250dp"
+            android:layout_height="130dp"
+            android:ems="10"
+            android:hint=" TYPE YOUR SUGGESIONS" />
+
+    </TableRow>
+
+
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+                android:background="#eb0075" 
+            
+            android:text="SEND" />
+
+    </TableRow>
+
+</LinearLayout>

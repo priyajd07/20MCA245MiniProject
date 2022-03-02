@@ -29,6 +29,14 @@ router.get('/login', function(req, res, next) {
 router.get('/',verifyLogin, function(req, res, next) {
   res.render("user/index");
 });
+router.get('/profile',verifyLogin,async function(req, res, next) {
+  let user=req.session.user
+  let data2=await userhelper.viewbp(user._id)
+  let data=await userhelper.viewsuagar(user._id)
+  let data1=await userhelper.viewcreatinin(user._id)
+  console.log(data.bg);
+  res.render("user/profile",{data,data1,data2,user});
+});
 router.get('/bp',verifyLogin, async function(req, res, next) {
   let user=req.session.user
   let data1=await userhelper.viewbp(user._id)
@@ -39,14 +47,7 @@ router.post('/bp',async (req, res) => {
     console.log(data)
   res.redirect('/')
 })
-router.get('/profile',verifyLogin,async function(req, res, next) {
-  let user=req.session.user
-  let data2=await userhelper.viewbp(user._id)
-  let data=await userhelper.viewsuagar(user._id)
-  let data1=await userhelper.viewcreatinin(user._id)
-  console.log(data.bg);
-  res.render("user/profile",{data,data1,data2,user});
-});
+
 router.get('/hmtlgyrslts/:id',verifyLogin,async function(req, res, next) {
   let data=await userhelper.viewhmtlgy(req.params.id)
   let user=req.session.user

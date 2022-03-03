@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/css/pro_detail_style.css">
+<style>
+
+#main {
+margin-top:90px;
+}
+
+#image {
+position:absolute;
+left:90px;
+top:165px;
+}
+
+h3 {
+font-family: 'Aclonica';
+font-size:22pt;
+}
+</style>
+
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+    <div id="list">
+  <table width="1" border="3" bordercolor="black" cellpadding="4" cellspacing="0" >
+    <tr>
+
+      <th width="30%"><font size="5">Name</font></th>
+      <th width="17%"><font size="5">Flipkart Price</font></th>
+      <th width="17%"><font size="5">Flipkart Rating</font></th>
+      <th width="17%"><font size="5">Amazon Price</font></th>
+      <th width="19%"><font size="5">Amazon Rating</font></th>
+      <th></th>
+    </tr>
+
+    {% for i in val %}
+
+    <tr>
+
+
+      <td width="30%">{{i[1]}}</td>
+      <td width="20%">{{i[5]}}</td>
+      <td width="10%">{{i[6]}}</td>
+      <td width="20%">{{i[2]}}</td>
+      <td width="10%">{{i[3]}}</td>
+      <td width="10%"><a class="button" href="{{url_for('view',id=i[0])}}" style="vertical-align:middle"><span>View</span></a> </td>
+
+
+    </tr>
+
+
+    {% endfor %}
+  </table>
+</div>
+</form>
+</body>
+</html>

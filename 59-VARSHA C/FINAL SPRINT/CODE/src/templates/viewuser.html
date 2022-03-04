@@ -1,0 +1,27 @@
+
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table id="customers">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Place </th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+
+
+    </tr>
+    <tr>
+      {% for i in val %}
+
+      <td>&nbsp;{{i[2]}} {{i[3]}}</td>
+      <td>{{i[4]}}</td>
+      <td>&nbsp;{{i[5]}}</td>
+      <td>&nbsp;{{i[6]}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+</form>
+</body>
+{%endblock%}

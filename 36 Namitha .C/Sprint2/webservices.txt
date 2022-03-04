@@ -1,0 +1,168 @@
+from flask import *
+app=Flask(__name__)
+from src.dbconnector import *
+app.secret_key="qwerty"
+import functools
+def login_required(func):
+    @functools.wraps(func)
+    def secure_function():
+        if "lid" not in session:
+            return render_template('login.html')
+        return func()
+ return secure_function
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
+@app.route('/')
+def log():
+    return render_template("login.html")
+@app.route('/login',methods=['post'])
+def login():
+    uname=request.form['textfield']
+    passwd=request.form['textfield2']
+    qry="SELECT * FROM `login` WHERE `username`=%s AND `password`=%s"
+    val=(uname,passwd)
+    res=selectone(qry,val)
+    if res is None:
+        return '''<script>alert('Invalid username or password');window.location='/'</script>'''
+    elif res[3]=='admin':
+        session['lid']=res[0]
+        return redirect('/admin')
+    else:
+        return '''<script>alert('Invalid username or password');window.location='/'</script>'''
+@app.route('/admin')
+
+def admin():
+    return render_template("adminhome.html")
+
+@app.route('/addhosp',methods=['post'])
+@login_required
+
+def addhosp():
+    return render_template("add_hospital.html")
+
+@app.route('/add_hospital',methods=['post'])
+@login_required
+def add_hospital():
+    hname=request.form['textfield']
+    place = request.form['textfield2']
+    post=request.form['textfield3']
+    pin=request.form['textfield4']
+    email=request.form['textfield5']
+    contact=request.form['textfield6']
+    latitude=request.form['textfield7']
+    longitude=request.form['textfield8']
+
+
+
+
+    qry="INSERT INTO `hospital` VALUES(NULL,%s,%s,%s,%s,%s,%s,%s,%s)"
+    val=(hname,place,post,pin,email,contact,latitude,longitude)
+    iud(qry,val)
+    return '''<script>alert('Registred');window.location='/manage_hospital'</script>'''
+
+@app.route('/delete_hospital')
+@login_required
+def delete_hospital():
+    id=request.args.get('id')
+    qry="DELETE FROM `hospital` WHERE `login_id`=%s"
+    val=str(id)
+    iud(qry,str(val))
+    qry1="DELETE FROM `login` WHERE `id`=%s"
+    val1=(str(id))
+    iud(qry1,val1)
+    return '''<script>alert('deleted');window.location='/manage_hospital'</script>'''
+
+
+@app.route('/edit_hospital')
+@login_required
+def edit_hospital():
+    id = request.args.get('id')
+    session['hid']=id
+    qry="SELECT * FROM `hospital` WHERE `hospital`.`login_id`=%s"
+    res=selectone(qry,str(id))
+    return render_template("edit_hospital.html",val=res)
+
+@app.route('/update_hospital',methods=['post'])
+@login_required
+def update_hospital():
+    hid=session['hid']
+    hname = request.form['textfield']
+    place = request.form['textfield2']
+    post = request.form['textfield3']
+    pin = request.form['textfield4']
+    email = request.form['textfield5']
+    contact = request.form['textfield6']
+    latitude = request.form['textfield7']
+    longitude = request.form['textfield8']
+
+    qry="UPDATE `hospital` SET `hospital_name`=%s,`place`=%s,`post`=%s,`pin`=%s,`email`=%s,`contact`=%s,`latitude`=%s,`longitude`=%s WHERE `login_id`=%s"
+    val=(hname,place,post,pin,email,contact,latitude,longitude,str(hid))
+    iud(qry,val)
+return '''<script>alert('updated');window.location='/manage_hospital'</script>'''
+@app.route('/add_tip',methods=['post'])
+@login_required
+def add_tip():
+    return render_template("add_tip.html")
+@app.route('/adding_tip',methods=['post'])
+@login_required
+def adding_tip():
+    sub=request.form['textfield']
+    tip=request.form['textarea']
+    qry="INSERT INTO `tip` VALUES(NULL,%s,%s)"
+    val=(sub,tip)
+    iud(qry,val)
+    return redirect("manage_tip")
+@app.route('/edit_tip')
+@login_required
+def edit_tip():
+    id=request.args.get('id')
+    session['tid']=id
+    qry="select * from tip where tid=%s"
+    res=selectone(qry,session['tid'])
+ return render_template("edit_tip.html",val=res)
+@app.route('/editing_tip',methods=['post'])
+@login_required
+def editing_tip():
+    sub=request.form['textfield']
+    tip=request.form['textarea']
+    qry="update tip set subject=%s,tip=%s where tid=%s"
+    val=(sub,tip,session['tid'])
+    iud(qry,val)
+    return redirect("manage_tip")
+@app.route('/deletetip')
+@login_required
+def deletetip():
+    id=request.args.get('id')
+    qry="delete from tip where tid=%s"
+    iud(qry,id)
+    return redirect("manage_tip")
+@app.route('/manage_hospital')
+@login_required
+def manage_hospital():
+    qry="SELECT * FROM `hospital`"
+    res=select(qry)
+    return render_template("manage_hospital.html",val=res)
+
+
+@app.route('/manage_tip')
+@login_required
+def manage_tip():
+    qry="select * from tip"
+    res=select(qry)
+    return render_template("manage_tip.html",val=res)
+
+@app.route('/view_feedback')
+@login_required
+def view_feedback():
+    qry="SELECT `user`.`fname`,`lname`,`feedback`.* FROM `feedback` JOIN `user` ON `user`.`login_id`=`feedback`.`userid`"
+    res=select(qry)
+    return render_template("view_feedback.html",val=res)
+@app.route('/view_user')
+@login_required
+def view_user():
+    qry="SELECT * FROM `user`"
+    res=select(qry)
+return render_template("view_user.html",val=res)
+app.run(debug=True)

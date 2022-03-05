@@ -1,0 +1,46 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<h3 align="center"><b>View Advertisement</b></h3>
+<form action="/admin_view_advertisement_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+
+  <table class="pull-right">
+    <tr>
+        <td >Date 1</td><td><input type="date" name="d1" required class="form-control "/>&nbsp;</td>
+        <td >Date 2</td><td> <input type="date" name="d2" required class="form-control "/>&nbsp;</td>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-success" />
+      </label></td>
+    </tr>
+
+  </table>
+
+  <p>&nbsp;</p>
+<table class="table table-bordered">
+
+    <tr>
+      <th>Sno</th>
+      <th>Photo</th>
+        <th>Date</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+        <th></th>
+    </tr>
+      
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp; <img src="{{ i["photo"] }}" width="150" height="150" alt=""/></td>
+        <td>{{ i["date"] }}</td>
+      <td><a href="/admin_edit_advertisement/{{ i["advertisementid"] }}" class="btn btn-primary">Edit</a></td>
+
+        <td><a href="/admin_delete_advertisement/{{ i['advertisementid'] }}" class="btn btn-danger"> Delete</a></td>
+{#        <td><a href="">Locate</a> </td>#}
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+
+{% endblock %}

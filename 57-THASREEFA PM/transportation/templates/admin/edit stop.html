@@ -1,0 +1,54 @@
+{% extends 'adindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/admin_edit_stop_post">
+
+<table class="table">
+  <tr>
+    <th>stop name </th>
+    <td>
+                        <input type="hidden" value="{{ data["stopid"] }}" name="id"/>
+          <input type="text" name="textfield" value="{{ data["stopname"] }}" required class="form-control " />
+
+      </div></td>
+  </tr>
+  <tr>
+    <th>route</th>
+    <td>
+         <select name="select" class="form-control">
+          <option value="{{ data["routeid"] }}">{{ data["routename"] }}</option>
+         <option value="0">--select--</option>
+                {% for i in route %}
+                <option value="{{ i["routeid"] }}">{{ i["routename"] }}</option>
+                {% endfor %}
+         </select></td>
+  </tr>
+  <tr>
+    <th>latitude</th>
+    <td>
+          <input type="text" name="textfield3" value="{{ data["latitude"] }}"  required class="form-control"/>
+      </div></td>
+  </tr>
+    <tr>
+    <th>longitude</th>
+    <td>
+          <input type="text" name="textfield4" value="{{ data["longitude"] }}" required class="form-control " />
+      </div></td>
+  </tr>
+    <tr>
+    <th>place</th>
+    <td>
+          <input type="text" name="textfield5" value="{{ data["place"] }}" required class="form-control " />
+      </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <div align="center">
+          <input type="submit" name="Submit" value="Edit"  class="btn btn-success"/>
+      </div></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<h3 align="center"><b>New Emergency</b></h3>
+<form id="form1" name="form1" method="post" action="/admin_add_emergency_post">
+
+  <table class="table">
+    <tr>
+        <td>Emergency Message</td>
+         <td><textarea name="textarea" required class="form-control"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+          <input type="submit" name="Submit" value="Add" class="btn btn-success" />
+          </div>
+   </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+
+</body>
+{% endblock %}

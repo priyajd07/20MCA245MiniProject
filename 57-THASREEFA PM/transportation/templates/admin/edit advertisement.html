@@ -1,0 +1,39 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/admin_edit_advertisement_post" enctype="multipart/form-data">
+
+<table class="table">
+
+  <tr>
+    <th>Advertisement</th>
+ <input type="hidden" value="{{ data["advertisementid"] }}" name="id"/>
+    <th>photo
+      <input type="file" name="file"  class="form-control " />
+    </th>
+  </tr>
+     <tr>
+      <th>Latitude</th>
+      <td>
+          <input type="text" name="lat" value="{{ data["latitude"] }}"  required class="form-control "/>
+      </td>
+    </tr>
+       <tr>
+      <th>Longitude</th>
+      <td>
+          <input type="text" name="lon" value="{{ data["longitude"] }}"  required class="form-control "/>
+      </td>
+    </tr>
+  <tr>
+    <td colspan="2">
+        <div align="center">
+          <input type="submit" name="Submit" value="Edit" class="btn btn-success" />
+        </div>
+      </td>
+  </tr>
+
+</table>
+</form>
+</body>
+
+{% endblock %}

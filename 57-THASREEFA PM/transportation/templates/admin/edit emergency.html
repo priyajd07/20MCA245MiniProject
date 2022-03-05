@@ -1,0 +1,24 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/admin_edit_emergency_post">
+
+  <table class="table">
+    <tr>
+        <td>Emergency Message</td><input type="hidden"name="emergency_id" value="{{ data["emergency_id"] }}" />
+          <td><textarea value="" name="message">{{ data["message"] }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Edit" class="btn btn-success"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+
+</body>
+{% endblock %}

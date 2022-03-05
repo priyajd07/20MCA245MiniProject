@@ -1,0 +1,54 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<h3 align="center"><b>New Advertisement</b></h3>
+<form action="/editbusallocationpost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+
+  <table class="table table-hover">
+
+
+
+       <tr>
+      <th>Latitude</th>
+      <td><label>
+          <input type="text" name="lat" required class="form-control " value="{{ data['latitude'] }}"/>
+      </label></td>
+    </tr>
+       <tr>
+      <th>Longitude</th>
+      <td><label>
+          <input type="text" name="lon" required class="form-control " value="{{ data['longitude'] }}"/>
+      </label></td>
+    </tr>
+
+
+       <tr>
+      <th>Place</th>
+      <td><label>
+          <input type="text" name="plaa" required class="form-control " value="{{ data['place'] }}"/>
+      </label></td>
+    </tr>
+  <tr>
+      <th>Date</th>
+      <td><label>
+          <input type="text" name="date" required class="form-control " value="{{ data['Date'] }}"/>
+      </label></td>
+    </tr>
+       <tr>
+      <th>Time</th>
+      <td><label>
+          <input type="text" name="ty" required class="form-control " value="{{ data['Time'] }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="UPDATE" class=" btn btn-success " />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

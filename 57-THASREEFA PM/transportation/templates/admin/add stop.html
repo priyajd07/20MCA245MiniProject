@@ -1,0 +1,55 @@
+{% extends 'adindex.html' %}
+{% block body %}
+
+<body>
+<h3 align="center"><b>New Stop</b></h3>
+<form id="form1" name="form1" method="post" action="/admin_add_stop_post">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table class="table table-hover">
+    <tr>
+      <th width="166">Stopname </th>
+      <td width="220">
+            <input type="text" name="textfield" required class="form-control " />
+        </div></td>
+    </tr>
+    <tr>
+      <th>route</th>
+      <td><label>
+            <select name="select" class="form-control">
+                {% for i in route %}
+                <option value="{{ i["routeid"] }}">{{ i["routename"] }}</option>
+                {% endfor %}
+            </select>
+        </div></td>
+    </tr>
+    <tr>
+      <th>Latitude</th>
+      <td>
+          <input type="text" name="lat" required class="form-control "/>
+      </td>
+    </tr>
+       <tr>
+      <th>Longitude</th>
+      <td>
+          <input type="text" name="lon" required class="form-control "/>
+      </td>
+    </tr>
+   <tr>
+      <th>Place</th>
+      <td>
+          <input type="text" name="plc" required class="form-control "/>
+     </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <div align="center">
+            <input type="submit" name="Submit" value="Add" class="btn btn-success" />
+        </div></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

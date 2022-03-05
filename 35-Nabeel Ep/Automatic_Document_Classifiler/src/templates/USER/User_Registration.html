@@ -1,0 +1,180 @@
+{% include "publicheader.html" %}
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+
+
+            <style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f3f3f3;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #37517e;
+  color: white;
+}
+</style>
+
+
+            <br> <br>
+            <br> <br>
+            <br>
+<body>
+<form action="/User_Registeration_Action" method="post" enctype="multipart/form-data">
+
+  <div align="center">
+  <table width="200" class="table" style="color: #fff;width: 500px;">
+      <tr>
+        <td colspan="5"><center>
+          <p><b><u>USER REGISTERATION</U></B></p>
+          <p>&nbsp;</p>
+        </center></td>
+      </tr>
+      <tr>
+        <td width="126">NAME</td>
+        <td colspan="2"><label for="textfield"></label>
+        <input type="text" name="name" id="name" required /></td>
+       
+      </tr>
+      <tr>
+        <td>GENDER</td>
+        <td colspan="4"><br><input type="radio" name="gender" id="gender" value="MALE" checked />
+        MALE<br>
+            <input type="radio" name="gender" id="gender" value="FEMALE" required />
+            FEMALE<br />
+           
+        </td>
+      </tr>
+	  
+	     <tr></tr>
+	    <tr></tr>
+		 <tr></tr>
+		  <tr></tr>
+		   <tr></tr>
+     
+  
+      <tr>
+        <td>ADDRESS</td>
+        <td colspan="4"><label for="textfield3"></label>
+          <label for="textarea"></label>
+        <textarea name="address" id="address" cols="45" rows="5" required></textarea></td>
+      </tr>
+	     <tr></tr>
+	    <tr></tr>
+		 <tr></tr>
+		  <tr></tr>
+		   <tr></tr>
+     
+      <tr>
+        
+        <td width="69">DISTRICT</td>
+        <td><label for="select"></label>
+          <select name="district" id="district" required >
+          <OPTION value="-1">---SELECT---</OPTION>
+            <OPTION>KANNUR</OPTION>
+            <OPTION>KASARGOD</OPTION>
+            <OPTION>KOZHIKODE</OPTION>
+            <OPTION>MALAPPURAM</OPTION>
+            <OPTION>WAYANAD</OPTION>
+            <OPTION>PALAKKAD</OPTION>
+            <OPTION>THRISSUR</OPTION>
+           
+            
+            
+          </select>
+		 
+		  </td></tr>
+       
+	      <tr></tr>
+	    <tr></tr>
+		 <tr></tr>
+		  <tr></tr>
+		   <tr></tr>
+
+      <tr>
+        <td>PHONE</td>
+        <td colspan="4"><label for="textfield9"></label>
+        <input type="number" name="number" id="number" pattern="{10} " title="Must be 10 Digits" required />
+	
+        </td>
+      </tr>
+	     <tr></tr>
+	    <tr></tr>
+		 <tr></tr>
+		  <tr></tr>
+		   <tr></tr>
+     
+
+  <!--     <tr>
+        <td>FILES</td>
+        <td colspan="4"><label for="textfield9"></label>
+        <input type="file" name="fileupload" id="fileupload" />
+        </td>
+      </tr>
+	  <tr></tr>    -->
+	         
+      <tr>
+        <td>USERNAME</td>
+        <td colspan="4"><label for="textfield8"></label>
+        <input type="text" placeholder="enter your email id" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  required title="enter email id" /></td>
+      </tr>
+	  
+	   <tr></tr>
+	      <tr></tr>
+	    <tr></tr>
+		 <tr></tr>
+		  <tr></tr>
+		   <tr></tr>
+	         
+      <tr>
+        <td>PASSWORD</td>
+        <td colspan="4"><label for="textfield8"></label>
+        <input type="password" name="passwrd" id="passwrd"   pattern=".{8,}" title="Eight or more characters" required /></td>
+      </tr>
+
+        	   <tr></tr>
+	      <tr></tr>
+	    <tr></tr>
+		 <tr></tr>
+		  <tr></tr>
+		   <tr></tr>
+
+      <tr>
+        <td>CONFIRM PASSWORD</td>
+        <td colspan="4"><label for="textfield8"></label>
+        <input type="password" name="cpasswrd" id="cpasswrd" required /></td>
+      </tr>
+	  
+	   <tr></tr>
+	    <tr></tr>
+		 <tr></tr>
+		  <tr></tr>
+		   <tr></tr>
+		    <tr></tr>
+			 <tr></tr>
+      <tr>
+        <td colspan="5">
+        <center><input type="submit" name="submit" id="submit" value="REGISTER"  />
+		   <td colspan="0"><center>
+	    </center></td>
+      </tr>
+    </table>
+  </div>
+</form>
+</body>
+                    {% include 'footer.html' %}

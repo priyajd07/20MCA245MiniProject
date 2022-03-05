@@ -1,0 +1,75 @@
+{% include 'adminheader.html' %}
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-6 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+<br>
+            <br>
+<br>
+<br>
+<br>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f3f3f3;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #37517e;
+  color: white;
+}
+</style>
+
+<body>
+<form method="post" action="Add_dataset_action">
+<h3 align="center"><u>ADD DATASET</u></h3><br>
+<table width="499" height="291" border="0" align="center"id="customers">
+ 
+ 
+ 
+   <tr>
+    <th height="100" scope="row">TYPE</th>
+    <td colspan="2"><label for="message"></label>
+    <input type="text" name="type" required> </td>
+  </tr>
+  
+  
+  
+  <tr>
+    <th height="100" scope="row">KEYWORDS</th>
+    <td colspan="2"><label for="message"></label>
+      <textarea name="keyword" id="keyword" cols="45" rows="5" required></textarea></td>
+  </tr>
+  <tr>
+    <th height="23" scope="row">&nbsp;</th>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <th height="53" scope="row">&nbsp;</th>
+    <td width="115"><input type="submit" name="send" id="send" value="ADD DATASET" /></td>
+
+  </tr>
+</table>
+</form>
+</body>
+</div>
+    </div>
+    </div>
+
+</section>
+
+{% include 'footer.html' %}

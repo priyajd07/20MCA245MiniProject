@@ -1,0 +1,10 @@
+The use of the Web has increased the creation of digital information in an accelerated way and
+about multiple subjects. Text classification is widely used to filter emails, classify Web pages, and organize
+results retrieved by Web browsers. In this paper, we propose to raise the problem of automatic classification
+of scientific texts as an optimization problem, which will allow obtaining groups from a data set. The use
+of evolutionary algorithms to solve classification problems has been a recurrent approach. However, there
+are a few approaches in which classification problems are solved, where the data attributes to be classified
+are text-type. In this way, it is proposed to use the association for computing machinery taxonomy to obtain
+the similarity between documents, where each document consists of a set of keywords. According to the
+results obtained, the algorithm is competitive, which indicates that the proposal of a knowledge-based genetic
+algorithm is a viable approach to solve the classification problem.

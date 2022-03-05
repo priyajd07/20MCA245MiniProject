@@ -1,0 +1,55 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+  <div class="table-responsive">
+<form id="form1" name="form1" method="post" action="/adm_view_doctor_post">
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <th width="115" scope="col">Doctor Name </th>
+      <th width="122" scope="col"><label>
+        <input type="text" name="textfield" required class="form-control"/>
+      </label></th>
+      <th width="116" scope="col"><label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-primary" />
+      </label></th>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th  scope="col">Contact</th>
+      <th scope="col">Address</th>
+      <th>Qualification</th>
+      <th>Experience</th>
+      <th>Achievement</th>
+      <th>Work Place</th>
+   <th width="48" scope="col">&nbsp;</th>
+    <th width="47" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <th height="110" scope="row">{{ loop.index }}&nbsp;</th>
+      <td>&nbsp;{{ i["name"] }}</td>
+      <td>&nbsp;<img src="{{ i["image"] }}" width="150px" height="150px"/> </td>
+      <td>&nbsp;{{ i["email"] }}<br>{{ i["phone"] }}</td>
+      <td>{{ i["place"] }}<br>
+          {{ i["post"] }}<br>
+          {{ i["pin"] }}&nbsp;</td>
+          <td>&nbsp;{{ i["qualification"] }}</td>
+          <td>&nbsp;{{ i["experience"] }}</td>
+          <td>&nbsp;{{ i["acheivement"] }}</td>
+          <td>&nbsp;{{ i["previous_work"] }}</td>
+          <td><a href="/admin_edit_doctor/{{i["lid"]}}" class="btn btn-primary">Edit</a></td>
+      <td><a href="/admin_delete_doctor/{{i["lid"]}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+<a href="#"></a>
+</body>
+{% endblock %}

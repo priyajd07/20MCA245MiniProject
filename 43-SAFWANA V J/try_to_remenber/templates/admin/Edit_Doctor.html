@@ -1,0 +1,115 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+  <div class="table-responsive">
+<form action="/doc_edit_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <td colspan="2" align="center" >
+        <img src="{{data['image'] }}" width="200px" height="200px" />
+      </td>
+    </tr>
+    <input type="hidden" name="idd"  value="{{data['id'] }}" required/>
+
+    <tr>
+      <td height="26">Name</td>
+      <td >
+        <input type="text" name="textfield" class="form-control" value="{{data['name'] }}" required/>
+       
+        </td>
+    </tr>
+    {% if data['gender']=="male"%}
+    <tr>
+      <td>Gender</td>
+      <td ><label>
+       
+        <input name="radiobutton" type="radio" value="male" checked/>
+     <b>Male</b>   
+      </label><br>
+      <label>
+        <input name="radiobutton" type="radio" value="female" />
+        <b>Female</b>   </label><br>
+<label>
+        <input name="radiobutton" type="radio" value="others" />
+        <b>Others</b> </label></td>
+    </tr>
+    {% elif data['gender']=="female"%}
+    <tr>
+      <td>Gender</td>
+      <td ><label>
+       
+        <input name="radiobutton" type="radio" value="male" />
+     <b>Male</b>   
+      </label><br>
+      <label>
+        <input name="radiobutton" type="radio" value="female" checked/>
+        <b>Female</b>   </label><br>
+<label>
+        <input name="radiobutton" type="radio" value="others" />
+        <b>Others</b> </label></td>
+    </tr>
+    {% else%}
+    <tr>
+      <td>Gender</td>
+      <td ><label>
+       
+        <input name="radiobutton" type="radio" value="male" />
+     <b>Male</b>   
+      </label><br>
+      <label>
+        <input name="radiobutton" type="radio" value="female" />
+        <b>Female</b>   </label><br>
+<label>
+        <input name="radiobutton" type="radio" value="others"checked />
+        <b>Others</b> </label></td>
+    </tr>
+    {% endif %}
+    <tr>
+      <td>Place</td>
+      <td>
+        <input type="text" name="textfield3" class="form-control" value="{{data['place'] }}" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+        <input type="number" name="textfield4" class="form-control" value="{{data['pin'] }}" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td >
+        <input type="text" name="textfield2" class="form-control" value="{{data['post'] }}" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td >
+        <input type="number" name="textfield5" class="form-control" value="{{data['phone'] }}" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td >
+        <input type="file" name="file" class="form-control" />
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td >
+        <input type="email" name="textfield6" class="form-control" value="{{data['email'] }}"  required/>
+   </td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" name="Submit" value="Update" class="btn btn-primary" />
+     </td>
+    </tr>
+  </table>
+
+</form>
+</div>
+</body>
+{% endblock %}

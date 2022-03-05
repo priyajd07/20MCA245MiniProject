@@ -1,0 +1,42 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+
+<body>
+<table class="table">
+  <tr>
+
+    <td width="187" colspan="2" align="center"><img src="{{ d["image"] }}"  width="200px" height="200px"/></td>
+  </tr>
+  <tr>
+
+    <td>Name</td>
+       <td scope="row">&nbsp;{{ d["name"] }}</td>
+  </tr>
+  <tr>
+
+    <td>Gender</td>
+      <td>{{ d["gender"] }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Address</th>
+    <td>Place</td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>Pin      : {{ d["place"] }}</td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>Post      :{{ d["post"] }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Contact</th>
+    <td>Email`          :{{ d["email"] }}</td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td>Phone    :{{ d["phone"] }}</td>
+  </tr>
+</table>
+</body>
+{% endblock %}

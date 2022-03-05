@@ -1,0 +1,42 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/doc_view_send_notification_post">
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <th  scope="col">Date From </th>
+      <th  scope="col"><label>
+        <input type="date" name="textfield" class="form-control"/>
+      </label></th>
+      <th  scope="col">To</th>
+      <th  scope="col"><label>
+        <input type="date" name="textfield2" class="form-control"/>
+      </label></th>
+      <th width="157" scope="col"><label>
+        <input type="submit" name="Submit" value="View" class="btn btn-primary"/>
+      </label></th>
+    </tr>
+  </table>
+  <table class="table">
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Caretaker info </th>
+      <th  scope="col">Notification</th>
+      <th scope="col">Date</th>
+      <th  scope="col">&nbsp;</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <th scope="row">{{ loop.index}}</th>
+      <td>{{ i["name"]}}</td>
+      <td>{{ i["description"]}}</td>
+      <td>{{i["date"]}}</td>
+      <td><a href="/delete_notification/{{ i["id"]}}" class="btn btn-danger" ></a>Delete</a></p></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</form>
+</body>
+{% endblock %}

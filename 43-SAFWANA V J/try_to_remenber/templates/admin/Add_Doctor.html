@@ -1,0 +1,100 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+  <div class="table-responsive">
+<form action="/doc_add_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <td height="26">Name</td>
+      <td >
+        <input type="text" name="textfield" class="form-control" required/>
+       
+        </td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td ><label>
+       
+        <input name="radiobutton" type="radio" value="male" />
+     <b>Male</b>   
+      </label><br>
+      <label>
+        <input name="radiobutton" type="radio" value="female" />
+        <b>Female</b>   </label><br>
+<label>
+        <input name="radiobutton" type="radio" value="others" />
+        <b>Others</b> </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+        <input type="text" name="textfield3" class="form-control" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td>
+        <input type="number" name="textfield4" class="form-control" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td >
+        <input type="text" name="textfield2" class="form-control" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td >
+        <input type="number" name="textfield5" class="form-control" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Qualification</td>
+      <td >
+        <input type="text" name="textfield7" class="form-control" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Experience</td>
+      <td >
+        <input type="text" name="textfield8" class="form-control" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Previous Work</td>
+      <td >
+        <input type="text" name="textfield9" class="form-control" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Achievement</td>
+      <td >
+        <input type="text" name="textfield10" class="form-control" required/>
+     </td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td >
+        <input type="file" name="file" class="form-control" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td >
+        <input type="email" name="textfield6" class="form-control" required/>
+   </td>
+    </tr>
+
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" name="Submit" value="Add" class="btn btn-primary" />
+     </td>
+    </tr>
+  </table>
+
+</form>
+</div>
+</body>
+{% endblock %}

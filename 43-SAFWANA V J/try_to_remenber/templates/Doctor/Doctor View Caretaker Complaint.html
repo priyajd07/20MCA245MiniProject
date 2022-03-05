@@ -1,0 +1,52 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<body>
+  <form id="form1" name="form1" method="post" action="/doc_view_caretaker_complaint_post">
+    <p>&nbsp;</p>
+    <table class="table">
+      <tr>
+        <th width="86" scope="col">Date From </th>
+        <th width="150" scope="col"><label>
+          <input type="date" name="textfield" class="form-control" />
+        </label></th>
+        <th width="27" scope="col">To</th>
+        <th width="144" scope="col"><label>
+        <input type="date" name="textfield2" class="form-control"/>
+        </label></th>
+        <th width="90" scope="col"><label>
+          <input type="submit" name="Submit" value="View" class="btn btn-primary"/>
+        </label></th>
+      </tr>
+    </table>
+    <br>
+    <table class="table">
+      <tr>
+        <th  scope="col">Sno</th>
+        <th  scope="col">Doctor Info </th>
+        <td>Caretaker Info</td>
+        <th scope="col">Compaint</th>
+  
+        <th scope="col">Date</th>
+  
+  
+      </tr>
+      {% for i in data %}
+      <tr>
+        <th>{{ loop.index }}</th>
+        <td>{{ i['name'] }}</td>
+        <td>{{ i['email'] }}</td>
+        <td>{{ i['complaint'] }}</td>
+  
+        <td>{{ i['date'] }}</td>
+        {% if i["status"]=="pending" %}
+        <td><a href="/send_complaint_reply_doc/{{ i['complaint_id'] }}" class="btn btn-primary">Reply</a></td>
+        {% else %}
+          <td>{{ i['reply'] }}"</td>
+          {% endif %}
+      </tr>
+      {% endfor %}
+    </table>
+  
+</form>
+</body>
+{% endblock %}

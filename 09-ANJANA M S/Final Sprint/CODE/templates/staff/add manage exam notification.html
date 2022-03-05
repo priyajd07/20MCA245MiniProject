@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<form action="upload_qpaper" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1"  class="table table-hover">
+
+    <tr>
+      <td><b>Subject</b></td>
+      <td><label>
+        <select name="select3">
+             {% for i in vall %}
+          <option value="{{i[0]}}">{{i[3]}}</option>
+          {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Date</b></td>
+      <td><label>
+        <input type="date" name="textfield" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Time</b></td>
+      <td><label>
+        <input type="time" name="textfield2" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Question Paper</b> </td>
+      <td><label>
+        <input type="file" name="file" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td><b>Duration</b></td>
+      <td><label>
+        <select name="select4">
+          <option value="1">1 hr</option>
+              <option value="2">1hr 30min </option>
+              <option value="3">2 hr</option>
+              <option value="4">2hr 30min</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        
+        <div align="right">
+          <input type="submit" name="Submit" value="Schedule exam" class="btn btn-info"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+  <div align="left"></div>
+</form>
+{% endblock %}
+
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,55 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/view_student#about">
+  <table width="302" border="1" class="table table-hover">
+    <tr>
+      <td colspan="6"><b>Course</b>
+        <label>
+        <select name="select">
+          {% for i in vall %}
+          <option value="{{i[0]}}">{{i[1]}}</option>
+          {% endfor %}
+        </select>
+      semester
+      <select name="select2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+    <tr class="success">
+      <td width="37"><b>Name</b></td>
+      <td width="45"><b>Gender</b></td>
+      <td width="33"><b>DOB</b></td>
+      <td width="51"><b>Address</b></td>
+      <td width="38"><b>Phone</b></td>
+      <td width="58"><b>Email</b></td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>&nbsp;{{i[3]}} {{i[4]}} {{i[5]}} </td>
+      <td>{{i[7]}}</td>
+      <td>&nbsp;{{i[6]}}</td>
+      <td>&nbsp;{{i[9]}} {{i[10]}} {{i[11]}}</td>
+      <td>&nbsp;{{i[12]}}</td>
+      <td>&nbsp;{{i[13]}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

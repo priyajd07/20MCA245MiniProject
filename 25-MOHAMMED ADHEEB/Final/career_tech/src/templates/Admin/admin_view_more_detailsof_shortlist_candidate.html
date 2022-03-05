@@ -1,0 +1,99 @@
+{% extends 'indexadmin.html'%}
+{% block body %}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <div align="center">
+    <table width="200" border="1" id="customers">
+      <tr>
+        <th scope="row">Photo</th>
+        <td><img src="static/pic/{{val[7]}}" height="200" width="200"></td>
+      </tr>
+      <tr>
+        <th scope="row">Dob</th>
+        <td>{{val[8]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Gender</th>
+        <td>{{val[10]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Objective</th>
+        <td>{{val[9]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">House</th>
+        <td>{{val[11]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Place</th>
+        <td>{{val[12]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Post</th>
+        <td>{{val[13]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Pin</th>
+        <td>{{val[14]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Father</th>
+        <td>{{val[15]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Mother</th>
+        <td>{{val[16]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Guardian</th>
+        <td>{{val[17]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Relatin To Guardian </th>
+        <td>{{val[18]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Emal</th>
+        <td>{{val[2]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Contact 1</th>
+        <td>{{val[3]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Contact 2 </th>
+        <td>{{val[4]}}</td>
+      </tr>
+      </table>
+  </div>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

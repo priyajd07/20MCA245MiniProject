@@ -1,0 +1,71 @@
+{% extends 'index.html'%}
+{% block body %}
+
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #18c9bd;
+  color: white;
+}
+</style>
+</head>
+</head>
+
+<body>
+
+<form action="login" method="post" name="form1" id="form1">
+  <div align="center">
+    <table width="581" border="0" id="customers">
+      <tr>
+        <th width="277"><div align="left" class="style1">Username</div></th>
+        <td width="214"><div align="left" class="style1"><strong>
+            <input name="textfield" type="text"required/>
+        </strong></div></td>
+      </tr>
+      <tr>
+        <th height="69"><div align="left" class="style1">Password</div></th>
+        <td><div align="left" class="style1"><strong>
+            <input name="textfield2" type="password"required/>
+        </strong></div></td>
+      </tr>
+      <tr>
+        <td><div align="left"></div></td>
+        <td><div align="left">
+            <div align="left">
+              <span class="style7">
+              <input name="Submit" type="submit" class="style1" value="Login" />
+              </span></div>
+        </div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><div align="left" class="style1">
+          <p>&nbsp;</p>
+          <p><a href="/reg#addv" class="style5">Company Registration</a></p>
+        </div></td>
+      </tr>
+      <tr>
+        <td colspan="2"><div align="left" class="style1"><a href="/forgt_password" >Forgot Password ?</a> </div></td>
+      </tr>
+    </table>
+  </div>
+</form>
+</body>
+{%endblock %}

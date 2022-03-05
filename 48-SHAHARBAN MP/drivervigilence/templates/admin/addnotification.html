@@ -1,0 +1,63 @@
+{% extends "admin/admin-home.html" %}
+{% block body %}
+
+   <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Notification</h4><br>
+
+                    <form class="forms-sample" name="form1" method="post" action="/adm_addnotification_post">
+
+
+
+
+
+                      <div class="form-group">
+                        <label for="exampleInputName1">Subject</label>
+                        <input type="text" class="form-control"  name="textfield" placeholder="Subject" required>
+                      </div>
+
+                           <div class="form-group">
+                        <label for="exampleTextarea1">Content</label>
+                        <textarea class="form-control" name="textarea2"id="exampleTextarea1" rows="4" required></textarea>
+                      </div>
+
+
+
+
+
+
+                      <button type="submit"  class="btn btn-success">Add</button>
+                      <button type="reset" class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

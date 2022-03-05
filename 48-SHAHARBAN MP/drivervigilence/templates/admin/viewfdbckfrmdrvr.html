@@ -1,0 +1,82 @@
+{% extends "admin/admin-home.html" %}
+{% block body %}
+
+   <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Feedback Table</h4><br>
+
+
+                  <form id="form1" name="form1" method="post" action="/adm_viewfdbckfrmdrvr_post">
+  <table class="pull-right">
+    <tr>
+     <tr>
+      <th>From</th>
+        <td><input type="date" name="textfield" class="form-control" placeholder="name" /></td>
+        <th>To</th>
+        <td><input type="date" name="textfield2" class="form-control" placeholder="name"></td>
+        <td><input type="submit" name="Submit" value="Search" class="btn btn-outline-success" /></td>
+    </tr>
+  </table>
+    <br></form>
+
+
+
+
+
+
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                            <th>#</th>
+      <th>Date</th>
+      <th>Driver_info</th>
+      <th>Feedback</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                             {% for i in data %}
+    <tr>
+       <td class="py-1">{{ loop.index}}</td>
+
+
+           <td>&nbsp;{{ i['date'] }}</td>
+           <td> {{ i['name'] }}<br>{{ i['place'] }}<br>{{ i['contact_no'] }}<br>{{ i['email'] }}</td>
+           <td>{{ i['feedback'] }}&nbsp;</td>
+
+
+
+
+
+    </tr>
+{% endfor %}
+
+
+
+
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

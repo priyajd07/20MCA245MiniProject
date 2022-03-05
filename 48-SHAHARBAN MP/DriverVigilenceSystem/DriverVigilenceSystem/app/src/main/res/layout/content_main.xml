@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/app_bar_main">
+
+    <ImageView android:id="@+id/imageView" android:background="@mipmap/ic_launcher"
+        android:layout_width="150dp" android:layout_height="150dp"
+        android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    <TextView  android:id="@+id/appNameTextView"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/app_name" android:layout_below="@+id/imageView" android:layout_centerHorizontal="true" />
+    <com.example.drivervigilencesystem.CameraSourcePreview android:id="@+id/cc"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.example.drivervigilencesystem.GraphicOverlay android:id="@+id/graphicOverlay"
+            android:layout_width="match_parent" android:layout_height="match_parent" />
+    </com.example.drivervigilencesystem.CameraSourcePreview>
+    <ToggleButton android:id="@+id/mute_button" android:background="@drawable/volume_toggle"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_margin="5dp" android:textOn="" android:textOff="" android:layout_alignParentTop="true"
+        android:onClick="onMuteButtonClicked" android:layout_alignParentRight="true" android:layout_alignParentEnd="true"  />
+    <ToggleButton android:id="@+id/screen_button" android:background="@drawable/screen_toggle"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_margin="5dp" android:textOn="" android:textOff="" android:layout_below="@+id/mute_button"
+        android:onClick="onCameraButtonClicked" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" />
+    <ToggleButton android:id="@+id/exit_button" android:background="@drawable/exit"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_margin="5dp" android:textOn="" android:textOff="" android:layout_alignParentTop="true"
+        android:onClick="onExitButtonClicked" android:layout_alignParentRight="true"  />
+    <ToggleButton android:id="@+id/info_button" android:background="@drawable/info"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_margin="5dp" android:textOn="" android:textOff="" android:layout_alignParentBottom="true"
+        android:onClick="onInfoButtonClicked" android:layout_alignParentStart="true" android:layout_alignParentLeft="true" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_host_fragment"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:navGraph="@navigation/mobile_navigation" />-->
+</RelativeLayout>

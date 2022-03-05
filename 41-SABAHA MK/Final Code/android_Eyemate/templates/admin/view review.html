@@ -1,0 +1,37 @@
+
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+  <table class="pull-right">
+    <tr>
+      <th>Date from</th>
+      <td>      <input type="date" name="textfield" id="textfield2" required class="form-control"/></td>
+      <th>Date to</th>
+      <td>
+      <input type="date" name="textfield2" id="textfield3" required class="form-control" /></td>
+      <td>&nbsp;<input type="submit" name="button" id="button" value="search" class="btn btn-success"> </td>
+
+    </tr>
+
+  </table>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Sno</th>
+      <th>CareTaker</th>
+      <th>Review</th>
+      <th>Date</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+        <td width="50px">&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i["name"] }}<br></td>
+      <td>&nbsp;{{ i["review"] }}</td>
+      <td width="170px"> {{ i["date"] }}</td>
+
+    </tr>
+{% endfor %}
+  </table>
+</form>
+ {% endblock %}

@@ -1,0 +1,17 @@
+{% extends "admin/admin-home.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/adm_cmplntrply_post">
+  <table class="table">
+    <tr>
+      <td width="5%">Replay</td>
+      <td><input type="hidden" name="textfield2" class="form-control" value="{{ data['complaint_id'] }}"/>
+          <input type="text" name="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input  type="submit" name="Submit" value="Send" align="center"  class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

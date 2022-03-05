@@ -1,0 +1,108 @@
+/*
+SQLyog Community v13.1.5  (64 bit)
+MySQL - 5.6.12-log : Database - smart home
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`smart home` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `smart home`;
+
+/*Table structure for table `device control` */
+
+DROP TABLE IF EXISTS `device control`;
+
+CREATE TABLE `device control` (
+  `device id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`device id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `device control` */
+
+/*Table structure for table `familiar` */
+
+DROP TABLE IF EXISTS `familiar`;
+
+CREATE TABLE `familiar` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `photo` varchar(50) DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`fid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `familiar` */
+
+/*Table structure for table `login` */
+
+DROP TABLE IF EXISTS `login`;
+
+CREATE TABLE `login` (
+  `lid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`lid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `login` */
+
+/*Table structure for table `notification` */
+
+DROP TABLE IF EXISTS `notification`;
+
+CREATE TABLE `notification` (
+  `nid` int(11) NOT NULL AUTO_INCREMENT,
+  `vlog id` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`nid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `notification` */
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `uname` varchar(50) DEFAULT NULL,
+  `place` varchar(50) DEFAULT NULL,
+  `district` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `image` varchar(50) DEFAULT NULL,
+  `phone` bigint(20) DEFAULT NULL,
+  `lid` int(11) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `user` */
+
+/*Table structure for table `visitor log` */
+
+DROP TABLE IF EXISTS `visitor log`;
+
+CREATE TABLE `visitor log` (
+  `vlog id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
+  `visitor name` varchar(50) DEFAULT NULL,
+  `photo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`vlog id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `visitor log` */
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

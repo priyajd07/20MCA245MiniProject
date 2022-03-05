@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/css/price.css" />
+
+
+
+</head>
+<body>
+<div>
+{% for i in val %}
+            <form name="box1" action="{{url_for('price1',id=i[4])}}" method="post" >
+                <input type="text" name="mail1" placeholder="Enter the price"><br>
+                <center><a class="anchor" href="{{url_for('price1',id=i[4])}}"><button class="btn_s" style="vertical-align:middle"><span>Mail me</span></button></a></center>
+            </form>
+
+{% endfor %}
+    </div>
+
+
+
+
+</body>
+</html>

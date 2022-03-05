@@ -1,0 +1,32 @@
+{% extends 'expertindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="add_treatment1#about">
+  <table width="200" border="0" class="table table-border">
+    <tr>
+      <td>Disease</td>
+      <td><label>
+        <input type="text" name="textfield" class="form-control" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Treatment</td>
+      <td><label>
+        <input type="text" name="textfield2" class="form-control" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Details</td>
+      <td><label>
+        <textarea name="textarea" class="form-control" required></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Add" class="btn-success" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

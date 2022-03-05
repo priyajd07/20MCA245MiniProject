@@ -1,0 +1,28 @@
+{% extends 'expertindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="addtips#about">
+  <table width="200" border="0" class="table table-border">
+    <tr class="table-success">
+      <th scope="col">Tips</th>
+      <th scope="col">Date</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>&nbsp;{{i[1]}}</td>
+      <td>&nbsp;{{i[2]}}</td>
+      <td><a href="dlttips?id={{i[0]}}">delete</a></td>
+    </tr>{% endfor %}
+    <tr>
+      <td colspan="3"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add tips"  class="btn-success"/>
+        </div>
+      </label></td>
+    </tr>
+  </table>
+
+</form>
+</body>
+{% endblock %}

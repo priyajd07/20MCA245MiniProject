@@ -1,0 +1,77 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user.html' %}
+{% block base %}
+<center>
+<form method="post">
+    {% csrf_token %}
+<br>
+<br>
+<br>
+<br>
+    {% if details %}
+<h2>JOINING REQUESTS</h2>
+    <br>
+    <div class="container">
+<table class="table table-bordered">
+    <tr>
+        <td>REQUEST FROM</td>
+{#        <td>ROOM NAME</td>#}
+        <td>VISITING PLACE</td>
+        <td>DESCRIPTION</td>
+        <td>ROOM CREATED ON</td>
+        <td></td>
+    </tr>
+    {% for i in details %}
+    <tr>
+        <td>{{ i.user.name }}</td>
+{#        <td>{{ i.room.room_name }}</td>#}
+        <td>{{ i.room.visiting_place }}</td>
+        <td>{{ i.room.description }}</td>
+        <td>{{ i.room.date }}</td>
+        <td><a href="{% url 'accept_request' idd=i.rr_id %}" class="btn btn-danger">ACCEPT</a> </td>
+        <td><a href="{% url 'reject_request' idd=i.rr_id %}" class="btn btn-danger">REJECT</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+    {% endif %}
+
+
+    <br>
+<br>
+<br>
+    {% if rqs %}
+<h2>YOUR REQUESTS STATUS</h2>
+    <br>
+    <div class="container">
+<table class="table table-bordered">
+    <tr>
+{#        <td>REQUEST FROM</td>#}
+       {# <td>ROOM NAME</td>#}
+        <td>VISITING PLACE</td>
+        <td>DESCRIPTION</td>
+        <td>ROOM CREATED ON</td>
+        <td>REQUEST STATUS</td>
+    </tr>
+    {% for i in rqs %}
+    <tr>
+{#        <td>{{ i.user.name }}</td>#}
+       {#  <td>{{ i.room.room_name }}</td> #}
+        <td>{{ i.room.visiting_place }}</td>
+        <td>{{ i.room.description }}</td>
+        <td>{{ i.room.date }}</td>
+        <td>{{ i.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+        </div>
+{% endif %}
+</center>
+{#</body>#}
+{#</html>#}
+{% endblock %}

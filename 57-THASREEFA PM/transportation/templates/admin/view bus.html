@@ -1,0 +1,45 @@
+{% extends 'adindex.html' %}
+{% block body %}
+
+<body>
+<h3 align="center"><b>View Bus</b></h3>
+<form action="/admin_search_bus_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="pull-right">
+    <tr>
+      <td>name</td>
+        <td><input type="text" name="textfield9" required class="form-control "></td>
+       <td> <input type="submit" name="Submit" value="Search" class="btn btn-success" />
+      </td>
+    </tr>
+  </table>
+<table class=" table table-bordered">
+    <tr>
+        <th>#</th>
+      <th>busname</th>
+      <th>regno</th>
+        <th>color</th>
+      <th>model</th>
+      <th>photo </th>
+      <th>routename</th>
+    </tr>
+      {% for i in data %}
+      <tr>
+          <td>&nbsp;{{ loop.index }}</td>
+          <td>{{ i["busname"] }}</td>
+          <td>{{ i["regno"] }}</td>
+          <td>{{ i['color'] }}</td>
+          <td>{{ i["model"] }}</td>
+          <td><img src="{{ i["photo"] }}" height="100px" width="100px"></td>
+          <td>{{ i["routename"] }}</td>
+
+      <td width="59"><a href="/admin_delete_bus/{{ i["busid"] }}" class="btn btn-danger">Delete</a></td>
+          <td width="53"><div align="center"><a href="/admin_edit_bus/{{ i["busid"] }}" class="btn btn-info">Edit</a></div></td>
+          <td width="60"> <a href="admin_track_bus/{{ i["busid"] }}" class="btn border"> Track</a></td>
+
+    </tr>
+        {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

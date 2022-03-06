@@ -1,0 +1,61 @@
+
+{% include 'userheader.html' %}
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-6 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+<br>
+            <br>
+<br>
+<br>
+<br>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f3f3f3;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #37517e;
+  color: white;
+}
+</style>
+
+
+<body>
+<form method="post" action="/Send_Message_Action">
+<h3 align="center"><u>RESULT</u></h3><br>
+<table width="499" height="291" border="0" align="center" id="customers">
+  <tr>
+
+      <th ><label><font color="white"> Documet</font></label>&nbsp;</th><th><font color="white"> Type</font></th>
+  </tr>
+{% for i in val %}
+
+<tr>
+
+    <td ><label><font color="white"> <a href="../static/documents/{{i[1]}}" download>{{i[1]}}</a></font></label>&nbsp;</td><td>{{i[3]}}</td>
+  </tr>
+    {% endfor %}
+
+
+
+
+</table>
+</form>
+</body>
+{% include 'footer.html' %}

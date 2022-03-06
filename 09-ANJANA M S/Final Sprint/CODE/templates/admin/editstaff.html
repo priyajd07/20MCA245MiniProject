@@ -1,0 +1,112 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="updatestf">
+  <table width="330" border="1" class="table table-hover">
+    <tr>
+      <td class="success" width="101"><b>First Name</b></td>
+      <td width="213"><label>
+        <input type="text" name="textfield" value="{{val[2]}}" required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Middle Name</b> </td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{val[3]}}" required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Last Name</b> </td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{val[4]}}" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>DOB</b></td>
+      <td><label>
+        <input type="date" name="textfield4" value="{{val[6]}}"  min="1990-01-01" max="2019-12-31" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Gender</b></td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" {% if val[5] == 'male' %}checked {% endif %}/>
+        Male
+        <input name="radiobutton" type="radio" value="female" {% if val[5] == 'female' %}checked {% endif %}/>
+        Female
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Course</b></td>
+      <td>
+        <select name="select">
+          {% for i in vall %}
+          <option value="{{i[0]}}" {% if i[0]| string == val[13]|string %}selected{% endif %}>{{i[1]}}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="success"><b>Qualification</b></td>
+      <td><label>
+        <input type="checkbox" name="checkbox" value="Degree" {% if 'Degree' in val[12] %} checked  {% endif %} />
+      </label>
+      Degree 
+      <label>
+      <input type="checkbox" name="checkbox" value="PG" {% if 'PG' in val[12] %} checked {% endif %}/>
+      </label>
+      PG 
+      <label>
+      <input type="checkbox" name="checkbox" value="Mphil" {% if 'Mphil' in val[12] %} checked {% endif %}/>
+      </label>
+      Mphil </td>
+    </tr>
+    <tr>
+      <td class="success"><b>Place</b></td>
+      <td><label>
+        <input type="text" name="textfield6" value="{{val[7]}}"  pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Post</b></td>
+      <td><label>
+        <input type="text" name="textfield7" value="{{val[9]}}" pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Pin</b></td>
+      <td><label>
+        <input type="text" name="textfield8" value="{{val[8]}}" required pattern="[0-9]{6}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Phone</b></td>
+      <td><label>
+        <input type="text" name="textfield9" value="{{val[10]}}" required pattern="[6789][0-9]{9}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Email</b></td>
+      <td><label>
+        <input type="text" name="textfield12" value="{{val[11]}}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

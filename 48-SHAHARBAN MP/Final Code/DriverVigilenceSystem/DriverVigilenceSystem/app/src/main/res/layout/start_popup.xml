@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:layout_gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end" android:orientation="horizontal" android:id="@+id/relativeLayout" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+        <TextView  android:layout_gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+            android:id="@+id/startPopupTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/start_description" />
+        <ImageView android:id="@+id/horizontalImageView" android:background="@drawable/horizontal_mode"
+            android:layout_width="100dp" android:layout_height="100dp" android:layout_below="@+id/startPopupTextView"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

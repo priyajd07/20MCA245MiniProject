@@ -1,0 +1,41 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/doc_view_patient_assigned_caretaker_post">
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <th width="97" scope="col">Caretaker/ Patient  Name </th>
+      <th width="169" scope="col"><label>
+        <input type="text" name="textfield" class="form-control"/>
+      </label></th>
+      <th width="70" scope="col"><label>
+        <input type="submit" name="Submit" value="View" class="btn btn-primary"/>
+      </label></th>
+     
+    </tr>
+  </table>
+  <table class="table">
+    <tr>
+      <th scope="col">Sname</th>
+      <th  scope="col">Patient Info </th>
+      <th  scope="col">Cretaker Info </th>
+      <th  scope="col">Date</th>
+      <th scope="col">&nbsp;</th>
+      <th  scope="col">&nbsp;</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>&nbsp;{{ i["pname"] }}</td>
+      <td>&nbsp;{{ i["cname"] }}</td>
+      <td>&nbsp;{{ i["date"] }}</td>
+      <!-- <td>   <a href="#" class="btn btn-primary">Edit</a></</td> -->
+      <td><a href="/doc_delete_assigned_caretaker/{{i["alloc_id"]}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</form>
+</body>
+{% endblock %}

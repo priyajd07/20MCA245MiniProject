@@ -1,0 +1,33 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<h3 align="center"><b>View Notification</b></h3>
+<form id="form1" name="form1" method="post" action="/search_notification">
+
+  <table class="pull-right">
+    <tr>
+      <td> <input type="date" value="" name="d1" required class="form-control "/>&nbsp;</td>
+      <td>
+        <input type="submit" name="search" value="Search"class="btn btn-success" />
+     </td>
+    </tr>
+    <tr>
+      <th>Sno</th>
+      <th>Notification</th>
+      <th>Date</th>
+      </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['notification'] }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>&nbsp;</td>
+      <td width="53"><div align="center"><a href="/admin_edit_notification/{{ i["notid"] }}" class="btn btn-primary">Edit</a></div></td>
+      <td width="86"><div align="center"><a href="/admin_delete_notification/{{ i["notid"] }}" class="btn btn-danger" >Delete</a></div></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

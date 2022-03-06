@@ -1,0 +1,78 @@
+{% include 'adminheader.html' %}
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-6 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+<br>
+            <br>
+<br>
+<br>
+<br>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f3f3f3;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #37517e;
+  color: white;
+}
+</style>
+
+
+<body>
+<h3 align="center"><u>VIEW MESSAGES </u></h3><br>
+<table width="735" height="125" border="1" align="center" id="customers">
+  <tr>
+    <th width="55" scope="col">#</th>
+    <th width="141" scope="col">USER</th>
+    <th width="286" scope="col">MESSAGES</th>
+    <th width="115" scope="col">REPLY</th>
+   
+    <th width="154" scope="col">&nbsp;</th>
+  </tr>
+    {% for i in view %}
+
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['name'] }}&nbsp;</td>
+    <td>&nbsp;{{ i['message'] }}</td>
+    <td>{{ i['reply'] }}</td>
+   
+    <td><div align="center"><a href="/reply_message/{{ i.m_id }}">REPLY  </a>
+
+    </div>
+    </td>
+  </tr>
+    {% endfor %}
+  </table>
+
+<br>
+<br>
+<br>
+<br>
+
+</body>
+
+</div>
+    </div>
+    </div>
+
+</section>
+
+{% include 'footer.html' %}

@@ -1,0 +1,64 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/admin_edit_bus_post" enctype="multipart/form-data">
+
+<table class="table">
+
+<tr>
+    <td><img src="{{ data['photo'] }}" height="100px"width="100px"></td>
+</tr>
+  <tr>
+
+    <th>busname </th>
+       <input type="hidden" value="{{ data["busid"] }}" name="bus_id"/>
+    <td width="307">
+          <input type="text" name="textfield" value="{{ data["busname"] }}" required class="form-control " />
+      </td>
+  </tr>
+  <tr>
+    <th>regno</th>
+    <td>
+          <input type="text" name="textfield2" value="{{ data["regno"] }}" required class="form-control " />
+    </td>
+  </tr>
+  <tr>
+    <th>color</th>
+    <td>
+          <input type="text" name="textfield3" value="{{ data["color"] }}" required class="form-control " />
+     </td>
+  </tr>
+  <tr>
+    <th>model</th>
+    <td>
+          <input type="text" name="textfield4" value="{{ data["model"] }}" required class="form-control " />
+   </td>
+  </tr>
+  <tr>
+    <td height="126" colspan="2">photo
+          <input type="file" name="file" required class="form-control "  />
+      </td>
+  </tr>
+    <tr>
+    <th>routename</th>
+    <td>
+
+            <select name="select">
+            <option value="{{ data['routeid'] }}">{{ data['routename'] }}</option>
+            <option>--select--</option>
+                {% for i in data1 %}
+                <option value="{{ i['routeid'] }}">{{ i['routename'] }}</option>
+                {% endfor %}
+            </select>
+     </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+        <div align="center">
+          <input type="submit" name="Submit" value="Edit" class="btn btn-success"/>
+      </div></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}

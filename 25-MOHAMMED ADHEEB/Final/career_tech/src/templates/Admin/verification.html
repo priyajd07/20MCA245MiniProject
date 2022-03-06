@@ -1,0 +1,69 @@
+{% extends 'indexadmin.html'%}
+{% block body %}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 150%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<form action="" method="post" name="form1" id="form1">
+
+  <div align="left">
+    <table width="190%" border="1" id="customers">
+      <tr>
+        <th width="15%" scope="col"><div align="center">Company Name </div></th>
+        <th width="9%" scope="col"><div align="center">Place</div></th>
+        <th width="8%" scope="col"><div align="center">Post</div></th>
+        <th width="6%" scope="col"><div align="center">Pin</div></th>
+        <th width="22%" scope="col"><div align="center">About</div></th>
+        <th width="4%" scope="col"><div align="center">Established Date </div></th>
+        <th width="16%" scope="col"><div align="center">Email</div></th>
+        <th width="13%" scope="col"><div align="center">Contact</div></th>
+        <th width="7%" scope="col"><div align="center">Status</div></th>
+      </tr>{%for i in s%}
+      <tr>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[7]}}</td>
+        <td>{{i[8]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td><p align="center"><a href="/AcceptC?id={{i[9]}}">Accept</a> </p>
+          <p align="center"><a href="/DeclineC?id={{i[9]}}">Decline</a></p></td>
+      </tr>
+      {%endfor%}
+      <!--<tr>
+   <td colspan="9"><a href="adhome">Home</a></td>
+    </tr>
+     <tr>
+       <td colspan="9"><a href="addlg">Logout</a></td>
+    </tr>-->
+    </table>
+  </div>
+</form>
+</body>
+{%endblock %}

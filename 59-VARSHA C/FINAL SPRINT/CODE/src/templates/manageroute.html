@@ -1,0 +1,28 @@
+
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/addroute#about">
+  <table id="customers">
+    <tr>
+      <th scope="row">From</th>
+      <th>To</th>
+      <th>Route</th>
+      <th>&nbsp;</th>
+    </tr>
+    {%for i in val%}
+    <tr>
+      <td scope="row">&nbsp;{{i[1]}}</td>
+      <td>&nbsp;{{i[2]}}</td>
+      <td>{{i[3]}}&nbsp;</td>
+      <td><a href="/delt?id={{i[0]}}">delete</a></td>
+    </tr>
+    {%endfor%}
+  </table>
+  <p>
+    <input type="submit" name="button" id="button" value="Add" />
+  </p>
+</form>
+</body>
+
+{%endblock%}

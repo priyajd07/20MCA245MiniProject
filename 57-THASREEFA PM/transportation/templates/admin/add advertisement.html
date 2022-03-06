@@ -1,0 +1,37 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<h3 align="center"><b>New Advertisement</b></h3>
+<form action="/admin_add_advertisement_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+
+  <table class="table">
+    <tr>
+      <th>Advertisement</th>
+      <td>
+          <input type="file" name="file" required class="form-control "/>
+      </label></td>
+    </tr>
+       <tr>
+      <th>Latitude</th>
+      <td>
+          <input type="text" name="lat" required class="form-control "/>
+      </label></td>
+    </tr>
+       <tr>
+      <th>Longitude</th>
+      <td>
+          <input type="text" name="lon" required class="form-control "/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add Advertisement" class=" btn btn-success " />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

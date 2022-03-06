@@ -1,0 +1,28 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+  <div class="table-responsive">
+<form id="form1" name="form1" method="post" action="/Change_passwrd_post">
+  <table  class="table">
+    <tr>
+      <td>Current Password</td>
+      <td><input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>New Password</td>
+      <td><input type="text" name="textfield2" id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td>Confirm Password</td>
+      <td><input type="text" name="textfield3" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><label><center>
+        <input type="submit" name="button" id="button" value="Save" />
+      </center></label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

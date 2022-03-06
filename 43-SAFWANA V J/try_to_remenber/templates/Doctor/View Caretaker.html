@@ -1,0 +1,54 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+
+<body>
+<p>&nbsp;</p>
+<form id="form1" name="form1" method="post" action="/doc_view_caretaker_post">
+  <p>
+    <label></label>
+  </p>
+  <table class="table">
+    <tr>
+      <th >Name</th>
+      <th ><label>
+      <input type="text" name="dtextfiel" class="form-control"/>
+      </label></th>
+      <th width="144" scope="col"><label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-primary"/>
+      </label></th>
+    </tr>
+  </table>
+  <table class="table">
+    <tr>
+      <th width="53" scope="col">Serial No</th>
+      <th width="62" scope="col">Name</th>
+      <th width="56" scope="col">Image</th>
+      <th width="52" scope="col">Contact</th>
+      <th width="52" scope="col">Adhar</th>
+      <th width="60" scope="col">Address</th>
+      <th>Qualification</th>
+      <th width="65" scope="col">&nbsp;</th>
+      <th width="68" scope="col">&nbsp;</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <th scope="row">{{ loop.index}}</th>
+      <td>{{ i["name"]}}</td>
+      <td><img src="{{ i["photo"]}}" width="200px" height="200px"/></td>
+      <td>{{ i["email"]}}
+        <br>
+        {{ i["phone"]}}
+      </td>
+      <td>{{ i["adhar_no"]}}</td>
+      <td>{{ i["place"]}}<br>{{ i["pin"]}}<br>{{ i["post"]}}</td>
+      <td>{{ i["qualification"]}}</td>
+      <td><a href="/doc_edit_caretaker/{{ i["id"]}}" class="btn btn-primary">Edit</a></td>
+      <td><a href="/doc_delete_caretaker/{{ i["id"]}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</form>
+<p>&nbsp;</p>
+</body>
+{% endblock %}

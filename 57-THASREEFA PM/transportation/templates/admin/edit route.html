@@ -1,0 +1,25 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/admin_edit_route_post">
+  <p>&nbsp;</p>
+  <table class="table table-hover">
+    <tr>
+      <th>routename </th>
+      <td width="245">
+            <input type="hidden" value="{{ data["routeid"] }}" name="id"/>
+          <input type="text" name="textfield" value="{{ data["routename"] }}" required class="form-control " />
+
+   </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <input type="submit" name="Submit" value="Edit" class="btn btn-success" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

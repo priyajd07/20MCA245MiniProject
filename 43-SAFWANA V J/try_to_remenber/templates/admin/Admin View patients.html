@@ -1,0 +1,48 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+  <div class="table-responsive">
+<form id="form1" name="form1" method="post" action="/adm_view_patients_post">
+  <p>&nbsp;</p>
+  <table  class="table">
+    <tr>
+      <th width="125" scope="col">Name</th>
+      <th width="140" scope="col"><label>
+        <input type="text" name="textfield" class="form-control"/>
+      </label></th>
+      <th width="136" scope="col"><label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-primary"/>
+      </label></th>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+      <th  height="25" scope="col">Sno</th>
+      <th scope="col">Name</th>
+      <th  scope="col">Image</th>
+      <th  scope="col">Address</th>
+      <th  scope="col">Adhar_No</th>
+      <th  scope="col">Contact</th>
+      <th  scope="col">&nbsp;</th>
+    </tr>
+    {% for i in data%}
+    <tr>
+      <th scope="row">{{ loop.index }}
+      </th>
+      <td>{{ i["name"]  }}</td>
+      <td><img src="{{ i["image"]  }}" width="200px" height="200px"/></td>
+      <td>{{ i["place"]  }}
+<br>        {{ i["pin"]  }} <br>
+        {{ i["post"]  }}<br>{{ i["district"] }}&nbsp;</td>
+      <td>{{ i["adhar_no"]  }}&nbsp;</td>
+      <td>{{ i["phone"]  }}
+        {{ i["email"]  }}&nbsp;</td>
+      <td><a href="/adm_view_progress/{{ i["lid"]}}" class="btn btn-primary">progress</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,3 @@
+1.If document is blank - send error mssg to user as Pop up.
+2.category absent : Display the category is absent and Send mail to the admin saying that the document category is absent.
+3. So the admin should create data set based on the category in the mail. 

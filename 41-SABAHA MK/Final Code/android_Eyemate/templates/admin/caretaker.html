@@ -1,0 +1,42 @@
+
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/caretaker_post">
+  <table class="pull-right">
+    <tr>
+      <td width="229"><input type="text" name="textfield" id="textfield"  class="form-control"/></td>
+      <td width="45"><input type="submit" name="button" id="button" value="Go"class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+<br>
+  <table width="1063" border="0" class="table table-bordered">
+
+    <tr>
+      <th width="122">Sno</th>
+      <th width="160">Name</th>
+
+      <th width="109">Place</th>
+      <th width="183">District</th>
+      <th width="146">Email</th>
+      <th width="135">Phone</th>
+    </tr>
+        {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i["name"] }}</td>
+{#      <td><img src="{{ i["image"] }}" height="100px" width="100px"></td>#}
+      <td> {{ i["place"] }}</td>
+        <td> {{ i["district"] }}</td>
+        <td>&nbsp;{{ i["email"] }}</td>
+          <td> {{ i["mobileno"]  }}</td>
+
+      <td width="25"><a href="/view_blindinfo/{{ i["lid"] }}" class="btn btn-info">BlindPersons</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+
+{% endblock %}

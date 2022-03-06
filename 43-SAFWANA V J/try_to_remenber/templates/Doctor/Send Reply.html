@@ -1,0 +1,22 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<body>
+  <table class="table">
+    <form id="form1" name="form1" method="post" action="/doc_sent_reply_post">
+     <tr><td>Reply </td> 
+        <input type="hidden" name="com_id" value="{{ data['complaint_id'] }}">
+    
+          <td>
+        <textarea name="textarea" class="form-control"></textarea>
+      </td></tr>
+     <tr><td colspan="2" align="center">
+        <input type="submit" name="Submit" value="Send" class="btn btn-primary"/></td></tr>
+      
+    
+    </form>
+    </table>
+    </body>
+
+</form>
+</body>
+{% endblock %}

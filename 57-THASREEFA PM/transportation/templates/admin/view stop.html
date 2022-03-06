@@ -1,0 +1,44 @@
+{% extends 'adindex.html' %}
+{% block body %}
+
+<body>
+<h3 align="center"><b>View Stop</b></h3>
+<form method="post" action="/search_post">
+  <table class="pull-right">
+    <tr>
+      <td>&nbsp; <select name="select" class="form-control">
+                {% for i in r %}
+                <option value="{{ i["routeid"] }}">{{ i["routename"] }}</option>
+                {% endfor %}</select></td>
+      <td colspan="2"><input type="submit" name="search" value="go" class="btn btn-success"/></td>
+    </tr>
+  </table>
+<table class="table table-bordered">
+    <tr>
+      <th>Sno.</th>
+      <th>Route Name </th>
+      <th>stopname </th>
+      <th>latitude</th>
+      <th>longitude</th>
+        <th>place</th>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+      <tr>
+          &nbsp;
+          <td>&nbsp;C</td>
+          <td>{{ i["routename"] }}</td>
+          <td>{{ i["stopname"] }}</td>
+          <td>{{ i["latitude"] }}</td>
+          <td>{{ i["longitude"] }}</td>
+          <td>{{ i["place"] }}</td>
+
+          <td width="59"><a href="/admin_delete_stop/{{ i["stopid"] }}" class="btn btn-danger">Delete</a></td>
+          <td width="53"><div align="center"><a href="/admin_edit_stop/{{ i["stopid"] }}" class="btn btn-primary">Edit</a></div></td>
+          {% endfor %}
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

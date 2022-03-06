@@ -1,0 +1,65 @@
+{% extends 'adindex.html' %}
+{% block body %}
+
+<body>
+<h3 align="center"><b>New Bus</b></h3>
+<form action="/admin_add_bus_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <div align="center">
+    <table class="table">
+      <tr>
+        <td>Bus name </td>
+        <td>
+            <input type="text" name="textfield" required class="form-control "/>
+        </td>
+      </tr>
+      <tr>
+        <td>Model</td>
+        <td>
+            <input type="text" name="textfield2" required class="form-control " />
+        </td>
+      </tr>
+      <tr>
+        <td>Reg no </td>
+        <td>
+            <input type="text" name="textfield3" required class="form-control" />
+        </td>
+      </tr>
+        <tr>
+            <td>color</td>
+            <td>
+
+                <input type="text" name="textfield5" required class="form-control ">
+            </td>
+        </tr>
+      <tr>
+        <td>Route  </td>
+        <td>
+            <select name="select" class="form-control">
+            <option>--select--</option>
+                {% for i in route %}
+                <option value="{{ i['routeid'] }}">{{ i['routename'] }}</option>
+                {% endfor %}
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            Photo</td>
+            <td><input type="file" name="image" required class="form-control" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div align="center">
+            <input type="submit" name="Submit" value="Add" class="btn btn-success"/>
+            </div>
+      </td>
+      </tr>
+      </table>
+  </div>
+
+</form>
+</body>
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+@app.route('/upload_documents_action',methods=['post'])
+def upload_documents_action():
+      keywords = []
+      hash=''
+      files = request.files['files']
+      fn=secure_filename(files.filename)
+      import datetime
+      date=datetime.datetime.now().strftime('%y%m%d-%H%M%S')
+      fn=date+fn
+      path = "F:\\Automatic_Document_Classifiler\\src\\static\\documents\\"+fn
+      files.save(path)
+      wrds = []
+      with open(path, 'r') as file11:
+          for line in file11:
+              wrds.append(line)
+
+      wrdsting = ' '.join(wrds)
+
+      if len(wrds) == 0:
+          return ''' <script> alert('Document is Empty!!!');window.location='/upload_documents'</script> '''
+      print("wwwwwwww", wrdsting)
+      import hashlib
+
+      # initializing string
+
+      # then sending to SHA1()
+      result = hashlib.sha1(wrdsting.encode())
+
+      # printing the equivalent hexadecimal value.
+
+      hash=result.hexdigest()
+
+      qry="SELECT * FROM `document` WHERE `hash`=%s AND `user_id`=%s"
+      val=(hash,str(session['session_id']))
+      re=selectone(qry,val)
+      if re is not None:
+          return render_template("result.html", out=re[3]+" - It is a similar document ")
+
+      query = "SELECT DISTINCT words_type FROM dataset"
+      result = select(query)
+      for i in result:
+          keywords.append(i[0])
+          print(i[0])
+
+      # keyword_string = ' '.join(keywords)
+      # print("THE KEYWORD STRINGS ARE :  ", keyword_string)
+      RR=[]
+      max=100000
+      out=''
+      flag = 0
+      db=Db()
+      for j in keywords:
+          query2 = "SELECT keyword  FROM dataset where words_type='" + j + "'"
+          result2 = db.select(query2)
+          word_types = []
+          for k in result2:
+              word_types.append(k['keyword'])
+
+          word_type_string = ' '.join(word_types)
+          print(word_type_string, "++++++++++++++++++", j)
+          print(len(word_type_string), len(wrdsting))
+          # for i in range(len(word_type_string), len(wrdsting)):
+          #     word_type_string+="x"
+          res, ratio = predict(wrdsting, word_type_string)
+          print(ratio, "@@@@@@@@")
+          if ratio == 1:
+              flag = 1
+
+          RR.append(res)
+          if res < max:
+              max = res
+              out = j
+
+      if flag == 0:
+
+          import smtplib
+          from email.mime.text import MIMEText
+
+          try:
+              gmail = smtplib.SMTP('smtp.gmail.com', 587)
+              gmail.ehlo()
+              gmail.starttls()
+              gmail.login('ihrdmcaproject2019@gmail.com', 'project@2019')
+          except Exception as e:
+              print("Couldn't setup email!!" + str(e))
+          msg = MIMEText("Entered text : " + wrdsting)
+
+          msg['Subject'] = 'New File Category'
+          msg['To'] = "tomailid"
+          msg['From'] = 'ihrdmcaproject2019@gmail.com'
+          try:
+              gmail.send_message(msg)
+          except Exception as e:
+              print("COULDN'T SEND EMAIL", str(e))
+
+          return ''' <script> alert('No Category Available');window.location='/upload_documents'</script> '''
+
+      print(out)
+      return render_template("result.html", out=out)

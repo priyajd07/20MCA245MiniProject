@@ -1,0 +1,125 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/add_staff2">
+  <table width="330" border="1" class="table table-hover">
+    <tr>
+      <td class="success" width="101"><b>First Name</b> </td>
+      <td width="213"><label>
+        <input type="text" name="textfield"  required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Middle Name</b> </td>
+      <td><label>
+        <input type="text" name="textfield2" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Last Name</b></td>
+      <td><label>
+        <input type="text" name="textfield3" required pattern="[A-Z a-z.]{1,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>DOB</b></td>
+      <td><label>
+        <input type="date" name="textfield4" min="1970-01-01" max="2019-12-31" required  />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Gender</b></td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" checked/>
+        <b>Male</b>
+        <input name="radiobutton" type="radio" value="female" />
+        <b>Female</b>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Course</b></td>
+      <td>
+        <select name="select">
+          {% for i in val %}
+          <option value="{{i[0]}}">{{i[1]}}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="success"><b>Qualification</b></td>
+      <td><label>
+        <input type="checkbox" name="checkbox" value="Degree" />
+      </label>
+      <b>Degree</b>
+      <label>
+      <input type="checkbox" name="checkbox" value="PG" />
+      </label>
+      <b>PG</b>
+      <label>
+      <input type="checkbox" name="checkbox" value="Mphil" />
+      </label>
+      <b>Mphil </td>
+    </tr>
+    <tr>
+      <td class="success"><b>Place</b></td>
+      <td><label>
+        <input type="text" name="textfield6" pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Post</b></td>
+      <td><label>
+        <input type="text" name="textfield7"  pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Pin</b></td>
+      <td><label>
+        <input type="text" name="textfield8" required pattern="[0-9]{6}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Phone</b></td>
+      <td><label>
+        <input type="text" name="textfield9" required pattern="[6789][0-9]{9}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Email</b></td>
+      <td><label>
+        <input type="text" name="textfield12" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Username</b></td>
+      <td><label>
+        <input type="text" name="textfield11"  required />
+      </label></td>
+    </tr>
+    <tr>
+      <td class="success"><b>Password</b></td>
+      <td><label>
+        <input type="text" name="textfield10"  required />
+      </label></td>
+    </tr>
+    <tr>
+      <td  colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Submit" class="btn btn-success"/>
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
+<!--</body>-->
+<!--</html>-->

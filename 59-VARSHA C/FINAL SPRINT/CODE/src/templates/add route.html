@@ -1,0 +1,28 @@
+
+{% extends 'adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/addroutes">
+  <table id="customers">
+    <tr>
+      <th scope="row">from</th>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">to</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" required /></td>
+    </tr>
+    <tr>
+      <th scope="row">route</th>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3"required /></td>
+    </tr>
+    <tr>
+      <td colspan="2" scope="row"><input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{%endblock%}

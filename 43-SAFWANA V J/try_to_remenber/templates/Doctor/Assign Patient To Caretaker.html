@@ -1,0 +1,38 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/doc_assign_patient_to_caretaker_post">
+  <table class="table">
+    <tr>
+      <th scope="col">Caretaker</th>
+      <th ><label>
+       <select name="care" class="form-control">
+         {% for i in care%}
+         <option value="{{ i["lid"]}}">{{ i["name"]}}</option>
+         {% endfor %}
+         </select>
+      </label></th>
+    </tr>
+
+    <tr>
+      <th  scope="col">Patient</th>
+      <th ><label>
+       <select name="pat" class="form-control" >
+        {% for i in pat%}
+        <option value="{{ i["lid"]}}">{{ i["name"]}}</option>
+        {% endfor %}
+         </select>
+      </label></th>
+    </tr>
+    <tr>
+      <th height="50" scope="row">&nbsp;</th>
+      <td><label>
+        <input type="submit" name="Submit" value="Save" class="btn btn-primary"/>
+      </label></td>
+    </tr>
+  </table>
+
+</form>
+</body>
+{% endblock %}

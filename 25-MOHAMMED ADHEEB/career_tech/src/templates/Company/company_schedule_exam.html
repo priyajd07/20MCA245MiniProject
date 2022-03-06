@@ -1,0 +1,56 @@
+{% extends 'indexcomp.html'%}
+{% block body %}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <div align="center">
+    <table width="200" border="1" id="customers">
+      <tr>
+        <th scope="row">CandidateName</th>
+        <th>Email</td>
+        <th>ContactOne</td>
+        <th>ContactTwo</td>
+        <th>Jobpost</td>
+        <th>&nbsp;</td>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <th scope="row">{{i[6]}}</th>
+        <td>{{i[7]}}</td>
+        <td>{{i[8]}}</td>
+        <td>{{i[9]}}</td>
+        <td>{{i[12]}}</td>
+        <td><a href="/cscheduleexam?id={{i[0]}}">ScheduleExam</a></td>
+      </tr>
+      {% endfor %}
+      </table>
+  </div>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

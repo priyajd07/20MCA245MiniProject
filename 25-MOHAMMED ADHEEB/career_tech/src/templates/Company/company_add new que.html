@@ -1,0 +1,87 @@
+{% extends 'indexcomp.html' %}
+{%block body%}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+<form action="/add_com_qstn" method="post" name="form1" id="form1">
+  <div align="center">
+    <table width="414" border="0" id="customers">
+      <tr>
+        <td colspan="3"><h1 align="center"><u>Add new Question</u></h1></td>
+      </tr>
+      <tr>
+        <th width="140"><div align="right">Type of post</div></th>
+        <td width="1">&nbsp;</td>
+        <td width="179"><div align="left">
+          <select name="select" required >
+            {% for i in val %}
+              <option value="{{i[0]}}">{{i[1]}}</option>
+            {% endfor %}
+
+            </select>
+        </div></td>
+      </tr>
+      <tr>
+        <th><div align="right">Questions</div></th>
+        <td>&nbsp;</td>
+        <td>          <input name="textfield" type="text" required  />        </td>
+      </tr>
+      <tr>
+        <th><div align="right">Option 1 </div></th>
+        <td>&nbsp;</td>
+        <td>          <input name="textfield2" type="text" required  />        </td>
+      </tr>
+      <tr>
+        <th><div align="right">Option 2 </div></th>
+        <td>&nbsp;</td>
+        <td>          <input name="textfield3" type="text" required  />        </td>
+      </tr>
+      <tr>
+        <th><div align="right">Option 3 </div></th>
+        <td>&nbsp;</td>
+        <td>          <input name="textfield4" type="text" required  />        </td>
+      </tr>
+      <tr>
+        <th><div align="right">Option 4 </div></th>
+        <td>&nbsp;</td>
+        <td>          <input name="textfield5" type="text" required  />        </td>
+      </tr>
+      <tr>
+        <th><div align="right">Correct Answer </div></th>
+        <td>&nbsp;</td>
+        <td><input type="text" name="textfield6"></td>
+      </tr>
+      <tr>
+        <td colspan="3"><div align="center">
+            <input type="submit" name="Submit" value="Submit" />
+        </div></td>
+      </tr>
+    </table>
+  </div>
+</form>
+</body>
+{%endblock %}

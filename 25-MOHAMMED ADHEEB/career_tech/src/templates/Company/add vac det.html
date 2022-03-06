@@ -1,0 +1,93 @@
+{% extends 'indexcomp.html'%}
+{% block body %}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<form action="/comvac1" method="post" name="form1" id="form1">
+  <div align="center">
+    <table width="200"  id="customers">
+      <tr>
+
+          <!--<tr>-->
+            <!--<td colspan="2"><h1><u>Add new Vacancy</u> </h1></td>-->
+          <!--</tr>-->
+          <tr>
+            <th><div align="right">Job name </div></th>
+            <td><input type="text" name="textfield" required pattern="[A-Z a-z.][_-+;:',./?""~!@#$%&]{3,25}" /></td>
+          </tr>
+          <tr>
+            <th><div align="right">open Date</div></th>
+            <td><input type="date" name="textfield2" required /></td>
+          </tr>
+           <tr>
+            <th><div align="right">close Date</div></th>
+            <td><input type="date" name="textfield21" required /></td>
+          </tr>
+          <tr>
+            <th><div align="right">Skills required </div></th>
+            <td><input type="text" name="textfield3" required pattern="[A-Z a-z][_-+;:',./?""~!@#$%&]{3,25}" /></td>
+          </tr>
+          <tr>
+            <th><div align="right">Description </div></th>
+            <td><input type="text" name="textfield4" required pattern="[A-Z a-z][_-+;:',./?""~!@#$%&]{3,100}" /></td>
+          </tr>
+		   <tr>
+            <th><div align="right">Qualification </div></th>
+            <td><input type="text" name="textfield5" required pattern="[A-Z a-z,.][_-+;:',./?""~!@#$%&]{3,100}" /></td>
+          </tr>
+		   <tr>
+            <th><div align="right">Experience</div></th>
+            <td><input type="text" name="textfield6" required pattern="[A-Z a-z 0-9.]{3,100}" /></td>
+          </tr>
+		  
+		  
+		  
+		  
+          {%for i in q%}
+  <tr>
+    <td>{{i[1]}}</td>
+    <td>{{i[4]}}</td>
+    <td>{{i[3]}}</td>
+    <td>{{i[5]}}</td>
+    <td><p><a href="/DelC?id={{i[0]}}">Delete</a></p></td>
+  </tr>
+          {%endfor%}
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="Submit" value="Submit" />
+    </div></td>
+  </tr>
+  
+
+      </tr>
+    </table>
+  </div>
+</form>
+</body>
+{% endblock %}
+<!--</html>-->

@@ -1,0 +1,36 @@
+
+{% extends 'temp/user.html' %}
+{% block base %}
+<center>
+
+<br>
+<br>
+<br>
+<br>
+
+<h2>VIEW CREATE ROOM</h2>
+    <br>
+    <div class="container">
+<table class="table table-bordered">
+    <tr>
+{#        <td>VEHICLE</td>#}
+        <td>VEHICLE </td>
+        <td>DESCRIPTION</td>
+        <td>PLACE</td>
+{#        <td>ROOM CREATED ON</td>#}
+        <td></td>
+    </tr>
+    {% for i in objval %}
+    <tr>
+{#        <td>{{ i.r }}</td>#}
+        <td>{{ i.vehicle }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.visiting_place }}</td>
+        <td><a href="{% url 'delr' idd=i.room_id %}" class="btn btn-danger">Delete</a></td>
+{#        <td>{{ i.room.descton }}</td>#}
+{#        <td>{{ i.room.date }}</td>#}
+
+    </tr>
+    {% endfor %}
+</table>
+    {% endblock %}

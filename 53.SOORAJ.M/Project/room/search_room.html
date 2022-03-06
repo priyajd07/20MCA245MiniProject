@@ -1,0 +1,68 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user.html' %}
+{% block base %}
+<center>
+<form method="post">
+    {% csrf_token %}
+<br>
+<br>
+<br>
+<br>
+    <h1>SEARCH ROOM</h1>
+    <br>
+    <table>
+        <tr>
+            <td style="width: 20cm"><input type="text" name="search" autocomplete="off" placeholder="Search by location name" required class="form-control"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 20cm"><input type="submit" value="search" class="btn btn-blue btn-effect"></td>
+        </tr>
+    </table>
+    </form>
+
+<br>
+<br>
+<br>
+    {% if details %}
+<h2>SEARCH RESULTS</h2>
+    <br>
+    <div class="container">
+<table class="table table-bordered">
+    <tr>
+{#        <td>ROOM NAME</td>#}
+        <td>CREATOR NAME</td>
+        <td>VISITING PLACE</td>
+        <td>DESCRIPTION</td>
+        <td>ROOM CREATED ON</td>
+        <td></td>
+    </tr>
+    {% for i in details %}
+    <tr>
+{#        <td>{{ i.room_name }}</td>#}
+        <td>{{ i.creator.name }}</td>
+        <td>{{ i.visiting_place }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.date }}</td>
+        <td><a href="{% url 'send_request' idd=i.room_id %}" onclick="return confirm('are you sure?')" class="btn btn-danger">SEND REQUEST</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+        </div>
+{% endif %}
+{#{% if al %}#}
+{#<script>#}
+{#    al#}
+{#</script>#}
+</center>
+{#</body>#}
+{#</html>#}
+{% endblock %}

@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% block title %}Tweets{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+{% endblock %}
+    Twitter
+    <ul>
+        {% for tweet in public_tweets %}
+            <li><b>@{{tweet.tweet.user.screen_name}}</b> - {{tweet.tweet.full_text}}<br>Sub:{{tweet.subjectivity}} Senti:{{tweet.senti}} ({{tweet.tweet.lang}})</li>
+        {% endfor %}
+    </ul>
+    News
+    <ul>
+        {% for analysis in full_analysis %}
+            <li><b>{{analysis.source}}</b> - {{analysis.text}}<br>{{analysis.sentiment}}</li>
+        {% endfor %}
+    </ul>
+    Chart
+
+
+{% block content %}
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+            <div class="card card-chart">
+                <div class="card-header card-header-danger">
+                <div class="ct-chart" style="text-align: center">
+                    <div id="chart-1">{{ output1|safe }}</div>
+                </div>
+                </div>
+                <div class="card-body">
+                <h4 class="card-title">   <h4 class="card-title"><h3 color="red">As Per Tweet Analysis, Winning Percentage Is {{percent}}</h3></h4>
+                </div>
+                <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i> freshly updated
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header card-header-primary" id="trending">
+                <h4 class="card-title">Trending Hashtags</h4>
+
+                <i class="material-icons">update</i> Just Updated
+                </div>
+                <div class="card-body table-responsive">
+                <table class="table table-hover">
+                    <thead class="text-warning">
+                    <th>ID</th>
+                    <th>Popular Hashtags</th>
+                    <th>Likes</th>
+                    <th>Comments</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>#Election2019</td>
+                        <td>1,36,738</td>
+                        <td>27,820</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>#GoBackModi</td>
+                        <td>55,789</td>
+                        <td>15,210</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>#IndVsNzl</td>
+                        <td>86,142</td>
+                        <td>12,582</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>#Sarkaar</td>
+                        <td>38,735</td>
+                        <td>7,851</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-danger">
+                    <div class="ct-chart" style="text-align: center">
+                        <div id="chart-2">{{ output2|safe }}</div>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                    <h4 class="card-title">Tweet Analysis</h4>
+                    </div>
+                    <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> freshly updated
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-12" id="twitter">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-warning">
+                        Tweets
+                    </div>
+                    <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="profile">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Handle</th>
+                                    <th>Tweet</th>
+                                    <th>subjectivity</th>
+                                    <th>sentiment</th>
+                                    <th>language</th>
+                                </tr>
+                            {% for tweet in public_tweets %}
+                                <tr>
+                                    <td><b>@{{tweet.tweet.user.screen_name}}</b></td>
+                                    <td>{{tweet.tweet.full_text}}</td>
+                                    <td>{{tweet.subjectivity}}</td>
+                                    <td>{{tweet.senti_analysis}}</td>
+                                    <td>{{tweet.tweet.lang}}</td>
+                                </tr>
+                            {% endfor %}
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-12" id="news">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-success">
+                        News
+                    </div>
+                    <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="profile">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Source, Time</th>
+                                    <th>News</th>
+                                    <th>Sentiment</th>
+                                </tr>
+                                {% for analysis in full_analysis %}
+                                    <tr>
+                                        <td><b>{{analysis.source}}</b></td>
+                                        <td>{{analysis.text}}</td>
+                                        <td>{{analysis.senti_analysis}}</td>
+                                    </tr>
+                                {% endfor %}
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                </div>
+</div>
+
+{% endblock %}

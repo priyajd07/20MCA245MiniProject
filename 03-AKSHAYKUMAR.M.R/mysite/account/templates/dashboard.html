@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block title %}dashboard{% endblock %}
+
+{% block content %}
+<style>
+    .dashboard form{
+        background-color: blue;
+      
+        text-align: center;
+    }
+ 
+
+</style>
+
+
+<h1>Hi {{user.username}}</h1>
+<div class="dashboard">
+    <form>
+        <p>Select Keywords:</p><select name="politicians" id="Politicians">
+            <option value="modi">Modi</option>
+            <option value="rahul gandhi">Rahul Gandhi</option>
+        </select><br>
+    
+        <button>Submit</button>
+    </form>
+</div>
+
+{% endblock %}

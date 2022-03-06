@@ -1,0 +1,67 @@
+
+{% if register %}
+<body style="background-image: url(static/images/download.jpg); background-size: cover;">
+<h1 style="text-align: center; color: rgb(47, 231, 255); padding-top: 20%;">ThankYou for Registering</h1>
+<center><button><a href="user_login">LOGIN</a></button></center>
+</body>
+{% else %}
+<style>
+      body{
+       margin-top: 30%;
+       padding: 0;
+       background: url(static/images/download.jpg);
+       background-size: cover;
+       background-position: center;
+       font-family: sans-serif;
+           }
+   .login{
+       width: 450px;
+       height: 1000px;
+       background: whitesmoke;
+       color: black;
+       top: 80%;
+       left: 50%;
+       position: absolute;
+       transform: translate(-50%,-50%);
+       box-sizing: border-box;
+       padding: 10px 20px;
+   }
+   .login center{
+       font-size: xx-large;
+       color: blue;
+       font-weight: bold;
+   }
+   .login p{
+       margin: 0;
+       padding: 0;
+       font-weight: bold;
+   }
+   .login input{
+       width: 100%;
+       margin-bottom: 20px;
+   }
+   .login input[type="submit"]{
+       border: none;
+       outline: none;
+       height: 40px;
+       background: #259bfb;
+       color: #fff;
+       font-size: 18px;
+       border-radius: 20px;
+   }
+   .login input[type="submit"]:hover{
+       cursor: pointer;
+       background: #ffc107;
+       color: #000;
+   }
+</style>
+<div class="login">
+
+<form action="" method="POST">
+    <center>Registration</center>
+    {% csrf_token %}
+    {{user_form.as_p}}{{profile_form.as_p}}
+    <input type="submit" value="REGISTER">
+</form>
+</div>
+{% endif %}

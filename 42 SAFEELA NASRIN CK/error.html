@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+<h1>Something Went wrong</h1>
+<a href="{% url 'dashboard' %}">Check again</a>
+
+{% endblock content %}

@@ -1,0 +1,59 @@
+<html>
+<head>
+<link rel="stylesheet" href="static/css/view_style.css">
+<style>
+#main {
+margin-top:90px;
+}
+
+#image {
+position:absolute;
+left:90px;
+top:165px;
+}
+
+h3 {
+font-family: 'Aclonica';
+font-size:22pt;
+}
+</style>
+<title>kj</title>
+</head>
+
+<body id="main">
+{% for i in val %}
+<div><h3 align="center"><b>{{i[1]}}</b></h3></div>
+
+<div id="image"><img src="static/images/{{i[0]}}.jpg"></div>
+
+<div id="list">
+<table id="t0">
+<tr>
+<th>Seller</th>
+<th>Price</th>
+<th>Rating</th>
+<th>Details</th>
+
+</tr>
+<tr id="fake1">
+<td>Amazon&nbsp;&nbsp;<img src="static/image/a.jpg" height="36" width="36"></td>
+<td id="aprice">₹ {{i[2]}}</td>
+<td id="arating"> {{i[3]}}</td>
+<td><center><a class="anchor" href="{{i[4]}}" target="_blank"><button class="buybutton" style="vertical-align:middle"><span>Buy</span></button></a></center></td>
+
+</tr>
+
+<tr id="fake2">
+<td>Flipkart&nbsp;&nbsp;<img src="static/image/f.jpg" height="36" width="36"></td>
+<td id="fprice">{{i[5]}}</td>
+<td id="frating"> {{i[6]}}</td>
+<td><a class="anchor" href="{{i[7]}}" target="_blank"><button class="buybutton" style="vertical-align:middle"><span>Buy</span></button></a></td>
+</tr>
+
+</table>
+
+
+    {% endfor %}
+</div>
+</body>
+</html>

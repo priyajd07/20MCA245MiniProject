@@ -1,0 +1,79 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<h3 align="center"><b>New Advertisement</b></h3>
+<form action="/busallocationpost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+
+  <table class="table table-hover">
+    <tr>
+      <th>Bus</th>
+      <td><label>
+       <select name="buses" class="form-control">
+           {% for i in data %}
+           <option value="{{ i['busid'] }}">{{  i['busname'] }}</option>
+           {% endfor %}
+
+       </select>
+
+      </label></td>
+    </tr>
+
+
+      <tr>
+      <th>Stops</th>
+      <td><label>
+       <select name="stopss" class="form-control">
+           {% for i in data2 %}
+           <option value="{{ i['stopid'] }}">{{  i['stopname'] }}</option>
+           {% endfor %}
+
+       </select>
+
+      </label></td>
+    </tr>
+
+
+       <tr>
+      <th>Latitude</th>
+      <td><label>
+          <input type="text" name="lat" required class="form-control "/>
+      </label></td>
+    </tr>
+       <tr>
+      <th>Longitude</th>
+      <td><label>
+          <input type="text" name="lon" required class="form-control "/>
+      </label></td>
+    </tr>
+
+
+       <tr>
+      <th>Place</th>
+      <td><label>
+          <input type="text" name="plaa" required class="form-control "/>
+      </label></td>
+    </tr>
+  <tr>
+      <th>Date</th>
+      <td><label>
+          <input type="date" name="date" required class="form-control "/>
+      </label></td>
+    </tr>
+       <tr>
+      <th>Time</th>
+      <td><label>
+          <input type="time" name="ty" required class="form-control "/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add " class=" btn btn-success " />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

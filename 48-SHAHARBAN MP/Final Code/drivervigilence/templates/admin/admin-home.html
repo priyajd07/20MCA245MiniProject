@@ -1,0 +1,238 @@
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DVS</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/static/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/static/vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="/static/vendors/chartist/chartist.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/static/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex align-items-center">
+          <a class="navbar-brand brand-logo">
+          <H3 style="color:green">DVS</H3>
+          </a>
+
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+          <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Admin</h5>
+          <ul class="navbar-nav navbar-nav-right ml-auto">
+
+
+              <a class="nav-link count-indicator message-dropdown" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+                <a class="dropdown-item py-3">
+
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="/static/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                  </div>
+                  <div class="preview-item-content flex-grow py-2">
+
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="/static/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                  </div>
+                  <div class="preview-item-content flex-grow py-2">
+
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+
+                  <div class="preview-item-content flex-grow py-2">
+
+                  </div>
+                </a>
+              </div>
+            </li>
+
+
+
+              </a>
+
+            </li>
+
+
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="profile-image">
+                  <img class="img-xs rounded-circle" src="/static/images/faces/MVD.png" alt="profile image">
+                  <div class="dot-indicator bg-success"></div>
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name">MVD</p>
+                  <p class="designation">Administrator</p>
+                </div>
+                <div class="icon-container">
+                  <i class="icon-bubbles"></i>
+                  <div class="dot-indicator bg-danger"></div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item nav-category">
+              <span class="nav-link">HOME</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ahome">
+                <span class="menu-title">Dashboard</span>
+                <i class="icon-home menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Notifications</span>
+                <i class="icon-bell menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="/adm_addnotification">Add Notifications</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="/adm_viewnotification">View Notifications</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adm_viewdrivers">
+                <span class="menu-title">Drivers</span>
+                <i class="icon-people menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adm_viewfdbckfrmdrvr">
+                <span class="menu-title">Feedback</span>
+                <i class="icon-book-open menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adm_viewcompsndrply">
+                <span class="menu-title">Complaints</span>
+                <i class="icon-bubbles menu-icon"></i>
+              </a>
+            </li>
+              <li class="nav-item nav-category"><span class="nav-link">More</span></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/adm_changepassword">
+                <span class="menu-title">Change Password</span>
+                <i class="icon-lock-open menu-icon"></i>
+              </a>
+            </li>
+                   <li class="nav-item">
+              <a class="nav-link" href="/logout">
+                <span class="menu-title">Logout</span>
+                <i class="icon-logout menu-icon"></i>
+              </a>
+            </li>
+
+            </li>
+
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+
+
+
+
+
+
+
+            <div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+
+
+{#                    <div class="d-flex mt-12 flex-wrap">#}
+
+                      {% block body %}
+
+                        {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#                    </div>#}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/static/vendors/chart.js/Chart.min.js"></script>
+    <script src="/static/vendors/moment/moment.min.js"></script>
+    <script src="/static/vendors/daterangepicker/daterangepicker.js"></script>
+    <script src="/static/vendors/chartist/chartist.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/static/js/off-canvas.js"></script>
+    <script src="/static/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/static/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
+
+
+
+
+

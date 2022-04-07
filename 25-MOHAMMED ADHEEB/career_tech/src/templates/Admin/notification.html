@@ -1,0 +1,67 @@
+{% extends 'indexadmin.html'%}
+{% block body %}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+<form action="addnoti#addv" name="form1" id="form1">
+  <div align="center">
+    <table width="88%" height="87" border="1" id="customers">
+      <tr>
+        <th width="476" scope="col"><div align="center" class="style2">Message</div></th>
+        <th width="120" scope="col"><div align="center" class="style2">Date</div></th>
+        <th width="190" scope="col"><div align="center" class="style2">Company</div></th>
+      </tr>
+      {%for i in n%}
+      <tr>
+        <td class="style2">{{i[2]}}</td>
+        <td class="style2">{{i[3]}}</td>
+        <td class="style2">{{i[4]}}</td>
+      </tr>
+      {%endfor%}
+      <!--
+    <tr><td colspan="3"><div align="center">
+      <input type="submit" name="Submit" value="Add New" />
+    </div></td>
+    </tr>
+    <tr>
+      <td colspan="3"><a href="adhome">Home</a></td>
+    </tr>
+    <tr>
+      <td colspan="3"><a href="addlg">Logout</a></td>
+    </tr>
+    -->
+    </table>
+  </div>
+  <tr><td colspan="3">
+      <div align="center">
+        <span class="style2">
+        <input type="submit" name="Submit" value="Add New" />
+        </span></div></td>
+  </tr>
+</form>
+</body>
+{%endblock %}

@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="static/css/style1.css" />
+
+  </head>
+  <body>
+    <div class="full-page">
+      <div class="navbar">
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="/">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="inner-box" id="card">
+          <div class="card-front">
+            <h2>LOGIN</h2>
+            <form action="/login" method="POST" autocomplete="off">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert alert-{{category}}">{{message}}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+              <input
+                type="email"
+                name="email"
+                class="input-box"
+                placeholder="Your Email Id"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                class="input-box"
+                placeholder="Password"
+                required
+              />
+              <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <button type="button" class="btn" onclick="openRegister()">
+              I'm New Here
+            </button>
+            <a href="">Forgot Password</a>
+          </div>
+          <div class="card-back">
+            <h2>REGISTER</h2>
+            <form method="POST" name="reg" action="/register">
+              <input
+                type="text"
+                name="name"
+                class="input-box"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="email"
+                name="email1"
+                class="input-box"
+                placeholder="Your Email Id"
+                required
+              />
+              <input
+                type="password"
+                name="password1"
+                class="input-box"
+                placeholder="Password"
+                required
+              />
+              <button type="submit" class="submit-btn">Register</button>
+            </form>
+            <button type="button" class="btn" onclick="openLogin()" id="reg">
+              I've an account
+            </button>
+            <a href="">Forgot Password</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("hi");
+      var card = document.getElementById("card");
+      console.log("card");
+
+      function openRegister() {
+        card.style.transform = "rotateY(180deg)";
+      }
+      function openLogin() {
+        card.style.transform = "rotateY(0deg)";
+      }
+    </script>
+  <script>
+    $(document).ready(function(){
+        $(".alert").hide(3000)
+    });
+</script>
+  </body>
+</html>

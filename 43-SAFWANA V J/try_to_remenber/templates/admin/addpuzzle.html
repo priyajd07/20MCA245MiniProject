@@ -1,0 +1,35 @@
+{% extends "admin/index.html" %}
+{% block body %}
+
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body"><br>
+                <h4 class="card-title">Add Puzzle</h4><br>
+                <form class="form-sample" enctype="multipart/form-data" method="post"
+                      action="/admin_add_puzzles_post">
+
+                    <table class="table">
+                         <tr>
+                            <td width="150px">Puzzlename</td>
+                            <td><input type="text" name="name" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td width="150px">Choose Image</td>
+                            <td><input type="file" name="file" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Upload" class="btn btn-success">
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

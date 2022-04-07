@@ -1,0 +1,33 @@
+{% extends 'expertindex.html'%}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_treatment#about">
+  <table width="200" border="0" class="table table-border">
+    <tr class="table-success">
+      <th scope="col">Disease</th>
+      <th scope="col">Treatment</th>
+      <th scope="col">Details</th>
+      <th scope="col">Date</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>&nbsp;{{i[1]}}</td>
+      <td>&nbsp;{{i[2]}}</td>
+      <td>&nbsp;{{i[3]}}</td>
+      <td>&nbsp;{{i[4]}}</td>
+      <td><a href="dlttrtmnt?id={{i[0]}}">Delete</a></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="5"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add new" class="btn-success" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

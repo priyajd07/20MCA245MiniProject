@@ -1,0 +1,79 @@
+{% include 'adminheader.html' %}
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-6 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+<br>
+            <br>
+<br>
+<br>
+<br>
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f3f3f3;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #37517e;
+  color: white;
+}
+</style>
+
+<body>
+
+<h3 align="center"><u>REPLY MESSAGES</u></h3><br>
+<form method="post" action="/reply_message_action">
+<table width="513" height="241" border="0" align="center" id="customers">
+  <tr>
+    <th width="137" scope="row">MESSAGE</th>
+    <td colspan="2"><label for="message"></label>
+
+         <label for="message"><font color="white"> {{ view.message }}</font></label></td>
+      <input type="text" name="msg_id" value="{{ view.m_id }}" hidden>
+
+
+
+  </tr>
+
+
+  <tr>
+    <th height="105" scope="row">REPLY</th>
+    <td colspan="2">
+      <label for="reply"></label>
+      <textarea name="reply" id="reply" cols="45" rows="5" required></textarea>
+    </td>
+  </tr>
+
+
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td width="86"><input type="submit" name="reply2" id="reply2" value="REPLY" /></td>
+    <!--<td width="268"><input type="submit" name="exit" id="exit" value="EXIT" /></td>-->
+  </tr>
+</table>
+</form>
+<p>&nbsp;</p>
+</body>
+</div>
+    </div>
+    </div>
+
+</section>
+
+{% include 'footer.html' %}

@@ -1,0 +1,35 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/addnotification">
+  <table id="customers">
+    <tr>
+      <th scope="row">Notification</th>
+      <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" required></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2" scope="row"><input type="submit" name="button" id="button" value="Send" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+<table id="customers">
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Notification</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+        {% for i in val %}
+
+  <tr>
+    <td>{{i[1]}}</td>
+    <td>{{i[2]}}</td>
+    <td><a href="/removoe?id={{i[0]}}">remove</a></td>
+  </tr>
+  {%endfor%}
+</table>
+<p>&nbsp;</p>
+</body>
+{%endblock%}

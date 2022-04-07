@@ -1,0 +1,70 @@
+{% extends "admin/admin-home.html" %}
+{% block body %}
+   <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Driver Table</h4><br>
+                  <form id="form1" name="form1" method="post" action=" /adm_viewdrivers_post">
+ <table class="pull-right">
+    <tr>
+     <tr>
+      <th>NAME</th>
+        <td><input type="text" name="textfield" class="form-control" placeholder="Name" /></td>
+
+        <td><input type="submit" name="Submit" value="Search" class="btn btn-outline-success" /></td>
+    </tr>
+  </table>
+    <br></form>
+
+
+
+
+
+
+
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                         <th width="5%">#</th>
+      <th colspan="2">Name</th>
+      <th>Address</th>
+      <th>Contact</th>
+      <th>Email</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                             {% for i in data %}
+    <tr>
+       <td class="py-1">{{ loop.index}}</td>
+
+<td width="100px">
+    <img src="{{ i['photo'] }}" width="100px" height="100px" style="width:100px;height: 100px;">
+</td>
+<td>{{ i['name'] }}</td>
+      <td>{{ i['house_no'] }}<br>{{ i['place'] }}<br>{{ i['post'] }}<br>{{ i['pin'] }}</td>
+      <td>{{ i['contact_no'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['email'] }}</td>
+
+
+
+    </tr>
+{% endfor %}
+
+
+
+
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

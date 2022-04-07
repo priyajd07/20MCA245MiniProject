@@ -1,0 +1,24 @@
+
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+  <table width="530" border="1" class="table table-bordered">
+    <tr>
+      <td width="159">Username</td>
+      <td width="355"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" required class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><center><input type="submit" name="button" id="button" value="Login" class="btn success"/></center></td>
+    </tr>
+  </table>
+</form>
+
+ {% endblock %}

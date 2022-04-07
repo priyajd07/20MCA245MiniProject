@@ -1,0 +1,67 @@
+
+{% include 'userheader.html' %}
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-6 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+<br>
+            <br>
+<br>
+<br>
+<br>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f3f3f3;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #37517e;
+  color: white;
+}
+</style>
+<body>
+
+<body>
+<form id="form1" name="form1" method="post" action="/search">
+  <table width="342" border="1" id="customers">
+    <tr>
+      <th width="92" scope="col">Type</th>
+      <th width="234" scope="col"><label for="select"></label>
+        <select name="select" id="select">
+            {% for i in val%}
+            <option value="{{i[0]}}">{{i[0]}}</option>
+            {%endfor%}
+      </select>
+      <input type="submit" name="button" id="button" value="Submit" /></th>
+    </tr>
+    <tr>
+      <td>file</td>
+      <td></td>
+    </tr>
+            {%for i in val1%}
+
+    <tr>
+      <td>{{i[1]}}</td>
+      <td><a href="/static/documents/{{i[1]}}">download</a></td>
+    </tr>
+            {%endfor%}
+
+  </table>
+</form>
+</body>
+{% include 'footer.html' %}

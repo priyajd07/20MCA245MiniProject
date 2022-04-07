@@ -4,6 +4,907 @@
 </head>
 <body>
 <script type="text/javascript">
+//-----------------------       GRID   -----------------------------------
+class Grid {
+   // index 0 is not used in Column serial . 
+   // Index zero is used in all other arrays.
+   // and record no starts from 1
+ 
+   GrdItmGrd  = 0;      //  General Item Pointer of this grid 
+                        //  which stores grid no   
+   GrdColDom  = [];     //  DomHand of screen items   
+   // array for column 
+   GrdColSer  = [];     //  general pointer - Index starts from 1  
+                        //  Item will store this subscript in DomHand       
+   GrdActCol  = [];     //  Display Action of column[Col]           
+   GrdCmpTyp  = [];     //  Comp Type Of Column.
+   GrdCntTyp  = [];     //  Content Type Of Column.
+   GrdColWid  = [];     //  width of column 
+   GrdColLbl  = [];     //  lable of column [col serno] of grid being defined   
+   GrdLsdDfv  = [];     //  Keeps default value of S type list bo[Column Ser]   
+   GrdDupChk  = [];     //  Seq No of the columns for dupchk   
+
+   // Array for column of each record 
+   GrdColVal  = [];     //  value of grid columns
+   GrdActDis  = [];     //  Display Action [Ptr of rc cl]            
+
+   GrdDelAll  = false;
+   GrdInsAll  = false;
+   GrdAddAll  = false;
+
+   GrdDupSts  = false;  //  Grid has dupchk if true        
+   GrdRno     = 0;      //  Total record of grid                     
+   GrdCurRsc  = 0;      //  current screen record
+   GrdFcr     = false;  //  Grid field created true/false  
+   GrdCno     = 0;      //  Max col no of GRD      
+   GrdShwRec  = 0;      //  No of records shown on screen  
+   GrdShwFst  = 0;      //  Record No of first record    
+   GrdRnw     = 0;      //  number of new record.      . 
+   GrdCurCol  = 0;      //  current column of Grid      
+   GrdRecUpl  = 0;      //  Keeps last record used by    
+   GrdRecPnd = false;   //  Grid Record pending      
+   GrdHlp = false;      //  Help Grid         
+   //-------------------------------------------Related to two diementional Grid----------------------
+   RelatedGrd = [];
+   MaxRelGrd  = 0;    
+   Grd2Dim    = false;         //  true if two dimentional grid , else false
+   GrdArrCur  = 0;             //  Current level 1 substript is 0 based   
+   GrdFirst   = [];  // outer array. for each record of related arr
+                      // this will hold a grdcol array
+/*  ---------------------------------S C R O L L --------------------------------   
+   VerScroll  = [] // scroll bar object
+   GrdCntNam  = []; //  Name  of Column showing the count of grid records
+*/
+// Since Array index starts from 0 , subtract 1 when translating col,row to index
+//----------------------------------------Constructor ----------------------------------------------------------------
+  constructor(AddDelIns,x,y,w,h,RowNo,ItmPtr,Hlp)
+      {
+      this.GrdXax      = x;
+      this.GrdYax      = y;
+      this.GrdWid      = w;
+      this.GrdHei      = h;
+      this.GrdShwRec   = RowNo;
+      this.GrdRno      = 0;
+      this.GrdCurRsc   = 0;
+      this.GrdCurCol   = 0;
+      this.GrdCno      = 0;
+      this.GrdShwFst   = 1; 
+      this.GrdDupSts = false;
+      this.GrdDupChk.push(0);
+      this.GrdDupChk.push(0);
+      this.GrdDupChk.push(0);
+      this.GrdDupChk.push(0);                        
+      this.GrdFcr      = false;
+      this.GrdRecPnd   = false;
+      this.GrdItmGrd  = ItmPtr;
+
+      if ( Hlp == 0)
+         this.GrdHlp = true;
+      else                       
+         this.GrdHlp = false;            
+
+      this.GrdDelAll  = false;
+      this.GrdInsAll  = false;
+      this.GrdAddAll  = false;
+      var Adi = AddDelIns.codePointAt(0);
+
+      if (Adi >= 64) {
+         this.GrdAddAll = true;
+         Adi = Adi-64;
+      }
+
+      if (Adi >= 32) {
+         this.GrdAddDel = true;
+         Adi = Adi-32;
+      }
+
+      if (Adi == 16)
+         this.GrdAddIns = true;
+          
+ } 
+//-------------Set Colur of a Row ------------------------------------------------------
+   Set_Row_color (  Pair , ScrRow, Base)
+     {
+      // base is not used . but may be used in future     	
+      for ( var ii = 1 ; ii <= this.GrdCno ; ii++) {  	 	
+         if (this.GrdCmpTyp[ii]=="T")           	
+            Utils.Set_Color(this.GrdDomRsc(ii, ScrRow) , Pair );         	        
+      }
+   }
+ //------------------ Grid Item Pointer -------------------------------------------------------------    
+  Get_Grd_Itm(Grd)   
+     {
+       // Grd is the grid no . Returns the item pointer
+      return GrdItmGrd;
+    }
+//---Grd Get Last Column in a Row--------------------
+   GrdEnbCll(Rc)  
+   // Get Last enabled column
+   {   
+     Rtn = 0;
+     
+     for (var Cl = this.GrdCno ; Cl > 0 ; Cl--)  {
+        if (this.GetActDis(Cl,Rc) > 3 ) {
+            Rtn = Cl;
+            break;
+        }
+     }
+     return Rtn;
+   }
+//---Grd Get First Column in a Row---------------------------------------------------------------
+   GrdEnbClf(Rc)  
+   // Get First enabled column
+   {   
+     Rtn = 0;
+     
+     for (var Cl = 1 ; Cl <= this.GrdCno ; Cl++)  {
+        if (this.GetActDis(Cl,Rc) > 3) {
+            Rtn = Cl;
+            break;
+        }
+     }
+     return Rtn;
+   }
+//----------------------------------------Get from Grid Store------------------------
+   GrdGetVal (Cl , Rw)
+    {
+      var Ret,indx;
+      indx = (Rw-1) * this.GrdCno + Cl-1;
+
+      Ret = "";      
+	
+      if ( this.Grd2Dim) {	
+         if ( this.GrdColVal.length > this.GrdArrCur)  {
+               if ( this.GrdColVal[this.GrdArrCur].length > indx )  
+               Ret =  this.GrdColVal[this.GrdArrCur][indx];
+         }
+      }   
+      else {
+         if ( this.GrdColVal.length > indx )  
+             Ret =  this.GrdColVal[indx];
+      }               
+      return Ret;      
+ }     
+//----------------------------------------Using Scr get Grid Store------------------------
+   ScrGetVal (Cl , Sc) {
+       return this.GrdGetVal (Cl , this.ScrToRec(Sc));
+  }
+//----------------------------------------Using Scr set Grid Store------------------------
+   ScrSetVal ( Vin , Cl , Sc) {
+       this.Grd_Store_Val (Vin , Cl , this.ScrToRec(Sc));
+  }
+//----------------------------------------Set Grid Store------------------------
+   Grd_Store_Val ( Vin , Cl , Rw)
+    {
+      var indx = (Rw-1) * this.GrdCno + Cl-1;
+      
+      if ( this.Grd2Dim) {	      
+         // Add array element till it reaches the current index 
+         if ( this.GrdColVal[this.GrdArrCur].length <= indx )  {
+      	    for ( var ii = this.GrdColVal[this.GrdArrCur].length; ii <= indx; ii++) 
+               this.GrdColVal[this.GrdArrCur].push("");
+         }
+
+         this.GrdColVal[this.GrdArrCur][indx] = Vin;                          
+      }
+      else  {
+         // Add array element till it reaches the current index    
+         // Not needed
+         //if ( this.GrdColVal.length <= indx )  {
+      	 //   for ( var ii = this.GrdColVal.length; ii <= indx; ii++) 
+         //      this.GrdColVal.push("");
+         //}
+         this.GrdColVal[indx] = Vin;
+      }             
+      
+      this.GrdRno = this.CalcRno();   
+  }
+//-------------------------------- Set value in grid fields ---------------------------
+  Grd_Set_Values(Val , Cl , Rw ) 
+  {
+     var Dh,RecNo = Rw,UpdateRec=0;
+     // when setting value , we should not change current record no, except in 
+     // the case where current record is 0. This is to solve the problem of 
+     // Command error when value is set to a list box with type 'D';
+
+     if (this.GrdCurRsc == 0)
+        this.GrdCurRsc = RecNo; 
+      
+     if ( RecNo <= 0 ) 
+        RecNo = this.ScrToRec();
+
+     if (RecNo > this.GrdRno )
+        this.GrdRno = RecNo;   
+              
+     // cur recno of this grid    
+     if ( RecNo == 0 )
+        UpdateRec = this.GrdRecUpl;
+     else
+        UpdateRec = RecNo;
+   
+     // if it is a list box of type S , add to all the screen rows of that column.
+     // if default set in current record only. 
+     // <IMP> if grid contains only list fields,  It will not update GrdRno; 
+     if (this.GrdCmpTyp[Cl]=="L") { 
+        var defChk = Val.substring(0,1);  
+        var DefVal = Val.substring(1,Val.length);
+
+        // screen update of default is done below for all lists. 
+        // so handle only storing in value array / def array
+        // advance default value is preceeded by two ~ 
+        var St, En;
+
+        if (this.GrdCntTyp[Cl]=="S")
+          {
+            St = 1;
+            En = this.GrdShwRec;
+          }
+        else
+         {
+            St = UpdateRec;
+            En = UpdateRec;
+        }                               
+
+        if (defChk=="~") {
+           if ( DefVal.substring(0,1)=="~") {   
+              this.GrdLsdDfv[Cl] =  DefVal.substring(1,DefVal.length); 
+              Dh = null;  // this is advnced default. no need of adding on screen
+           }
+           else             
+              this.Grd_Store_Val(DefVal,Cl,UpdateRec);     
+              if (On_Screen(UpdateRec)) {
+                 Dh = GrdDomRec(Cl, UpdateRec);
+                 Dh.value = Val;
+              }
+           }
+        else 
+         { 
+           // Do it for all the records on the screen for the column
+           for ( var ii=St;  ii <= En;   ii++ ) {
+               if (this.On_Screen(ii)) { 
+                  Dh = this.GrdDomRec(Cl, ii);
+                  Dh.value = Val;
+               }
+               /*var option = document.createElement(ToSet); // set name same as value
+               option.value = ToSet;
+               option.text  = ToSet;
+               Dh.appendChild(option);
+               //Dh.add(option)  alternative
+               //<IMP>if (!(Dh.prop('selected')))  correct later          
+               //   Dh.setSelectedIndex(0);*/
+
+                                                         
+              if (!(this.GrdLsdDfv[Cl]) ) {           
+                 //ListArr[ActPtr].setSelectedIndex(0);
+                 this.ScrSetVal(Val,Cl,ii); 
+              }
+           }   
+        }                 
+     }   	  
+     else // non list items
+        this.Grd_Store_Val ( Val , Cl , UpdateRec)
+
+     if (RecNo   > 0 )
+        this.GrdRecUpl = UpdateRec;
+
+
+     // set on screen
+     if (this.On_Screen(UpdateRec)) {
+        Dh = this.GrdDomRec(Cl, UpdateRec);
+    
+        if (this.GrdCmpTyp[Cl]=="B")
+           Dh.innerHTML = Val;
+            
+        else if (this.GrdCmpTyp[Cl]=="T")
+           Dh.value = Val;            
+     }               
+  }  
+ //------------------------------------Clear arraylist--------------------------
+   GrdClear()
+    {
+      if (this.Grd2Dim) {
+         for ( var ii = 0 ; ii < this.GrdColVal[this.GrdArrCur].length; ii++ )       	
+            this.GrdColVal[ii] = [];
+         this.GrdArrCur = 0;   
+      }                             
+      else
+         this.GrdColVal=[];
+ 
+      this.GrdRno = 0;   
+
+  }
+ //------------------------------------Clear arraylist of one -----------------------
+   Grd2Clear(Sub)
+    {
+      if (this.Grd2Dim) 
+         this.GrdColVal[Sub] = [];
+  }
+//----------------------------------------Copy from record to record------------------------
+   GrdCopVal (Rin , Cout , Rout )
+    {
+      this.Grd_Store_Val ( this.GrdGetVal(Cout , Rin) , Cout , Rout );
+ }     
+//----------------------------------------  Set GrdArrCur  ------------------------
+ Set_GrdArrCur(TabCur)
+  {
+    this.GrdArrCur  = 	TabCur - 1;
+//<ZERO> double
+    if (this.GrdColVal.length <= this.GrdArrCur )  {
+       for ( var ii = this.GrdColVal.length; ii <= this.GrdArrCur; ii++) {
+           this.GrdColVal = [];
+           this.GrdFirst.push(this.GrdColVal);
+       }    
+    }    
+               	
+    this.GrdColVal[GrdRno] = CalcRno();
+  }
+//---------------Calculate record number from arraysize------------------------
+ CalcRno()
+  {
+    var Rno;
+  	
+    if (this.Grd2Dim) 	{
+       Rno =  (this.GrdColVal[this.GrdArrCur].length) / GrdCno;
+
+       if (Number.isInteger(Rno))
+           Rno++;
+    }
+    else {
+       Rno =  this.GrdColVal.length / this.GrdCno;
+       if (!(Number.isInteger(Rno)))
+           Rno++;
+       Rno = Math.trunc(Rno);
+    }
+   
+    return Rno;  	        
+ }     
+ //----------------------------------------  Set GrdArrCur  ------------------------
+  Get_GrdArrCur()
+  {
+    return this.GrdArrCur + 1;      
+ }      
+//----------------------------------------  Set GrdArrCur  ------------------------
+ Check2Dim()
+  {
+      return this.Grd2Dim;
+ }
+//----------------------------------------  Set GrdArrCur  ------------------------
+   Second_Dim ()
+    {
+      this.Grd2Dim =true;	
+      this.GrdColVal.push("");      
+ }     
+//----------------------------------------  Add Relation  ------------------------
+   Add_Relation(Kid)
+    {
+      this.RelatedGrd[this.MaxRelGrd] = Kid;       
+      this.MaxRelGrd++;	
+ }     
+//------------------- Record no to screen------------------------------------    
+    RecToScr(Rc)   
+     {
+       return  Rc - this.GrdShwFst + 1;                                                                 
+     }
+ //------------------- Screen to record------------------------------------    
+    ScrToRec(Sc)   
+     {
+       return  Sc + this.GrdShwFst - 1;                                                                 
+     }
+ //------------------- Screen to record------------------------------------    
+    ScrToRec()   
+     {
+       return  this.GrdCurRsc + this.GrdShwFst - 1;                                                                 
+     }
+//---------------------Return DomHandle of a column and a screen rec----------
+   GrdDomRsc (Col, Rsc)
+     {
+      return this.GrdColDom[ (Rsc-1) * this.GrdCno + Col -1];
+  }  
+//--------------------- Return DomHandle of current screen column-----------------------------------------
+   GrdDomCur ()
+      {
+        return this.GrdColDom[ (this.GrdCurRsc-1) * this.GrdCno + this.GrdCurCol -1];
+  }  
+//---------------------Return DomHandle of a column and a currecnt sreen rec----------
+   GrdDomCol (Col)
+    {
+      return this.GrdColDom[ (this.GrdCurRsc-1) * this.GrdCno + Col -1];
+  }  
+//---------------------Return DomHandle of a column and a Rec----------
+   GrdDomRec(Col,Rec)
+    {
+      return this.GrdColDom[ (this.RecToScr(Rec)-1) * this.GrdCno + Col -1];
+  }  
+//----------------------Set DomHandle of a column and a screen rec----------
+   SetGrdDom (DH,Col,Rsc)  {
+      this.GrdColDom[ (Rsc-1) * this.GrdCno + Col - 1] = DH ;
+  }  
+//-------------------------set Act dis a column and a Rec------------------------------
+   SetActDis(ActDis,Col,Rec)
+    {
+      this.GrdActDis[this.GrdCno * (Rec-1) + Col-1] = ActDis;
+  }  
+//---------------------Return  Act dis of a column and a Rec----------------------------
+   GetActDis( Col,Rec)
+    {
+      return this.GrdActDis[this.GrdCno * (Rec-1) + Col-1];
+  }  
+//-----------------Grid Locate------------------
+Grd_Locate ( It , Col , RecNo )
+  {
+    if (!(RecNo <= 0  || RecNo > this.GrdRno)) {            
+       if (It=="DELETE" || It=="INSERT")   
+          this.DelIns_Record(Itmname.substring(0,1),RecNo); 
+       else { 
+          var Old = this.GrdCurRsc;
+          if (RecNo == this.GrdRno+1 ) {
+             if ( this.GrdAddAll)  {
+                this.Init_Record(RecNo);                              
+                this.Record_Shift (this.GrdCurRsc , 40 , Col );
+             }
+             else {  // Nothing happens
+                RecNo = this.GrdRno;
+                this.GrdRnw = 0;
+            }                               
+          }                         
+          else {
+             // <IMP> CHECK for next enabled item    
+             this.GrdCurRsc = RecToScr(RecNo);
+             this.Grd_Set_Screen(RecNo, Col, Old );
+          }
+      }	                     
+    }
+ }
+//-----------------Grid balance of OP------------------
+Grd_OP( Lk )
+  {
+     if (Lk >= 33 && Lk <= 40  && Lk != 37 && Lk != 39 ) 
+     {  // Record shifting keys 
+        Record_Shift (this.GrdCurRsc , Lk, this.GrdCurCol);
+     }
+     else {
+        this.GrdCurCol = this.GrdCurCol + 1;
+        if (this.GrdCurCol > this.GrdCno)
+            this.GrdCurCol = 1;
+
+        var Dh = this.GrdDomRsc(this.GrdCurCol, this.GrdCurRsc);
+        Dh.focus();
+     }
+ }   
+//-------------------------------- To shift to grid ---------------------------
+//check recno ?? 
+ DelIns_Record(Action,Rnum ) 
+  {   
+      OC , CR ,  Rc, Rec;  // int
+      Typ , SameDiff;      // string
+      To_Set_Col = true;   // boolean
+         
+      Rec = ScrToRec(GrdCurRsc);
+      
+      if ( Action=="D")  {         
+         CR  = Rec;
+         OC  = GrdRno;
+
+         while ( CR < OC ) {            
+            for ( var Cl = 1 ; Cl <= GrdCno ; Cl++ ) {
+               if ( !(GrdGetVal(Cl , CR)))  
+                     Grd_Store_Val("", Cl , CR);
+               // <IMP> Numeric should get "0" ?       
+               GrdCopVal( CR+1 , Cl , CR);
+            }               
+            CR=CR+1;
+          }
+
+          Init_Record( Grd , OC);  
+          GrdRno = OC - 1;
+      }    
+      else  { 
+         OC  =  GrdRno+Rnum;      
+         GrdRno = OC + 1;      
+         CR  = Rec;
+         
+         if ( Rnum > 0 )
+            CR = CR + 1;
+      
+         while ( OC >= CR ) {            
+            for ( var Cl = 1 ; Cl <= this.GrdCno ; Cl++ ) {
+               if ( this.GrdGetVal(Cl , CR) == null) 
+                     this.Grd_Store_Val("", Cl , CR);
+               // <TMP> ?? "0" in numeric       
+               GrdCopVal( OC , Cl , OC+1);
+            }
+                          
+            OC = OC - 1;
+          }
+          Init_Record(Grd,CR);                
+      }    
+
+      this.Grd_Shw_Scr(Rec);
+
+      if (  To_Set_Col ) {
+         this.Set_Row_color ("GRIDSEL" , this.GrdCurRsc , 0);
+         To_Set_Col = false;    
+      }
+      GrdCurCol = 1;                     
+  }
+//-------------------------------------------- Initialise a Record ------------------------------------------------------------    
+   Init_Record( Rc)   
+   { 
+     var DH;
+
+     if ( this.GrdRno < Rc) {
+          this.GrdRno= Rc;
+          this.GrdRnw= Rc;
+     }
+     for ( var Cl = 1 ; Cl <= this.GrdCno ; Cl++ ) {
+        if (this.GrdCmpTyp[Cl]=="T" && this.GrdCntTyp[Cl]=="N" )
+           this.Grd_Store_Val("0",Cl,Rc);
+        else
+	   this.Grd_Store_Val("",Cl,Rc);
+
+        //<IMP>  setting default in list       
+        if (this.GrdCmpTyp[Cl]=="L" && this.GrdCntTyp[Cl]=="S") { 
+           DH=this.GrdDomRec(Cl, Ln)
+           DH.value=this.GrdLsdDfv[Cl]; // Set Default on screen         
+        }
+        this.SetActDis(this.GrdActCol[Cl],Cl,Rc);
+     }              
+  }
+//--------------------------------- Shift_Record_New-------------------------------------------------------------------
+  Shift_From_New ()
+    {
+    	
+     var Ptr =0  , Cl =0;
+      	
+     GrdRno = GrdRno - 1;
+     GrdRnw = 0;
+
+     Cl = GrdEnbClf(this.GrdRno);
+                         
+     Record_Shift ( this.GrdCurRsc , LastKey , 1 ); 
+     // Record shif calls Show_row and if column > 0 set  currptr
+     var DH = this.GrdDomRec(Cl, Ln);                     
+     DH.focus();
+  }
+// <CORRECT>    
+//-----Calculate Record on shifting key and show the current record-------------------
+    Record_Shift ( ScrRec, Kp , Cl )
+     { 	
+     	var RcNew=0 , RcOld = this.ScrToRec(ScrRec) , Col=Cl , OldRsc=ScrRec;
+        var End = false;
+        
+        if (Kp ==34 )                       // Page Down
+  	   RcNew = RcOld + this.GrdShwRec;
+  	else if (Kp ==33 )                 // Page Up
+  	   RcNew = RcOld - this.GrdShwRec;
+  	else if (Kp ==40 )                 // Down Arr
+  	   RcNew = RcOld + 1;
+  	else if (Kp ==38 ) 
+  	   RcNew = RcOld - 1;              // Up arrow 
+  	else if (Kp ==35 )                 // End
+  	 { RcNew = GrdRno;
+  	   End   = true; 
+        }
+  	else if (Kp ==36 )                 // Home
+  	   RcNew = 1;
+ 
+        if ( RcNew <= 0 )
+           RcNew = 1;   
+    
+        /*-----------------------------------------------------
+        Pending reocord fetch is done in analyse function itself
+        if ( this.GrdRecPnd ) {
+           if ( RcNew+ this.GrdShwRec-1 > this.GrdRno) 
+                this.Get_Pending_Records (RcNew);
+           else if ( End ) {
+                this.Get_Pending_Records (0);
+                RcNew = this.GrdRno ;
+           }     
+        }              
+        ---------------------------------------------------------*/
+        if (  RcNew > this.GrdRno  )  
+              RcNew = this.GrdRno; 
+ 
+        if ( RcNew != RcOld && RcOld > 0) 
+           this.Grd_Set_Screen(RcNew, Col, OldRsc);                  
+    }   
+//---------------------------------Grd_Shw_OneRow-----------------------
+Grd_Shw_Scr(FrmScrRow)
+  {   
+    var Rc , Typ, DH, Val , StatDynam;
+
+    for ( var Ln = FrmScrRow ; Ln <= this.GrdShwRec; Ln++ ) {
+       for ( var ShwCl = 1 ; ShwCl <=  this.GrdCno ; ShwCl++) {
+          Rc       =  Ln+this.GrdShwFst-1;
+          Typ      =  this.GrdCmpTyp[ShwCl];
+          StatDynam=  this.GrdCntTyp[ShwCl]; 
+ 
+          if (Typ=="T") {
+             if (Rc > this.GrdRno ) {
+      	        DH = this.GrdDomRsc(ShwCl, Ln); 
+                DH.value = "";
+             }
+             else {    	 	
+                Val = this.GrdGetVal(ShwCl, Rc);
+      	        DH = this.GrdDomRsc(ShwCl, Ln); 
+                DH.value = Val;
+
+                if (this.GrdHlp)  
+                   Utils.Set_Color(DH,"HLPDISP");
+                else {
+                   //  <IMP> release after focus is enabled on disabled 
+                   //  if ( Ln == 2 && Cl == ShwCl )
+                   //  DH.focus();
+
+                   var ad = this.GetActDis(ShwCl, Rc);
+                   if (ad < 4) 
+                      Utils.Set_Color(DH,"GRIDDISP");
+                   else
+   	              Utils.Set_Color(DH,"GRIDENT");
+
+                } // else
+             }  // else
+         }   // type checking if             
+
+         if (Typ=="L") {
+            if (Rc <= this.GrdRno ) {
+               // Load diff content of each row into list
+ 	      
+               Val = this.GrdGetVal(ShwCl, Rc);
+               if (StatDynam=="D" ) {                   	  
+         	   DH = this.GrdDomRsc(ShwCl, Ln); 
+                   DH.value = val;
+                   //  ListArr[this.SwnPtr(ShwCl, Ln)].removeAllItems();	
+          	   //      ListArr[this.SwnPtr(ShwCl, Ln)].addItem(Val); 	   
+               }
+               //ListArr[this.SwnPtr(ShwCl, Ln)].setSelectedItem(Val); 
+             }
+         }
+                
+         if (Typ=="K") {
+       	    if (Rc <= this.GrdRno ) {
+               Val = this.GrdGetVal(ShwCl, Rc);
+               DH  = this.GrdDomRsc(ShwCl, Ln); 
+         	      
+               if (Val="true")
+         	  DH.value = val;
+               else
+         	  DH.value = val;
+            }
+         }  // typ == K                  
+
+     }  //Inner For
+    }     //Outer For
+  }
+//------ Locate current row and if not on screen. If shifted out of screen, 
+// calculate the first line to be shown and call Grd_Shw_scr------    
+   Grd_Set_Screen(NowRec, Cl, OldRsc)   
+     {   	
+       var Rc = NowRec;       
+       var Typ , SameDiff , Val="";       	
+
+       // 2 type of calls  1. Call comes with Cl > 0 . After showing new record , 
+       //                     Curritem to be set .  
+       //                  2. Call comes with Cl = 0   Dont set curritem
+       // if the record to be shown is less than the top record or greater than the last record
+       if (  Rc < this.GrdShwFst  ||  Rc >=   this.GrdShwFst + this.GrdShwRec ) {
+          if ( Rc == this.GrdShwFst + this.GrdShwRec  &&  this.GrdCurRsc == this.GrdShwRec) {
+             //  if downarrow and cursor is at last line, bring up only to show the expected record
+             //  at the last row and highlight last row;
+             this.GrdShwFst = this.GrdShwFst + 1;
+             this.GrdCurRsc = this.GrdShwRec;
+          }            
+          else if (Rc == this.GrdShwFst -1 &&  this.GrdCurRsc == 1 ) { 	  
+              //  if uparr and cursor is at first line , bring down only to show the
+              //  expected record at the firsg row 
+       	     this.GrdShwFst = this.GrdShwFst -1;
+       	     this.GrdCurRsc = 1;
+          }
+          else if  ( Rc <  this.GrdShwFst  && Rc >= this.GrdShwFst - this.GrdShwRec) {    
+             //  if Pageup bring down a page
+             //  Page up can be pressed from anywhere. Rc is calulated from current RC
+             //  So we need to reducs the number of current screen line 
+             this.GrdShwFst = this.GrdShwFst - this.GrdShwRec; 
+
+             if ( this.GrdShwFst < 0 )
+                  this.GrdShwFst = 1;
+
+             this.GrdCurRsc = OldRsc;
+          }             
+          else if (Rc >= this.GrdShwFst + this.GrdShwRec && Rc < this.GrdShwFst + 
+                    this.GrdShwRec+ this.GrdShwRec)  {  	  
+             //  if Page down bring up a page  
+             this.GrdShwFst = this.GrdShwFst + this.GrdShwRec;
+             this.GrdCurRsc = OldRsc;              
+          } 
+          else {
+             if ( Rc > this.GrdRno-this.GrdShwRec)  	  
+                this.GrdShwFst = this.GrdRno - this.GrdShwRec + 1;              
+             else
+                this.GrdShwFst = Rc; 
+             this.GrdCurRsc = 1; 
+          }
+debugger;
+          Rc = 1;
+      
+          this.Grd_Shw_Scr(Rc);
+
+       }  // if
+       else  {
+          this.GrdCurRsc = this.RecToScr(NowRec); 
+
+          if ( this.GrdHlp ) 
+             this.Set_Row_color ("HLPDISP" , OldRsc , 3);
+          else
+             this.Set_Row_color ("GRIDDISP", OldRsc , 0);
+       }      
+
+       if ( this.GrdHlp ) 
+          this.Set_Row_color ("HLPSEL" , this.GrdCurRsc,3);
+       else
+          this.Set_Row_color ("GRIDSEL", this.GrdCurRsc,0);
+
+        /* // if this grid is related to a nested 2 level grid - 
+        // show corresponding set of records on the related grid
+        // if this grid is related to a nested 2 level grid - 
+        //show corresponding set of records on the related grid
+
+        for (var Kid = 0 ; Kid < this.MaxRelGrd; Kid++)
+            Show_2DimL2(RelatedGrd[Kid],RecNo,false);
+
+
+        for (var Kid = 0 ; Kid < this.MaxRelGrd; Kid++) {
+           Rc = this.ScrToRec();
+           this.Show_2DimL2(this.RelatedGrd[Kid], Rc ,false );
+        }
+
+        if (Cl > 0 ) {
+           var Dm = this.GrdDomRec(Col,this.GrdCurRsc)
+           Dm.focus();
+           this.GrdCurCol = Col;
+        }
+  }
+//------------------- Show the current data of a 2 Dim Grid------------------------------------    
+    Show_2DimL2 ( CurNo , force)  // int , int , boolean
+    {
+       var DH;     // DomHand
+      var ToSet , Typ;  //string
+      
+      if ( CurNo != this.Get_GrdArrCur() || force ) {
+         // Set the first dimesion record;
+         this.Set_GrdArrCur(CurNo);
+         this.GrdShwFst = 1;
+      
+         for (var rc=1; rc <= this.GrdRno; rc++)
+          {
+            // need to show only the first showable lines	
+            if ( rc > this.GrdShwRec )
+               break; 	
+       	
+            for (var cl=1; cl <= this.GrdCno; cl++)
+             {     	
+               // both screen rec and actual rec are same 
+               DH     = this.GrdDomRec(ShwCl, Ln); 
+               ToSet  = this.GrdGetVal(cl , rc);    	
+               Typ    = this.GrdCmpTyp[cl];
+          
+          
+               if (Typ=="B")
+                  DH.innerHtml = ToSet;           
+               else if (Typ=="T")
+                  DH.value = ToSet;
+               else if (Typ=="K")
+                  DH.value = ToSet;
+               else if (Typ=="L")
+                  DH.value = ToSet;            
+            }
+         }  	
+         //  ------------------- Blank the rest rows------------------------------ 
+         if (  this.GrdRno < this.GrdShwRec )
+            {
+             for ( rc=this.GrdRno+1; rc <= this.GrdShwRec; rc++)
+               {
+                 for ( cl=1; cl <= this.GrdCno; cl++)
+                 {     	
+                   DH     = this.GrdDomRec(ShwCl, Ln); 
+                   Typ    = this.GrdCmpTyp[cl];
+          
+                   if (Typ=="B")
+                      DH.innerHtml = "";           
+                   else if (Typ=="T")
+                      DH.value = "";
+                   else if (Typ=="K")
+                      DH.value = "";
+                   else if (Typ=="L")
+                      DH.value = "";            
+                }
+              }
+         }
+      }        	
+  }    
+// ------------------------------Grid List item deleting ------------------------   
+  Grd_Del_Ent(Cl,En)
+  {
+    /*if S type, if ELEMENT IS 0 delete all entries else the specified entry of list
+       in all records                                          
+    if D type do the same for the current record;*/
+    var Ln , i;
+
+    if (this.GrdCntTyp[Cl] == "S")
+    {
+       Ln = this.GrdShwRec;
+       i  = 1;
+    }
+    else
+     {
+       Ln = this.GrdCurRec;
+       i  = this.GrdCurRec;
+    }
+
+    var DH;
+   
+    //---- Only One column List Box to be handled here . For all the screen records
+    for ( var k=i; k <= Ln ; k++)  {               
+        DH = this.GrdDomRec(Cl,k);
+        // <IMP> Check if record store also has to be cleare
+        //  and correstposnding systax for clear all and item at                          
+
+        for (var i = 0 ; i < DH.length ;  i++) {
+               if ( En == i+1 || En == 0 )
+       	            DH.remove(i);
+        }
+     }
+ }
+// ------------------------------Grid  Leaf item clearing ------------------------   
+  Grd_Clr_Leaf(Cl)
+     { 
+        var Dh;
+    	//---- Only One column to be handled here ---------
+        for (var i = 1; i <= this.GrdRno ; i++)  {
+           this.Grd_Store_Val("",Cl,i) ;  
+           // Variable holding column data is set to null for all records 
+
+           if ( this.On_Screen(i))  {
+              if ( this.GrdCmpTyp[Cl] == 'T' )  {
+                 Dh = this.GrdDomRsc(Cl, i);                
+                 Dh.value = ""; 
+                 //Utils.Set_Color(TextArr[Irec],"GRIDDISP");
+              }   
+              // if list item of type D(ifferent) remove all elements (D is used only in Grid). 
+              else if ( this.GrdCmpTyp[Cl] == "L"  &&  this.GrdCntTyp[Cl]=="D" ) {          
+                 Dh = this.GrdDomRsc(Cl, i);                
+                 Dh.value = ""; 
+              }                 //<IMP> list clearing                
+           }
+        } //for
+    }     
+ //------------------   Clearing grid as a whole  ---------------------------------------    
+  Grd_Clr_Grd(Sub) {
+     for ( var ii=1; ii <= this.GrdCno; ii++) 
+        this.Grd_Clr_Leaf(ii)
+
+     this.GrdRno       = 0;
+     this.GrdCurRsc    = 1;
+     this.GrdCurCol    = 1;
+     this.GrdShwFst    = 1;            
+            
+     if ( Sub == 0 )
+        this.GrdClear();
+     else  
+        this.Grd2Clear(Sub);
+
+     //this.Set_Row_color ("GRIDDISP",GrdCurRsc,3);     
+  }
+ //------------------   Check whether the record is on screen  ---------------------------------------    
+   On_Screen (Rc)   
+     {
+        if ( (Rc >= this.GrdShwFst + this.GrdShwRec )  || Rc < this.GrdShwFst)
+           return false;
+        else           
+           return true;   
+    }
+}
+
 
 // Name of items should start with program no. there is no way to get it otherwise
 /*--------------------------------Class Utils -------------------------------------*/

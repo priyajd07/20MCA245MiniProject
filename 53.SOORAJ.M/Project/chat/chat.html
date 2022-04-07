@@ -1,0 +1,64 @@
+{% extends 'temp/user.html' %}
+{% block base %}
+    <head>
+
+    </head>
+<center>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<br>
+<br>
+<br>
+    <h1>CHAT</h1>
+    <br>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 12cm">
+                <input type="text" name="chat" autocomplete="off" placeholder="Enter your messege..." class="form-control">
+            </td>
+            <td>
+                <input type="file" class="btn btn-primary" name="media">
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 10cm"><input type="submit" value="SEND" class="btn btn-blue btn-effect">
+            <input type="submit" value="UPLOAD MEDIA" class="btn btn-blue btn-effect">
+            </td>
+        </tr>
+    </table>
+
+
+    </form>
+
+<br>
+<h2>CHAT ROOM</h2>
+    <br>
+        {% for i in chats %}
+<table border="2" style="width: 20cm;overflow-x: auto">
+    <tr >
+        <td align="left" style="height: 1cm;color: #0088cc;font-style: italic" ><b>&nbsp;&nbsp;&nbsp;{{ i.user.name }}</b></td>
+    </tr>
+        {% if i.chat %}
+    <tr style="height: 1cm;color: black;font-style: oblique">
+        <td align="center">{{ i.chat }}</td>
+    </tr>
+        {% endif %}
+        {% if i.media %}
+    <tr style="height: 2cm">
+        <td align="center"><img src="/static/{{ i.media }}"  style="width: 19cm;height: 10cm"></td>
+{#       <td align="center"> <video src="/static/{{ i.media }}"  style="width: 19cm;height: 10cm" controls></video></td>#}
+    </tr>
+        {% endif %}
+    <tr style="height: 0.5cm;color: black;font-style: italic">
+        <td align="right">{{ i.date }}&nbsp;&nbsp;&nbsp;{{ i.time }}</td>
+    </tr>
+</table>
+    {% endfor %}
+</center>
+{% endblock %}

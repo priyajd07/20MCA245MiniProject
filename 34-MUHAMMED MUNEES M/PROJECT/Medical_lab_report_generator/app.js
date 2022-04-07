@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var helpers = require('handlebars-helpers')();
 
 const fileUpload = require('express-fileupload');
 const favicon = require('serve-favicon')
@@ -15,6 +16,11 @@ var session=require('express-session')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.use(function(req, res, next) {
+  if (!req.user)
+      res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+});
 app.engine('hbs', hbs.engine({
   extname: 'hbs',
   defaultLayout: 'layout',

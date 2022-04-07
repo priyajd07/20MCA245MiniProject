@@ -1,0 +1,51 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{% extends 'temp/user.html' %}
+{% block base %}
+<center>
+<form method="post">
+    {% csrf_token %}
+<br>
+<br>
+<br>
+<br>
+    <h1>CREATE ROOM</h1>
+    <br>
+    <table>
+        <tr>
+            <td style="width: 20cm"><input type="text" name="room_name" autocomplete="off" placeholder="Vehicle" required class="form-control"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 20cm"><input type="text" name="place" autocomplete="off" placeholder="Visiting Place" required class="form-control"></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><textarea style="width: 20cm" required class="form-control" name="description" placeholder="Description"></textarea></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 20cm"><input type="submit" value="CREATE" class="btn btn-blue btn-effect"></td>
+        </tr>
+    </table>
+    </form>
+<script>
+    {% for msg in messages %}
+        alert('{{ msg }}');
+    {% endfor %}
+</script>
+</center>
+{#</body>#}
+{#</html>#}
+{% endblock %}

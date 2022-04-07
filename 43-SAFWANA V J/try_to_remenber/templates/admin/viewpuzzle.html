@@ -1,0 +1,38 @@
+{% extends "admin/index.html" %}
+{% block body %}
+
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body"><br>
+                <h4 class="card-title">All Puzzles</h4><br>
+                <form class="form-sample" enctype="multipart/form-data" method="post"
+                      action="">
+
+                    <table class="table">
+                         <tr>
+                            <th>ID</th>
+                             <th>Image</th>
+                            <th>Name</th>
+
+                             <td></td>
+                        </tr>
+                        {% for i in data %}
+                        <tr>
+                        <td width="50px">{{ loop.index }}</td>
+
+                        <td width="70px"><img src="{{ i["filename"] }}" style="height: 70px; width: 70px;"/> </td>
+                        <td>{{ i.name }}</td>
+                        <td width="50px"><a href="/admin_delete_puzzles/{{ i["id"] }}" class="btn btn-danger">Delete</a> </td>
+                        </tr>
+                        {% endfor %}
+
+                    </table>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

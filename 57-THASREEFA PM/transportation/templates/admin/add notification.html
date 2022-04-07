@@ -1,0 +1,30 @@
+{% extends 'adindex.html' %}
+{% block body %}
+
+<body>
+<h3 align="center"><b>New Notification</b></h3>
+<form id="form1" name="form1" method="post" action="/admin_add_notification_post">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table class="table">
+    <tr>
+        <td>Description</td>
+          <td><textarea name="textarea" required class="form-control "></textarea>
+     </td>
+    </tr>
+    <tr>
+      <td>
+
+          <input type="submit" name="Submit" value="Add" class="btn btn-success"/>
+          </div>
+      </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+{% endblock %}

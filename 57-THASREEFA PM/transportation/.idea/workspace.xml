@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="66b862bf-0535-4d2f-a100-4c5dba9b13ae" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/transportation$transportation.coverage" NAME="transportation Coverage Results" MODIFIED="1645368441367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="transportation.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transportation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="599" column="10" lean-forward="true" selection-start-line="599" selection-start-column="10" selection-end-line="599" selection-end-column="10" />
+              <folding>
+                <element signature="e#2#77#0" expanded="true" />
+                <marker date="1645368035301" expanded="true" signature="568:604" ph="select * fro... login" />
+                <marker date="1645368035301" expanded="true" signature="568:636" ph="select * fro... login" />
+                <marker date="1645368035301" expanded="true" signature="568:653" ph="select * fro... login" />
+                <marker date="1645368035301" expanded="true" signature="1507:1571" ph="insert into advertisement... " />
+                <marker date="1645368035301" expanded="true" signature="1507:1595" ph="insert into advertisement... " />
+                <marker date="1645368035301" expanded="true" signature="1507:1609" ph="insert into advertisement... " />
+                <marker date="1645368035301" expanded="true" signature="1507:1622" ph="insert into advertisement... " />
+                <marker date="1645368035301" expanded="true" signature="1507:1623" ph="insert into advertisement... " />
+                <marker date="1645368035301" expanded="true" signature="1824:1843" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="2336:2400" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2429" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2431" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2444" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2445" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2456" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2457" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2458" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2469" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2470" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2483" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2336:2484" ph="insert into bus... " />
+                <marker date="1645368035301" expanded="true" signature="2891:2941" ph="insert into notification... " />
+                <marker date="1645368035301" expanded="true" signature="2891:2942" ph="insert into notification... " />
+                <marker date="1645368035301" expanded="true" signature="2891:2967" ph="insert into notification... " />
+                <marker date="1645368035301" expanded="true" signature="2891:2968" ph="insert into notification... " />
+                <marker date="1645368035301" expanded="true" signature="3344:3380" ph="insert into route... " />
+                <marker date="1645368035301" expanded="true" signature="3344:3395" ph="insert into route... " />
+                <marker date="1645368035301" expanded="true" signature="3592:3611" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="3966:4034" ph="insert into stop... " />
+                <marker date="1645368035301" expanded="true" signature="3966:4047" ph="insert into stop... " />
+                <marker date="1645368035301" expanded="true" signature="3966:4078" ph="insert into stop... " />
+                <marker date="1645368035301" expanded="true" signature="3966:4092" ph="insert into stop... " />
+                <marker date="1645368035301" expanded="true" signature="3966:4105" ph="insert into stop... " />
+                <marker date="1645368035301" expanded="true" signature="3966:4106" ph="insert into stop... " />
+                <marker date="1645368035301" expanded="true" signature="4330:4381" ph="delete from " />
+                <marker date="1645368035301" expanded="true" signature="4330:4392" ph="delete from " />
+                <marker date="1645368035301" expanded="true" signature="4619:4663" ph="delete from " />
+                <marker date="1645368035301" expanded="true" signature="4877:4981" ph="select stop.... stop" />
+                <marker date="1645368035301" expanded="true" signature="5037:5056" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="5426:5558" ph="update stop " />
+                <marker date="1645368035301" expanded="true" signature="5780:5831" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="6129:6168" ph="update notif... " />
+                <marker date="1645368035301" expanded="true" signature="6129:6209" ph="update notif... " />
+                <marker date="1645368035301" expanded="true" signature="6129:6210" ph="update notif... " />
+                <marker date="1645368035301" expanded="true" signature="6184:6198" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="6184:6209" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="6443:6492" ph="delete from " />
+                <marker date="1645368035301" expanded="true" signature="6779:6793" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="6779:6797" ph="select * fro... noti" />
+                <marker date="1645368035301" expanded="true" signature="6779:6818" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="6779:6826" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="6779:6828" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="6779:6829" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="7022:7036" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="7022:7048" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="7282:7319" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="7282:7324" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="7282:7326" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="7282:7341" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="7620:7666" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="7620:7668" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="7620:7685" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="7620:7696" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="7892:7919" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="8122:8149" ph="select stop.... stop" />
+                <marker date="1645368035301" expanded="true" signature="8122:8184" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="8122:8185" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="8732:8757" ph="update stop " />
+                <marker date="1645368035301" expanded="true" signature="8732:8764" ph="update adver... " />
+                <marker date="1645368035301" expanded="true" signature="8732:8777" ph="update adver... " />
+                <marker date="1645368035301" expanded="true" signature="8732:8823" ph="update adver... " />
+                <marker date="1645368035301" expanded="true" signature="8732:8847" ph="update adver... " />
+                <marker date="1645368035301" expanded="true" signature="8732:8858" ph="update adver... " />
+                <marker date="1645368035301" expanded="true" signature="8893:8999" ph="update adver... " />
+                <marker date="1645368035301" expanded="true" signature="9026:9132" ph="update adver... " />
+                <marker date="1645368035301" expanded="true" signature="9339:9414" ph="select bus.*... bus" />
+                <marker date="1645368035301" expanded="true" signature="9468:9487" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="9742:9781" ph="select * fro... bus" />
+                <marker date="1645368035301" expanded="true" signature="9742:9793" ph="select * fro... bus" />
+                <marker date="1645368035301" expanded="true" signature="9953:10053" ph="select bus.*... bus" />
+                <marker date="1645368035301" expanded="true" signature="10028:10053" ph="select stop.... stop" />
+                <marker date="1645368035301" expanded="true" signature="10109:10128" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="10770:10794" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10813" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10830" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10846" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10862" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10880" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10904" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10905" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10913" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="10770:10914" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="11167:11304" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="11167:11314" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="11539:11686" ph="update bus s... " />
+                <marker date="1645368035301" expanded="true" signature="11934:11976" ph="delete from " />
+                <marker date="1645368035301" expanded="true" signature="12189:12267" ph="select * fro... location" />
+                <marker date="1645368035301" expanded="true" signature="12955:13038" ph="insert into emergency... " />
+                <marker date="1645368035301" expanded="true" signature="12995:13038" ph="insert into notification... " />
+                <marker date="1645368035301" expanded="true" signature="13255:13310" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="13597:13673" ph="update notif... " />
+                <marker date="1645368035301" expanded="true" signature="13898:13951" ph="delete from " />
+                <marker date="1645368035301" expanded="true" signature="14229:14276" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="14460:14474" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="14460:14483" ph="select * fro... emergency" />
+                <marker date="1645368035301" expanded="true" signature="14708:14764" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="14941:14960" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="15130:15208" ph="select stop.... stop" />
+                <marker date="1645368035301" expanded="true" signature="15262:15281" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="15504:15617" ph="select stop.... stop" />
+                <marker date="1645368035301" expanded="true" signature="15671:15690" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="15917:15976" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="17085:17131" ph="delete from " />
+                <marker date="1645368035301" expanded="true" signature="17348:17396" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="17666:17736" ph="update route... " />
+                <marker date="1645368035301" expanded="true" signature="18226:18243" ph="select * fro... bus" />
+                <marker date="1645368035301" expanded="true" signature="18279:18293" ph="select * fro... bus" />
+                <marker date="1645368035301" expanded="true" signature="18279:18297" ph="select * fro... stop" />
+                <marker date="1645368035301" expanded="true" signature="18482:18648" ph="select bus.*... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="18482:18685" ph="select bus.*... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="18880:19083" ph="select bus.*... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="18880:19109" ph="select bus.*... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="18880:19115" ph="select bus.*... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="19500:19535" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="19500:19553" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="19500:19567" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="19500:19580" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="19500:19593" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="19500:19612" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="19500:19613" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="19500:19625" ph="update bus_l... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20128" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20129" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20142" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20155" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20168" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20179" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20181" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20194" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20207" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="20054:20208" ph="insert into bus_locations... " />
+                <marker date="1645368035301" expanded="true" signature="21086:21171" ph="insert into login... " />
+                <marker date="1645368035301" expanded="true" signature="21207:21429" ph="insert into user... " />
+                <marker date="1645368035301" expanded="true" signature="21708:21757" ph="select * fro... location" />
+                <marker date="1645368035301" expanded="true" signature="21821:21939" ph="update locat... " />
+                <marker date="1645368035301" expanded="true" signature="21990:22120" ph="insert into location... " />
+                <marker date="1645368035301" expanded="true" signature="22337:22416" ph="select * fro... advertisement" />
+                <marker date="1645368035301" expanded="true" signature="22659:22744" ph="select * fro... login" />
+                <marker date="1645368035301" expanded="true" signature="23017:23043" ph="select * fro... notification" />
+                <marker date="1645368035301" expanded="true" signature="23224:23247" ph="select * fro... emergency" />
+                <marker date="1645368035301" expanded="true" signature="23412:23435" ph="select * fro... emergency" />
+                <marker date="1645368035301" expanded="true" signature="23620:23706" ph="select bus.*... bus" />
+                <marker date="1645368035301" expanded="true" signature="23867:23886" ph="select * fro... route" />
+                <marker date="1645368035301" expanded="true" signature="24110:24392" ph="select stop.... stop" />
+                <marker date="1645368035301" expanded="true" signature="24449:24490" ph="select * fro... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="24449:24543" ph="select * fro... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="24623:24747" ph="select stop.... bus" />
+                <marker date="1645368035301" expanded="true" signature="24623:24749" ph="select stop.... bus" />
+                <marker date="1645368035301" expanded="true" signature="24623:24771" ph="select stop.... bus" />
+                <marker date="1645368035301" expanded="true" signature="24623:24777" ph="select DISTI... bus" />
+                <marker date="1645368035301" expanded="true" signature="24623:24778" ph="select stop.... bus" />
+                <marker date="1645368035301" expanded="true" signature="24966:25019" ph="select disti... " />
+                <marker date="1645368035301" expanded="true" signature="24966:25029" ph="select disti... " />
+                <marker date="1645368035301" expanded="true" signature="24966:25033" ph="select disti... " />
+                <marker date="1645368035301" expanded="true" signature="24966:25040" ph="select disti... " />
+                <marker date="1645368035301" expanded="true" signature="24966:25052" ph="select disti... " />
+                <marker date="1645368035301" expanded="true" signature="25417:25496" ph="select * fro... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="25670:25712" ph="select * fro... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="25670:25733" ph="select * fro... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="25670:25734" ph="select * fro... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="25670:25745" ph="select * fro... bus_locations" />
+                <marker date="1645368035301" expanded="true" signature="25878:25961" ph="select * fro... bus_locations" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buslocation.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/buslocation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="70" column="56" lean-forward="false" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>basi</find>
+      <find>collapse</find>
+      <find>adver</find>
+      <find>das</find>
+      <find>emer</find>
+      <find>logo</find>
+      <find>.js</find>
+      <find>.css</find>
+      <find>materialdesignicons</find>
+      <find>icon</find>
+      <find>font</find>
+      <find>/assets/vendors/js/vendor.bundle.base.js</find>
+      <find>pow</find>
+      <find>bus</find>
+      <find>admin_home</find>
+      <find>admin_view_advertisement</find>
+      <find>admin_edit_advertisement</find>
+      <find>admin_add_bus</find>
+      <find>busa</find>
+      <find>ad</find>
+      <find>locationn</find>
+      <find>busallocation</find>
+      <find>admin_add_stop</find>
+      <find>stop</find>
+      <find>buslo</find>
+      <find>adin</find>
+      <find>signup_index</find>
+      <find>busloc</find>
+      <find>buslocation</find>
+      <find>/buslocation</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&quot;/static/admin_templates/</replace>
+      <replace>admin_template</replace>
+      <replace>/static/</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/static/admin_templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/login_index.html" />
+        <option value="$PROJECT_DIR$/templates/signupindex.html" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/templates/admin/adminhome.html" />
+        <option value="$PROJECT_DIR$/templates/blank-page.html" />
+        <option value="$PROJECT_DIR$/templates/admin/admintemp.html" />
+        <option value="$PROJECT_DIR$/DBConnection.py" />
+        <option value="$PROJECT_DIR$/templates/admin/add route.html" />
+        <option value="$PROJECT_DIR$/templates/admin/add advertisement.html" />
+        <option value="$PROJECT_DIR$/templates/admin/add bus.html" />
+        <option value="$PROJECT_DIR$/templates/admin/add emergency.html" />
+        <option value="$PROJECT_DIR$/templates/admin/add notification.html" />
+        <option value="$PROJECT_DIR$/templates/admin/view_buslocation.html" />
+        <option value="$PROJECT_DIR$/templates/admin/view stop.html" />
+        <option value="$PROJECT_DIR$/templates/admin/view route.html" />
+        <option value="$PROJECT_DIR$/templates/admin/view notification.html" />
+        <option value="$PROJECT_DIR$/templates/admin/view emergency.html" />
+        <option value="$PROJECT_DIR$/templates/admin/view bus.html" />
+        <option value="$PROJECT_DIR$/templates/admin/view advertisement.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit stop.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit route.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit notification.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit emergency.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit bus.html" />
+        <option value="$PROJECT_DIR$/templates/admin/edit advertisement.html" />
+        <option value="$PROJECT_DIR$/templates/admin/add stop.html" />
+        <option value="$PROJECT_DIR$/templates/adindex.html" />
+        <option value="$PROJECT_DIR$/templates/viewbuslocation.html" />
+        <option value="$PROJECT_DIR$/templates/admin/editbuslocation.html" />
+        <option value="$PROJECT_DIR$/templates/logindex.html" />
+        <option value="$PROJECT_DIR$/templates/admin/buslocation.html" />
+        <option value="$PROJECT_DIR$/transportation.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="2" />
+    <option name="width" value="1934" />
+    <option name="height" value="1036" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="transportation">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="transportation">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="templates">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transportation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="view emer&#9;null&#9;null&#10;view n&#9;null&#9;null&#10;login post&#9;null&#9;null&#10;login&#9;null&#9;null&#10;add bu&#9;null&#9;null&#10;purple&#9;FILE&#9;file://C:/Users/THOUFEEQ PM/PycharmProjects/transportation/static/bus/Cute-girl-in-purple-frock-wide-HD.jpg&#10;emerge&#9;FILE&#9;file://C:/Users/THOUFEEQ PM/PycharmProjects/transportation/templates/admin/add emergency.html&#10;vie&#9;null&#9;null&#10;emergency&#9;null&#9;null&#10;add emer&#9;null&#9;null&#10;eme&#9;null&#9;null&#10;add not&#9;null&#9;null&#10;emer&#9;null&#9;null&#10;add n&#9;null&#9;null&#10;add&#9;null&#9;null&#10;ed&#9;null&#9;null&#10;delet&#9;null&#9;null&#10;edit&#9;null&#9;null&#10;edit b&#9;null&#9;null&#10;edit s&#9;null&#9;null&#10;vi&#9;null&#9;null&#10;edi&#9;null&#9;null&#10;view&#9;null&#9;null&#10;sea&#9;null&#9;null&#10;dele&#9;null&#9;null&#10;delete&#9;null&#9;null&#10;edit not&#9;FILE&#9;file://C:/Users/THOUFEEQ PM/PycharmProjects/transportation/templates/admin/edit notification.html&#10;admin ed&#9;null&#9;null&#10;noti&#9;null&#9;null&#10;add_n&#9;null&#9;null" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\new444\transportation\static" />
+      <recent name="C:\Users\HP\Desktop\new444\transportation\templates" />
+      <recent name="C:\Users\THOUFEEQ PM\PycharmProjects\transportation\templates" />
+      <recent name="C:\Users\THOUFEEQ PM\PycharmProjects\transportation\static\admintemplate\assets\images" />
+      <recent name="C:\Users\THOUFEEQ PM\PycharmProjects\transportation\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\THOUFEEQ PM\PycharmProjects\transportation\templates\admin" />
+      <recent name="C:\Users\THOUFEEQ PM\PycharmProjects\transportation\templates" />
+      <recent name="C:\Users\THOUFEEQ PM\PycharmProjects\transportation\static\admintemp" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.transportation">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="transportation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="transportation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="transportation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="transportation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="transportation" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="transportation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="transportation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="transportation" type="PythonConfigurationType" factoryName="Python" singleton="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="transportation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transportation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.transportation" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66b862bf-0535-4d2f-a100-4c5dba9b13ae" name="Default" comment="" />
+      <created>1640927433125</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640927433125</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="2" width="1934" height="1036" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23519914" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4695052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39116204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284522" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/transportation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+          <folding>
+            <element signature="e#2#77#0" expanded="true" />
+            <marker date="1645368035301" expanded="true" signature="568:604" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="568:636" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="568:653" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="1507:1571" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1595" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1609" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1622" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1623" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1824:1843" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="2336:2400" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2429" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2431" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2444" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2445" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2456" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2457" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2458" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2469" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2470" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2483" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2484" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2941" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2942" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2967" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2968" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="3344:3380" ph="insert into route... " />
+            <marker date="1645368035301" expanded="true" signature="3344:3395" ph="insert into route... " />
+            <marker date="1645368035301" expanded="true" signature="3592:3611" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="3966:4034" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4047" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4078" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4092" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4105" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4106" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="4330:4381" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="4330:4392" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="4619:4663" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="4877:4981" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="5037:5056" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="5426:5558" ph="update stop " />
+            <marker date="1645368035301" expanded="true" signature="5780:5831" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="6129:6168" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="6129:6209" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="6129:6210" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="6184:6198" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6184:6209" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="6443:6492" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="6779:6793" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="6779:6797" ph="select * fro... noti" />
+            <marker date="1645368035301" expanded="true" signature="6779:6818" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6779:6826" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6779:6828" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6779:6829" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7022:7036" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7022:7048" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7319" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7324" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7326" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7341" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7620:7666" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7620:7668" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7620:7685" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7620:7696" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7892:7919" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="8122:8149" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="8122:8184" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="8122:8185" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="8732:8757" ph="update stop " />
+            <marker date="1645368035301" expanded="true" signature="8732:8764" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8777" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8823" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8847" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8858" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8893:8999" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="9026:9132" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="9339:9414" ph="select bus.*... bus" />
+            <marker date="1645368035301" expanded="true" signature="9468:9487" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="9742:9781" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="9742:9793" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="9953:10053" ph="select bus.*... bus" />
+            <marker date="1645368035301" expanded="true" signature="10028:10053" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="10109:10128" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="10770:10794" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10813" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10830" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10846" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10862" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10880" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10904" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10905" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10913" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10914" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11167:11304" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11167:11314" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11539:11686" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11934:11976" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="12189:12267" ph="select * fro... location" />
+            <marker date="1645368035301" expanded="true" signature="12955:13038" ph="insert into emergency... " />
+            <marker date="1645368035301" expanded="true" signature="12995:13038" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="13255:13310" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="13597:13673" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="13898:13951" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="14229:14276" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="14460:14474" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="14460:14483" ph="select * fro... emergency" />
+            <marker date="1645368035301" expanded="true" signature="14708:14764" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="14941:14960" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="15130:15208" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="15262:15281" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="15504:15617" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="15671:15690" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="15917:15976" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="17085:17131" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="17348:17396" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="17666:17736" ph="update route... " />
+            <marker date="1645368035301" expanded="true" signature="18226:18243" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="18279:18293" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="18279:18297" ph="select * fro... stop" />
+            <marker date="1645368035301" expanded="true" signature="18482:18648" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18482:18685" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18880:19083" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18880:19109" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18880:19115" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="19500:19535" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19553" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19567" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19580" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19593" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19612" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19613" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19625" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20128" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20129" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20142" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20155" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20168" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20179" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20181" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20194" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20207" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20208" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="21086:21171" ph="insert into login... " />
+            <marker date="1645368035301" expanded="true" signature="21207:21429" ph="insert into user... " />
+            <marker date="1645368035301" expanded="true" signature="21708:21757" ph="select * fro... location" />
+            <marker date="1645368035301" expanded="true" signature="21821:21939" ph="update locat... " />
+            <marker date="1645368035301" expanded="true" signature="21990:22120" ph="insert into location... " />
+            <marker date="1645368035301" expanded="true" signature="22337:22416" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="22659:22744" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="23017:23043" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="23224:23247" ph="select * fro... emergency" />
+            <marker date="1645368035301" expanded="true" signature="23412:23435" ph="select * fro... emergency" />
+            <marker date="1645368035301" expanded="true" signature="23620:23706" ph="select bus.*... bus" />
+            <marker date="1645368035301" expanded="true" signature="23867:23886" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="24110:24392" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="24449:24490" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="24449:24543" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="24623:24747" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24749" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24771" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24777" ph="select DISTI... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24778" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24966:25019" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25029" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25033" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25040" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25052" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="25417:25496" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25712" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25733" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25734" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25745" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25878:25961" ph="select * fro... bus_locations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/DBConnection.py" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/delete advertisement.html" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/standardSchemas/xhtml1-transitional.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="941" column="37" lean-forward="true" selection-start-line="941" selection-start-column="37" selection-end-line="941" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemp/assets/js/misc.js" />
+    <entry file="file://$PROJECT_DIR$/static/admin_templates/css/style.css" />
+    <entry file="file://$PROJECT_DIR$/static/admintemplate/assets/js/misc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/asset/js/popper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login_index.html" />
+    <entry file="file://$PROJECT_DIR$/static/asset/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="43" column="64" lean-forward="false" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemplate/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24434">
+          <caret line="4699" column="9" lean-forward="false" selection-start-line="4699" selection-start-column="1" selection-end-line="4699" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/bus/Cute-girl-in-purple-frock-wide-HD.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemplate/assets/images/logo-mini.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemplate/assets/images/logo.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemplate/assets/images/favicon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemplate/assets/images/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blank-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="287" column="67" lean-forward="false" selection-start-line="287" selection-start-column="27" selection-end-line="287" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/asset/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139094">
+          <caret line="8182" column="1" lean-forward="false" selection-start-line="8182" selection-start-column="1" selection-end-line="8182" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/asset/images/bg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/adminhome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemplate/assets/images/bus bg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/admintemp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="168" column="24" lean-forward="true" selection-start-line="168" selection-start-column="24" selection-end-line="168" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConnection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="64" lean-forward="false" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admintemp/assets/libs/js/main-js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add route.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add advertisement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add bus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add emergency.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add notification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/view stop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/view route.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="79" lean-forward="false" selection-start-line="22" selection-start-column="79" selection-end-line="22" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/view notification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="25" column="95" lean-forward="false" selection-start-line="25" selection-start-column="95" selection-end-line="25" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/view emergency.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/view advertisement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit stop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit route.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit notification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit emergency.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit bus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/edit advertisement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add stop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/view bus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="39" column="20" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adindex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="297" column="88" lean-forward="false" selection-start-line="297" selection-start-column="88" selection-end-line="297" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/view_buslocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewbuslocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="28" column="86" lean-forward="false" selection-start-line="28" selection-start-column="86" selection-end-line="28" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/editbuslocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/signupindex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/logindex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/buslocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="70" column="56" lean-forward="false" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transportation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="599" column="10" lean-forward="true" selection-start-line="599" selection-start-column="10" selection-end-line="599" selection-end-column="10" />
+          <folding>
+            <element signature="e#2#77#0" expanded="true" />
+            <marker date="1645368035301" expanded="true" signature="568:604" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="568:636" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="568:653" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="1507:1571" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1595" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1609" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1622" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1507:1623" ph="insert into advertisement... " />
+            <marker date="1645368035301" expanded="true" signature="1824:1843" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="2336:2400" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2429" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2431" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2444" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2445" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2456" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2457" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2458" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2469" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2470" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2483" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2336:2484" ph="insert into bus... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2941" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2942" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2967" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="2891:2968" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="3344:3380" ph="insert into route... " />
+            <marker date="1645368035301" expanded="true" signature="3344:3395" ph="insert into route... " />
+            <marker date="1645368035301" expanded="true" signature="3592:3611" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="3966:4034" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4047" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4078" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4092" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4105" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="3966:4106" ph="insert into stop... " />
+            <marker date="1645368035301" expanded="true" signature="4330:4381" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="4330:4392" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="4619:4663" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="4877:4981" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="5037:5056" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="5426:5558" ph="update stop " />
+            <marker date="1645368035301" expanded="true" signature="5780:5831" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="6129:6168" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="6129:6209" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="6129:6210" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="6184:6198" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6184:6209" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="6443:6492" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="6779:6793" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="6779:6797" ph="select * fro... noti" />
+            <marker date="1645368035301" expanded="true" signature="6779:6818" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6779:6826" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6779:6828" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="6779:6829" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7022:7036" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7022:7048" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7319" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7324" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7326" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7282:7341" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="7620:7666" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7620:7668" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7620:7685" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7620:7696" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="7892:7919" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="8122:8149" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="8122:8184" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="8122:8185" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="8732:8757" ph="update stop " />
+            <marker date="1645368035301" expanded="true" signature="8732:8764" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8777" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8823" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8847" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8732:8858" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="8893:8999" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="9026:9132" ph="update adver... " />
+            <marker date="1645368035301" expanded="true" signature="9339:9414" ph="select bus.*... bus" />
+            <marker date="1645368035301" expanded="true" signature="9468:9487" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="9742:9781" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="9742:9793" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="9953:10053" ph="select bus.*... bus" />
+            <marker date="1645368035301" expanded="true" signature="10028:10053" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="10109:10128" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="10770:10794" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10813" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10830" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10846" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10862" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10880" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10904" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10905" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10913" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="10770:10914" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11167:11304" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11167:11314" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11539:11686" ph="update bus s... " />
+            <marker date="1645368035301" expanded="true" signature="11934:11976" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="12189:12267" ph="select * fro... location" />
+            <marker date="1645368035301" expanded="true" signature="12955:13038" ph="insert into emergency... " />
+            <marker date="1645368035301" expanded="true" signature="12995:13038" ph="insert into notification... " />
+            <marker date="1645368035301" expanded="true" signature="13255:13310" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="13597:13673" ph="update notif... " />
+            <marker date="1645368035301" expanded="true" signature="13898:13951" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="14229:14276" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="14460:14474" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="14460:14483" ph="select * fro... emergency" />
+            <marker date="1645368035301" expanded="true" signature="14708:14764" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="14941:14960" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="15130:15208" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="15262:15281" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="15504:15617" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="15671:15690" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="15917:15976" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="17085:17131" ph="delete from " />
+            <marker date="1645368035301" expanded="true" signature="17348:17396" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="17666:17736" ph="update route... " />
+            <marker date="1645368035301" expanded="true" signature="18226:18243" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="18279:18293" ph="select * fro... bus" />
+            <marker date="1645368035301" expanded="true" signature="18279:18297" ph="select * fro... stop" />
+            <marker date="1645368035301" expanded="true" signature="18482:18648" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18482:18685" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18880:19083" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18880:19109" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="18880:19115" ph="select bus.*... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="19500:19535" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19553" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19567" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19580" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19593" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19612" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19613" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="19500:19625" ph="update bus_l... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20128" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20129" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20142" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20155" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20168" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20179" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20181" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20194" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20207" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="20054:20208" ph="insert into bus_locations... " />
+            <marker date="1645368035301" expanded="true" signature="21086:21171" ph="insert into login... " />
+            <marker date="1645368035301" expanded="true" signature="21207:21429" ph="insert into user... " />
+            <marker date="1645368035301" expanded="true" signature="21708:21757" ph="select * fro... location" />
+            <marker date="1645368035301" expanded="true" signature="21821:21939" ph="update locat... " />
+            <marker date="1645368035301" expanded="true" signature="21990:22120" ph="insert into location... " />
+            <marker date="1645368035301" expanded="true" signature="22337:22416" ph="select * fro... advertisement" />
+            <marker date="1645368035301" expanded="true" signature="22659:22744" ph="select * fro... login" />
+            <marker date="1645368035301" expanded="true" signature="23017:23043" ph="select * fro... notification" />
+            <marker date="1645368035301" expanded="true" signature="23224:23247" ph="select * fro... emergency" />
+            <marker date="1645368035301" expanded="true" signature="23412:23435" ph="select * fro... emergency" />
+            <marker date="1645368035301" expanded="true" signature="23620:23706" ph="select bus.*... bus" />
+            <marker date="1645368035301" expanded="true" signature="23867:23886" ph="select * fro... route" />
+            <marker date="1645368035301" expanded="true" signature="24110:24392" ph="select stop.... stop" />
+            <marker date="1645368035301" expanded="true" signature="24449:24490" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="24449:24543" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="24623:24747" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24749" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24771" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24777" ph="select DISTI... bus" />
+            <marker date="1645368035301" expanded="true" signature="24623:24778" ph="select stop.... bus" />
+            <marker date="1645368035301" expanded="true" signature="24966:25019" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25029" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25033" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25040" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="24966:25052" ph="select disti... " />
+            <marker date="1645368035301" expanded="true" signature="25417:25496" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25712" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25733" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25734" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25670:25745" ph="select * fro... bus_locations" />
+            <marker date="1645368035301" expanded="true" signature="25878:25961" ph="select * fro... bus_locations" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,44 @@
+{% include "publicheader.html" %}
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h2>Login</h2>
+<form id="form1" name="form1" method="post" action="/Login_Action">
+  <table width="200" class="table" style="color: #fff;width: 500px;">
+    <tr>
+      <th><center>USERNAME</center></th>
+      <th><center>
+  <input class="form-control"  type="text" name="textfield" required>      </center></th>
+    </tr>
+    <tr>
+      <td><center>PASSWORD</center></td>
+      <td><center>
+  <input class="form-control"  type="password" name="textfield2" required>
+      </center></td>
+    </tr>
+    <tr>
+      <td colspan="4"><label>
+
+          <input type="submit" name="Submit" value="LOGIN"  />
+          <a href="/User_Registeration">sign up</a>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <!--<img src="/static/assets/img/" class="img-fluid animated" alt="">-->
+        </br>
+            <br>
+                        <br>
+            <br>
+            <br>
+            <h1 class="img-fluid animated">Automatic Document Classifier System</h1>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+{% include 'footer.html' %}

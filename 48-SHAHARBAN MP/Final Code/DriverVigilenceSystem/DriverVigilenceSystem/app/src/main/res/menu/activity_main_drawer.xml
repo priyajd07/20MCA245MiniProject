@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_view_prfl"
+            android:icon="@drawable/navviewprofile"
+            android:title="MyProfile" />
+        <item
+            android:id="@+id/nav_partner_mngmnt"
+            android:icon="@drawable/partner"
+            android:title="Partners" />
+        <item
+            android:id="@+id/nav_settingg"
+            android:icon="@drawable/settingss"
+            android:title="Speed Settings" />
+
+        <item
+            android:id="@+id/nav_view_notfctn"
+            android:icon="@drawable/ntfctn"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/nav_snd_cmplnts_view_rply"
+            android:icon="@drawable/complaints"
+            android:title="Complaint" />
+        <item
+            android:id="@+id/nav_snd_feedback"
+            android:icon="@drawable/feedbacks"
+            android:title="Send Feedback" />
+
+        <item
+            android:id="@+id/nav_change_psw"
+            android:icon="@drawable/changepasswords"
+            android:title="Change Password" />
+
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/lgout"
+            android:title="Logout" />
+
+
+    </group>
+</menu>

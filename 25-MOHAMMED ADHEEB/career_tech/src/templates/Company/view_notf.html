@@ -1,0 +1,74 @@
+{%extends 'indexcomp.html'%}
+{%block body%}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+<form action="" method="post" name="form1" id="form1">
+  <div align="center">
+    <table width="189" border="0" >
+      <tr>
+        <td colspan="2"><h1 align="center"><u>Notification</u></h1></td>
+      </tr>
+      {%for i in s%}
+      
+      
+      {%endfor%}
+  <!--
+    <tr>
+      <td colspan="2"><a href="comhome">Home</a></td>
+    </tr>
+    <tr>
+      <td colspan="2"><a href="comlg">Logout</a></td>
+    </tr>
+    -->
+    </table>
+    <table width="56%" border="1" id="customers">
+      <tr>
+        <th width="85">Date</th>
+        <th width="101">Notification</th>
+      </tr>
+      {%for i in s%}
+      <tr>
+        <td>{{i[3]}}</td>
+        <td>{{i[2]}}&nbsp;</td>
+      </tr>
+      
+      {%endfor%}
+      <!--
+    <tr>
+      <td colspan="2"><a href="comhome">Home</a></td>
+    </tr>
+    <tr>
+      <td colspan="2"><a href="comlg">Logout</a></td>
+    </tr>
+    -->
+    </table>
+  </div>
+</form>
+</body>
+</html>
+{%endblock%}

@@ -1,0 +1,1037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2b01e5c7-9b13-4155-87e6-ad2a20b4534a" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/drivervigilence$drivervigilence.coverage" NAME="drivervigilence Coverage Results" MODIFIED="1641120902333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="drivervigilence.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/drivervigilence.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="524" column="24" lean-forward="false" selection-start-line="524" selection-start-column="24" selection-end-line="524" selection-end-column="24" />
+              <folding>
+                <marker date="1640942163365" expanded="true" signature="711:803" ph="insert into notification... " />
+                <marker date="1640942163365" expanded="true" signature="1008:1034" ph="select * fro... notification" />
+                <marker date="1640942163365" expanded="true" signature="1312:1375" ph="select * fro... notification" />
+                <marker date="1640942163365" expanded="true" signature="1567:1613" ph="delete from " />
+                <marker date="1640942163365" expanded="true" signature="1839:1887" ph="select * fro... notification" />
+                <marker date="1640942163365" expanded="true" signature="2232:2342" ph="update notif... " />
+                <marker date="1640942163365" expanded="true" signature="2836:2911" ph="select * fro... login" />
+                <marker date="1640942163365" expanded="true" signature="3131:3199" ph="update login... " />
+                <marker date="1640942163365" expanded="true" signature="3567:3619" ph="select * fro... complaints" />
+                <marker date="1640942163365" expanded="true" signature="3890:3958" ph="update compl... " />
+                <marker date="1640942163365" expanded="true" signature="4414:4492" ph="select * fro... login" />
+                <marker date="1640942163365" expanded="true" signature="5678:5698" ph="select * fro... driver" />
+                <marker date="1640942163365" expanded="true" signature="5928:5979" ph="select * fro... driver" />
+                <marker date="1640942163365" expanded="true" signature="7042:7120" ph="select * fro... login" />
+                <marker date="1640942163365" expanded="true" signature="7800:7897" ph="insert into login... " />
+                <marker date="1640942163365" expanded="true" signature="8247:8453" ph="insert into driver... " />
+                <marker date="1640942163365" expanded="true" signature="8503:8596" ph="insert into location... " />
+                <marker date="1640942163365" expanded="true" signature="8826:9034" ph="insert into partner... " />
+                <marker date="1640942163365" expanded="true" signature="9340:9424" ph="select * fro... login" />
+                <marker date="1640942163365" expanded="true" signature="9560:9638" ph="update login... " />
+                <marker date="1640942163365" expanded="true" signature="9867:9918" ph="select * fro... driver" />
+                <marker date="1640942163365" expanded="true" signature="10857:11042" ph="update drive... " />
+                <marker date="1640942163365" expanded="true" signature="11067:11234" ph="update drive... " />
+                <marker date="1640942163365" expanded="true" signature="11415:11462" ph="select * fro... notification" />
+                <marker date="1640942163365" expanded="true" signature="11839:11986" ph="update locat... " />
+                <marker date="1640942163365" expanded="true" signature="12000:12169" ph="insert into driver_logs... " />
+                <marker date="1640942163365" expanded="true" signature="12796:12968" ph="SELECT `mode... speed_settings" />
+                <marker date="1640942163365" expanded="true" signature="14068:14145" ph="select * fro... speed_settings" />
+                <marker date="1640942163365" expanded="true" signature="14932:15017" ph="select * fro... speed_settings" />
+                <marker date="1640942163365" expanded="true" signature="15383:15627" ph="update speed... " />
+                <marker date="1640942163365" expanded="true" signature="15877:15930" ph="select * fro... feedback" />
+                <marker date="1640942163365" expanded="true" signature="15973:16071" ph="update feedb... " />
+                <marker date="1640942163365" expanded="true" signature="16097:16193" ph="insert into feedback... " />
+                <marker date="1640942163365" expanded="true" signature="16387:16442" ph="select * fro... complaints" />
+                <marker date="1640942163365" expanded="true" signature="16731:16782" ph="delete from " />
+                <marker date="1640942163365" expanded="true" signature="17015:17149" ph="insert into complaints... " />
+                <marker date="1640942163365" expanded="true" signature="17354:17577" ph="select partn... driver_add_partner" />
+                <marker date="1640942163365" expanded="true" signature="17792:17845" ph="delete from " />
+                <marker date="1640942163365" expanded="true" signature="18037:18167" ph="select * fro... partner" />
+                <marker date="1640942163365" expanded="true" signature="18089:18166" ph="select partn... driver_add_partner" />
+                <marker date="1640942163365" expanded="true" signature="18476:18752" ph="select * fro... partner" />
+                <marker date="1640942163365" expanded="true" signature="18555:18751" ph="select drive... driver_add_partner" />
+                <marker date="1640942163365" expanded="true" signature="19057:19168" ph="insert into driver_add_partner... " />
+                <marker date="1640942163365" expanded="true" signature="19409:19691" ph="select drive... driver_add_partner" />
+                <marker date="1640942163365" expanded="true" signature="19409:19692" ph="select drive... driver_add_partner" />
+                <marker date="1640942163365" expanded="true" signature="19409:19705" ph="select drive... driver_add_partner" />
+                <marker date="1640942163365" expanded="true" signature="20001:20135" ph="insert into distraction... " />
+                <marker date="1640942163365" expanded="true" signature="20336:20389" ph="select * fro... partner" />
+                <marker date="1640942163365" expanded="true" signature="21312:21499" ph="update partn... " />
+                <marker date="1640942163365" expanded="true" signature="21524:21693" ph="update partn... " />
+                <marker date="1640942163365" expanded="true" signature="21905:22180" ph="select drive... driver" />
+                <marker date="1640942163365" expanded="true" signature="22454:22587" ph="insert into message... " />
+                <marker date="1640942163365" expanded="true" signature="22813:22934" ph="select messa... " />
+                <marker date="1640942163365" expanded="true" signature="23160:23252" ph="select * fro... driver_logs" />
+                <marker date="1640942163365" expanded="true" signature="23474:23614" ph="select messa... message" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cursor.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Python36/Lib/site-packages/mysql/connector/cursor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9248">
+              <caret line="550" column="0" lean-forward="false" selection-start-line="550" selection-start-column="0" selection-end-line="550" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexlogin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/indexlogin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnection.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DBConnection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="101" lean-forward="false" selection-start-line="5" selection-start-column="101" selection-end-line="5" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin-home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/admin-home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2584">
+              <caret line="152" column="40" lean-forward="false" selection-start-line="152" selection-start-column="40" selection-end-line="152" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewcomp&amp;sndrply.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/viewcomp&amp;sndrply.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="54" column="35" lean-forward="false" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>imag</find>
+      <find>ve</find>
+      <find>font</find>
+      <find>js</find>
+      <find>css</find>
+      <find>vendor</find>
+      <find>image</find>
+      <find>xyz</find>
+      <find>adm_login_post</find>
+      <find>images</find>
+      <find>dash</find>
+      <find>forg</find>
+      <find>log</find>
+      <find>adm_addnotification</find>
+      <find>/adm_addnotification</find>
+      <find>/adm_editnotification_post</find>
+      <find>/adm_viewcompsndrply</find>
+      <find>/adm_cmplntrply</find>
+      <find>chan</find>
+      <find>login</find>
+      <find>adm_login</find>
+      <find>adm_change</find>
+      <find>and_view_reply</find>
+      <find>sig</find>
+      <find>static_pat</find>
+      <find>and_check_disrupt</find>
+      <find>disr</find>
+      <find>insertintodriverlogs</find>
+      <find>and_driver_view_msg</find>
+      <find>and_driver_view_</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/templates/admin.html" />
+        <option value="$PROJECT_DIR$/DBConnection.py" />
+        <option value="$PROJECT_DIR$/templates/viewdrivers.html" />
+        <option value="$PROJECT_DIR$/templates/viewcomp&amp;sndrply.html" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/templates/editnotification.html" />
+        <option value="$PROJECT_DIR$/templates/addnotification.html" />
+        <option value="$PROJECT_DIR$/templates/cmplntrply.html" />
+        <option value="$PROJECT_DIR$/templates/viewnotification.html" />
+        <option value="$PROJECT_DIR$/templates/viewfdbckfrmdrvr.html" />
+        <option value="$PROJECT_DIR$/templates/admin/home.html" />
+        <option value="$PROJECT_DIR$/templates/login_index.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/admin/indexlogin.html" />
+        <option value="$PROJECT_DIR$/templates/admin/cmplntrply.html" />
+        <option value="$PROJECT_DIR$/templates/admin/viewfdbckfrmdrvr.html" />
+        <option value="$PROJECT_DIR$/templates/changepassword.html" />
+        <option value="$PROJECT_DIR$/templates/admin/editnotification.html" />
+        <option value="$PROJECT_DIR$/templates/admin/addnotification.html" />
+        <option value="$PROJECT_DIR$/templates/admin/viewdrivers.html" />
+        <option value="$PROJECT_DIR$/templates/admin/viewnotification.html" />
+        <option value="$PROJECT_DIR$/templates/admin/viewcomp&amp;sndrply.html" />
+        <option value="$PROJECT_DIR$/templates/admin/admin-home.html" />
+        <option value="$PROJECT_DIR$/drivervigilence.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drivervigilence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drivervigilence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MUHAMMED ASLAM\PycharmProjects\drivervigilence\static\images\faces" />
+      <recent name="C:\Users\MUHAMMED ASLAM\PycharmProjects\drivervigilence\static\logintemplate" />
+      <recent name="C:\Users\MUHAMMED ASLAM\PycharmProjects\drivervigilence\templates\admin" />
+      <recent name="C:\Users\MUHAMMED ASLAM\PycharmProjects\drivervigilence\static" />
+      <recent name="C:\Users\MUHAMMED ASLAM\PycharmProjects\drivervigilence\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MUHAMMED ASLAM\PycharmProjects\drivervigilence\templates\admin" />
+      <recent name="C:\Users\MUHAMMED ASLAM\PycharmProjects\drivervigilence\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.drivervigilence">
+    <configuration default="false" name="editnotification.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/drivervigilence/templates/admin/editnotification.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="indexlogin.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/drivervigilence/templates/admin/indexlogin.html">
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drivervigilence" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drivervigilence" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drivervigilence" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drivervigilence" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="drivervigilence" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drivervigilence" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drivervigilence" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="drivervigilence" type="PythonConfigurationType" factoryName="Python" singleton="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Python36\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="drivervigilence" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/drivervigilence.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Python.drivervigilence" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.editnotification.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.indexlogin.html" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.indexlogin.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.editnotification.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b01e5c7-9b13-4155-87e6-ad2a20b4534a" name="Default" comment="" />
+      <created>1635238546847</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635238546847</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16490166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.58132046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="jinja2-line">
+          <url>file://$PROJECT_DIR$/templates/admin/viewcomp&amp;sndrply.html</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="jinja2-line">
+          <url>file://$PROJECT_DIR$/templates/admin/changepassword.html</url>
+          <line>1</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="jinja2-line">
+          <url>file://$PROJECT_DIR$/templates/admin/viewdrivers.html</url>
+          <line>34</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/admin/cmplntrply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/viewcomp&amp;sndrply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/viewdrivers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="133" lean-forward="false" selection-start-line="27" selection-start-column="133" selection-end-line="27" selection-end-column="133" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html" />
+    <entry file="file://$PROJECT_DIR$/DBConnection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="101" lean-forward="false" selection-start-line="5" selection-start-column="101" selection-end-line="5" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addnotification.html" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/changepassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/viewnotification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drivervigilence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1640942163365" expanded="true" signature="711:803" ph="insert into notification... " />
+            <marker date="1640942163365" expanded="true" signature="1008:1034" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1312:1375" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1567:1613" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="1839:1887" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="2232:2342" ph="update notif... " />
+            <marker date="1640942163365" expanded="true" signature="2836:2911" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="3131:3199" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="3567:3619" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="3890:3958" ph="update compl... " />
+            <marker date="1640942163365" expanded="true" signature="4414:4492" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="5678:5698" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="5928:5979" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="7042:7120" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="7800:7897" ph="insert into login... " />
+            <marker date="1640942163365" expanded="true" signature="8247:8453" ph="insert into driver... " />
+            <marker date="1640942163365" expanded="true" signature="8503:8596" ph="insert into location... " />
+            <marker date="1640942163365" expanded="true" signature="8826:9034" ph="insert into partner... " />
+            <marker date="1640942163365" expanded="true" signature="9340:9424" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="9560:9638" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="9867:9918" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="10857:11042" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11067:11234" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11415:11462" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="11839:11986" ph="update locat... " />
+            <marker date="1640942163365" expanded="true" signature="12000:12169" ph="insert into driver_logs... " />
+            <marker date="1640942163365" expanded="true" signature="12796:12968" ph="SELECT `mode... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14068:14145" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14932:15017" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="15383:15627" ph="update speed... " />
+            <marker date="1640942163365" expanded="true" signature="15877:15930" ph="select * fro... feedback" />
+            <marker date="1640942163365" expanded="true" signature="15973:16071" ph="update feedb... " />
+            <marker date="1640942163365" expanded="true" signature="16097:16193" ph="insert into feedback... " />
+            <marker date="1640942163365" expanded="true" signature="16387:16442" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="16731:16782" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="17015:17149" ph="insert into complaints... " />
+            <marker date="1640942163365" expanded="true" signature="17354:17577" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="17792:17845" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="18037:18167" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18089:18166" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="18476:18752" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18555:18751" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19057:19168" ph="insert into driver_add_partner... " />
+            <marker date="1640942163365" expanded="true" signature="19409:19691" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19692" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19705" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="20001:20135" ph="insert into distraction... " />
+            <marker date="1640942163365" expanded="true" signature="20336:20389" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="21312:21499" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21524:21693" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21905:22180" ph="select drive... driver" />
+            <marker date="1640942163365" expanded="true" signature="22454:22587" ph="insert into message... " />
+            <marker date="1640942163365" expanded="true" signature="22813:22934" ph="select messa... " />
+            <marker date="1640942163365" expanded="true" signature="23160:23252" ph="select * fro... driver_logs" />
+            <marker date="1640942163365" expanded="true" signature="23474:23614" ph="select messa... message" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/cmplntrply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html" />
+    <entry file="file://$PROJECT_DIR$/templates/addnotification.html" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/changepassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drivervigilence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1640942163365" expanded="true" signature="711:803" ph="insert into notification... " />
+            <marker date="1640942163365" expanded="true" signature="1008:1034" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1312:1375" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1567:1613" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="1839:1887" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="2232:2342" ph="update notif... " />
+            <marker date="1640942163365" expanded="true" signature="2836:2911" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="3131:3199" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="3567:3619" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="3890:3958" ph="update compl... " />
+            <marker date="1640942163365" expanded="true" signature="4414:4492" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="5678:5698" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="5928:5979" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="7042:7120" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="7800:7897" ph="insert into login... " />
+            <marker date="1640942163365" expanded="true" signature="8247:8453" ph="insert into driver... " />
+            <marker date="1640942163365" expanded="true" signature="8503:8596" ph="insert into location... " />
+            <marker date="1640942163365" expanded="true" signature="8826:9034" ph="insert into partner... " />
+            <marker date="1640942163365" expanded="true" signature="9340:9424" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="9560:9638" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="9867:9918" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="10857:11042" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11067:11234" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11415:11462" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="11839:11986" ph="update locat... " />
+            <marker date="1640942163365" expanded="true" signature="12000:12169" ph="insert into driver_logs... " />
+            <marker date="1640942163365" expanded="true" signature="12796:12968" ph="SELECT `mode... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14068:14145" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14932:15017" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="15383:15627" ph="update speed... " />
+            <marker date="1640942163365" expanded="true" signature="15877:15930" ph="select * fro... feedback" />
+            <marker date="1640942163365" expanded="true" signature="15973:16071" ph="update feedb... " />
+            <marker date="1640942163365" expanded="true" signature="16097:16193" ph="insert into feedback... " />
+            <marker date="1640942163365" expanded="true" signature="16387:16442" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="16731:16782" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="17015:17149" ph="insert into complaints... " />
+            <marker date="1640942163365" expanded="true" signature="17354:17577" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="17792:17845" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="18037:18167" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18089:18166" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="18476:18752" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18555:18751" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19057:19168" ph="insert into driver_add_partner... " />
+            <marker date="1640942163365" expanded="true" signature="19409:19691" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19692" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19705" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="20001:20135" ph="insert into distraction... " />
+            <marker date="1640942163365" expanded="true" signature="20336:20389" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="21312:21499" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21524:21693" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21905:22180" ph="select drive... driver" />
+            <marker date="1640942163365" expanded="true" signature="22454:22587" ph="insert into message... " />
+            <marker date="1640942163365" expanded="true" signature="22813:22934" ph="select messa... " />
+            <marker date="1640942163365" expanded="true" signature="23160:23252" ph="select * fro... driver_logs" />
+            <marker date="1640942163365" expanded="true" signature="23474:23614" ph="select messa... message" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/cmplntrply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html" />
+    <entry file="file://$PROJECT_DIR$/templates/addnotification.html" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/changepassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drivervigilence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1640942163365" expanded="true" signature="711:803" ph="insert into notification... " />
+            <marker date="1640942163365" expanded="true" signature="1008:1034" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1312:1375" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1567:1613" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="1839:1887" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="2232:2342" ph="update notif... " />
+            <marker date="1640942163365" expanded="true" signature="2836:2911" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="3131:3199" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="3567:3619" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="3890:3958" ph="update compl... " />
+            <marker date="1640942163365" expanded="true" signature="4414:4492" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="5678:5698" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="5928:5979" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="7042:7120" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="7800:7897" ph="insert into login... " />
+            <marker date="1640942163365" expanded="true" signature="8247:8453" ph="insert into driver... " />
+            <marker date="1640942163365" expanded="true" signature="8503:8596" ph="insert into location... " />
+            <marker date="1640942163365" expanded="true" signature="8826:9034" ph="insert into partner... " />
+            <marker date="1640942163365" expanded="true" signature="9340:9424" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="9560:9638" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="9867:9918" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="10857:11042" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11067:11234" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11415:11462" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="11839:11986" ph="update locat... " />
+            <marker date="1640942163365" expanded="true" signature="12000:12169" ph="insert into driver_logs... " />
+            <marker date="1640942163365" expanded="true" signature="12796:12968" ph="SELECT `mode... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14068:14145" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14932:15017" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="15383:15627" ph="update speed... " />
+            <marker date="1640942163365" expanded="true" signature="15877:15930" ph="select * fro... feedback" />
+            <marker date="1640942163365" expanded="true" signature="15973:16071" ph="update feedb... " />
+            <marker date="1640942163365" expanded="true" signature="16097:16193" ph="insert into feedback... " />
+            <marker date="1640942163365" expanded="true" signature="16387:16442" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="16731:16782" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="17015:17149" ph="insert into complaints... " />
+            <marker date="1640942163365" expanded="true" signature="17354:17577" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="17792:17845" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="18037:18167" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18089:18166" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="18476:18752" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18555:18751" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19057:19168" ph="insert into driver_add_partner... " />
+            <marker date="1640942163365" expanded="true" signature="19409:19691" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19692" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19705" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="20001:20135" ph="insert into distraction... " />
+            <marker date="1640942163365" expanded="true" signature="20336:20389" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="21312:21499" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21524:21693" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21905:22180" ph="select drive... driver" />
+            <marker date="1640942163365" expanded="true" signature="22454:22587" ph="insert into message... " />
+            <marker date="1640942163365" expanded="true" signature="22813:22934" ph="select messa... " />
+            <marker date="1640942163365" expanded="true" signature="23160:23252" ph="select * fro... driver_logs" />
+            <marker date="1640942163365" expanded="true" signature="23474:23614" ph="select messa... message" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addnotification.html" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/changepassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addnotification.html" />
+    <entry file="file://$PROJECT_DIR$/static/admin_template/assets/js/jquery/jquery.min.js" />
+    <entry file="file://$PROJECT_DIR$/static/login_template/asset/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/static/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/csslogin/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jslogin/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/vendorlogin/jquery/jquery-3.2.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/logintemplate/vendor/jquery/jquery-3.2.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/faces/face2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/faces/face1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/faces/MVD.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin_index.html" />
+    <entry file="file://$PROJECT_DIR$/templates/login.html" />
+    <entry file="file://$PROJECT_DIR$/templates/login_index.html" />
+    <entry file="file://$PROJECT_DIR$/templates/index.html" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/home.html" />
+    <entry file="file://$PROJECT_DIR$/templates/admin/changepassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="117" lean-forward="false" selection-start-line="14" selection-start-column="117" selection-end-line="14" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/cmplntrply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/editnotification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/viewfdbckfrmdrvr.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="9" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/viewnotification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="49" column="12" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/viewdrivers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/addnotification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="20" column="110" lean-forward="false" selection-start-line="20" selection-start-column="110" selection-end-line="20" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/admin-home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="152" column="40" lean-forward="false" selection-start-line="152" selection-start-column="40" selection-end-line="152" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/indexlogin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/viewcomp&amp;sndrply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="35" lean-forward="false" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBConnection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="101" lean-forward="false" selection-start-line="5" selection-start-column="101" selection-end-line="5" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python36/Lib/site-packages/mysql/connector/cursor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9248">
+          <caret line="550" column="0" lean-forward="false" selection-start-line="550" selection-start-column="0" selection-end-line="550" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drivervigilence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="524" column="24" lean-forward="false" selection-start-line="524" selection-start-column="24" selection-end-line="524" selection-end-column="24" />
+          <folding>
+            <marker date="1640942163365" expanded="true" signature="711:803" ph="insert into notification... " />
+            <marker date="1640942163365" expanded="true" signature="1008:1034" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1312:1375" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="1567:1613" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="1839:1887" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="2232:2342" ph="update notif... " />
+            <marker date="1640942163365" expanded="true" signature="2836:2911" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="3131:3199" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="3567:3619" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="3890:3958" ph="update compl... " />
+            <marker date="1640942163365" expanded="true" signature="4414:4492" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="5678:5698" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="5928:5979" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="7042:7120" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="7800:7897" ph="insert into login... " />
+            <marker date="1640942163365" expanded="true" signature="8247:8453" ph="insert into driver... " />
+            <marker date="1640942163365" expanded="true" signature="8503:8596" ph="insert into location... " />
+            <marker date="1640942163365" expanded="true" signature="8826:9034" ph="insert into partner... " />
+            <marker date="1640942163365" expanded="true" signature="9340:9424" ph="select * fro... login" />
+            <marker date="1640942163365" expanded="true" signature="9560:9638" ph="update login... " />
+            <marker date="1640942163365" expanded="true" signature="9867:9918" ph="select * fro... driver" />
+            <marker date="1640942163365" expanded="true" signature="10857:11042" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11067:11234" ph="update drive... " />
+            <marker date="1640942163365" expanded="true" signature="11415:11462" ph="select * fro... notification" />
+            <marker date="1640942163365" expanded="true" signature="11839:11986" ph="update locat... " />
+            <marker date="1640942163365" expanded="true" signature="12000:12169" ph="insert into driver_logs... " />
+            <marker date="1640942163365" expanded="true" signature="12796:12968" ph="SELECT `mode... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14068:14145" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="14932:15017" ph="select * fro... speed_settings" />
+            <marker date="1640942163365" expanded="true" signature="15383:15627" ph="update speed... " />
+            <marker date="1640942163365" expanded="true" signature="15877:15930" ph="select * fro... feedback" />
+            <marker date="1640942163365" expanded="true" signature="15973:16071" ph="update feedb... " />
+            <marker date="1640942163365" expanded="true" signature="16097:16193" ph="insert into feedback... " />
+            <marker date="1640942163365" expanded="true" signature="16387:16442" ph="select * fro... complaints" />
+            <marker date="1640942163365" expanded="true" signature="16731:16782" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="17015:17149" ph="insert into complaints... " />
+            <marker date="1640942163365" expanded="true" signature="17354:17577" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="17792:17845" ph="delete from " />
+            <marker date="1640942163365" expanded="true" signature="18037:18167" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18089:18166" ph="select partn... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="18476:18752" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="18555:18751" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19057:19168" ph="insert into driver_add_partner... " />
+            <marker date="1640942163365" expanded="true" signature="19409:19691" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19692" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="19409:19705" ph="select drive... driver_add_partner" />
+            <marker date="1640942163365" expanded="true" signature="20001:20135" ph="insert into distraction... " />
+            <marker date="1640942163365" expanded="true" signature="20336:20389" ph="select * fro... partner" />
+            <marker date="1640942163365" expanded="true" signature="21312:21499" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21524:21693" ph="update partn... " />
+            <marker date="1640942163365" expanded="true" signature="21905:22180" ph="select drive... driver" />
+            <marker date="1640942163365" expanded="true" signature="22454:22587" ph="insert into message... " />
+            <marker date="1640942163365" expanded="true" signature="22813:22934" ph="select messa... " />
+            <marker date="1640942163365" expanded="true" signature="23160:23252" ph="select * fro... driver_logs" />
+            <marker date="1640942163365" expanded="true" signature="23474:23614" ph="select messa... message" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

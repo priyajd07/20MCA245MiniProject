@@ -1,0 +1,96 @@
+{% extends "doctor/index.html" %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/doc_edit_caretaker_post">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table class="table">
+   
+    <tr>
+      <td colspan="2" align="center">
+        <img src="{{ d["photo"]}}" width="200px" height="200px"/>
+      </td>
+    </tr> <input type="hidden" name="id" value="{{ d["id"] }}"/>
+    <tr>
+      <th>Name</th>
+      <th  ><label>
+        <input type="text" name="textfield" class="form-control" required value="{{d["name"]}}"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><label>
+        <input type="text" name="textfield2" class="form-control" required value="{{d["place"]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Pin</th>
+      <td><label>
+        <input type="text" name="textfield3" class="form-control" required value="{{d["pin"]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Post</th>
+      <td><label>
+        <input type="text" name="textfield4" class="form-control" required value="{{d["post"]}}"/>
+      </label></td>
+    </tr>
+    {% if d["gender"]=="female" %}
+    <tr>
+      <th scope="row">Gender</th>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" />
+        M
+        <input name="radiobutton" type="radio" value="female" checked/>
+        F</label></td>
+    </tr>
+    {% else %}    <tr>
+      <th scope="row">Gender</th>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" checked/>
+        M
+        <input name="radiobutton" type="radio" value="female" />
+        F</label></td>
+    </tr>
+    {% endif %}
+    <tr>
+      <th scope="row">Adhar</th>
+      <td><label>
+        <input type="text" name="textfield5" class="form-control" required value="{{d["adhar_no"]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><label>
+        <input type="text" name="textfield6" class="form-control" required value="{{d["phone"]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Image</th>
+      <td><label>
+        <input type="file" name="file" class="form-control" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Qual</th>
+      <td><label>
+        <input type="text" name="textfield7" class="form-control" required  value="{{d["qualification"]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td><label>
+        <input type="text" name="textfield8" class="form-control" required value="{{d["email"]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;</th>
+      <td><label>
+        <input type="submit" name="Submit" value="Update" class="btn btn-primary"/>
+      </label></td>
+    </tr>
+  </table>
+
+</form>
+</body>
+{% endblock %}

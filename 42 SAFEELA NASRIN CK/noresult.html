@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+<div class="login-wrap">
+  <div class="login-html">
+    <div class="login-form">
+      <div class="group">
+        <p class="label" align="center">
+          <span>{{crop}}</span> has not been grown in your region, in the past
+          10 years. <br />
+          Happy experimenting
+        </p>
+      </div>
+      <div class="hr" style="margin-top: -1%"></div>
+      <div id="link_another" align="center">
+        <a href="{% url 'dashboard'%}"
+          ><u>Do again?</u></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

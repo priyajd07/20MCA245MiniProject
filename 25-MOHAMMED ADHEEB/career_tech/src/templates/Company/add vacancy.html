@@ -1,0 +1,100 @@
+{% extends 'indexcomp.html' %}
+{%block body%}
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+<form action="/comvacde#addv" method="post" name="form1" class="style1" id="form1">
+  <div align="center">
+    <table width="691" border="0" >
+      <tr>
+        <td colspan="5"><h1 align="center"><u>Vacancy Hub</u></h1></td>
+      </tr>
+      {%for i in q%}
+      
+      {%endfor%}
+  <!--
+    <tr>
+      <td colspan="5"><div align="center">
+        <input type="submit" name="Submit" value="Add new" />
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="5"><a href="comhome">Home</a></td>
+    </tr>
+    <tr>
+      <td colspan="5"><a href="comlg">Logout</a></td>
+    </tr>
+    -->
+    </table>
+    <table width="691" border="1" id="customers">
+      <tr>
+        <th>Job name </th>
+        <th>Skills required </th>
+        <th>Date</th>
+        <th>Description</th>
+          <th>Qualification</th>
+          <th>Experience</th>
+
+        <th>&nbsp;</th>
+      </tr>
+      {%for i in q%}
+      <tr>
+        <td>{{i[1]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[9]}} to {{i[10]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+        <td><p><a href="/DelC?id={{i[0]}}">Delete</a></p></td>
+      </tr>
+      {%endfor%}
+      <!--
+    <tr>
+      <td colspan="5"><div align="center">
+        <input type="submit" name="Submit" value="Add new" />
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="5"><a href="comhome">Home</a></td>
+    </tr>
+    <tr>
+      <td colspan="5"><a href="comlg">Logout</a></td>
+    </tr>
+    -->
+    </table>
+  </div>
+  <tr>
+      <td colspan="5">
+        <div align="center">
+          <input type="submit" name="Submit" value="Add new" />
+        </div></td>
+  </tr>
+
+</form>
+</body>
+</html>
+{%endblock%}

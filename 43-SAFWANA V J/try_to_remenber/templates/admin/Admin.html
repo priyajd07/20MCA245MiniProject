@@ -1,0 +1,41 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<body>
+  <div class="table-responsive">
+<form id="form1" name="form1" method="post" action="/admin_post">
+  <table  class="table">
+    <tr>
+      <td width="139">Current Password </td>
+      <td width="179"><label>
+        <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+    <tr>
+      <td height="31">New password </td>
+      <td><label>
+        <input type="text" name="textfield2" />
+      </label></td>
+    </tr>
+    <tr>
+      <td height="31">Confirm Password </td>
+      <td><label>
+        <input type="text" name="textfield3" />
+      </label></td>
+    </tr>
+    <tr>
+      <td height="31">&nbsp;</td>
+      <td><input type="submit" name="Submit" value="Change" /></td>
+    </tr>
+  </table>
+  <center>
+  </center>
+  <p>&nbsp;</p>
+  <p>
+    <label></label>
+  </p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

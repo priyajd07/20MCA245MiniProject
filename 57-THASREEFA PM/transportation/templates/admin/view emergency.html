@@ -1,0 +1,36 @@
+{% extends 'adindex.html' %}
+{% block body %}
+
+<body>
+<h3 align="center"><b>View Emergency</b></h3>
+<form id="form1" name="form1" method="post" action="/search_emergency">
+
+  <table class="pull-right">
+    <tr>
+      <td>date <input type="date" value="" name="d1"/>&nbsp;</td>
+      <td>
+        <input type="submit" name="search" value="Search" class="btn btn-success" />
+     </td>
+    </tr>
+    <tr>
+      <th>Sno</th>
+      <th>Message</th>
+      <th>Date</th>
+        <th>Time</th>
+      </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['message'] }}</td>
+      <td>{{ i['date'] }}</td>
+        <td>{{ i['time'] }}</td>
+{#      <td width="53"><div align="center"><a href="/admin_edit_emergency/{{ i["emergency_id"] }}">Edit</a></div></td>#}
+      <td width="86"><div align="center"><a href="/admin_delete_emergency/{{ i["emergency_id"] }}"class="btn btn-danger" onclick="return confirm('Do you want to delete this?')">Delete</a></div></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+
+{% endblock %}

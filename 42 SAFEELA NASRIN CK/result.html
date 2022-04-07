@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+<!-- ===================================================================================================================== -->
+<div class="parallax" style="margin-bottom: -150px;">
+
+
+    <div class='con1' align="center">
+
+        <h3 style="margin-bottom: 0px;bottom-top: 35px;"><u>Weather Condition:</u></h3><br>
+        <table border="0" style="padding-bottom: 20px;font-size: 20px;" cellspacing="40px">
+            <tr>
+                <tr>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>windspeed</th>
+
+            
+                </tr>
+            </tr>
+            <tr>
+                <td>{{temperature}}</td>
+                <td>{{humidity}}</td>
+                <td>{{windspeed}}</td>
+         
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+<!-- ===================================================================================================================== -->
+
+
+<div class="parallax" style="margin-top: -130px;">
+<br>
+<br>
+<br>
+
+    <div class='con1' align="center">
+
+       
+
+    </div>
+</div>
+
+<!-- ===================================================================================================================== -->
+
+<div class="parallax" style="margin-top: -80px;">
+
+
+    <div class='con1' align="center">
+
+        <h2 style="margin-top: 0px;padding-top: 35px;"><u>Final Verdict</u></h2><br>
+        <span style="font-size: 160px;margin-top: -70px;">
+            {{finalout_main}}
+        </span>
+        <span style="font-size: 40px; margin-left: -35px;">.{{finalout_dec}}</span>
+        <span style="font-size: 160px;margin-top: -70px;">
+            %
+        </span>
+        <span h1 style="font-size: 45px;">Success </h1></span>
+        <div style="margin-top: 35px;padding-bottom: 20px;">Predicted for <u>{{final.crop}}</u> in
+            <u>{{final.district}}</u></div>
+
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+ <h3 style="margin-top: 0px;padding-top: 35px;"><u>Insights about {{final.crop|title}}:</u></h3><br>
+        <table border="1" style="padding-bottom: 20px;font-size: 20px;" cellspacing="40px" align="center">
+            <tr>
+                <th>Production</th>
+                <th>Imports</th>
+                <th>Exports</th>
+                <th>Production/sq.Area</th>
+                <th>Gross Production Value</th>
+				               <th>Soil Quality(Moisture Level)</th>
+                <!-- <th>Wind</th> -->
+            </tr>
+            <tr>
+                <td>{{final.production}}</td>
+                <td>{{final.imports}}</td>
+                <td>{{final.exports}}</td>
+                <td>{{final.pred_val}}</td>
+                <td>{{final.Gross_Production_Value_constant_2004_2006_million_US_dollar}}</td>
+				               <td>{{soilq}}</td>
+                <!-- <td>{{final.wind_10m_spd_avg}}</td> -->
+            </tr>
+        </table>
+       
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

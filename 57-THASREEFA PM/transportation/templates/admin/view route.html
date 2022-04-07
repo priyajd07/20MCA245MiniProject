@@ -1,0 +1,32 @@
+{% extends 'adindex.html' %}
+{% block body %}
+<body>
+<h3 align="center"><b>View Route</b></h3>
+<form id="form1" name="form1" method="post" action="/search_route">
+  <table class="pull-right">
+    <tr>
+      <td><input type="text" name="search" required class="form-control "></td>
+      <td><input type="submit" value="go" class="btn btn-success"/></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+
+    <th>Slno.<th/>
+      <th>Route name</th>
+      <th>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}&nbsp;</td>
+      <td>&nbsp;{{ i["routename"] }}</td>
+      <td><div align="center"><a href="/admin_edit_route/{{ i["routeid"] }}" class="btn btn-primary">Edit</a></div></td>
+      <td><div align="center"><a href="/admin_delete_route/{{ i["routeid"] }}" class="btn btn-danger" >Delete</a></div></td>
+    </tr>
+      {% endfor %}
+
+  </table>
+
+</form>
+<p>&nbsp;</p>
+</body>
+{% endblock %}

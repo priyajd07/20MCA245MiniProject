@@ -1,0 +1,97 @@
+from flask import*
+from werkzeug.utils import secure_filename
+from src.newcnn import predictcnn
+from src.dbconnector import*
+app=Flask(__name__)
+@app.route('/login',methods=['post'])
+def login():
+    print(request.form)
+    username=request.form['username']
+    password=request.form['password']
+    qry="select * from `login` where username=%s and `password`=%s"
+    val=(username,password)
+    s=selectone(qry,val)
+
+    if s is None:
+        return jsonify({'task':'invalid'})
+    else:
+        id=s[0]
+        return jsonify({'task':'success',"id" : id })
+
+@app.route('/register', methods=['post'])
+def reg():
+     try:
+
+            fname = request.form['fname']
+            lname = request.form['lname']
+            gender = request.form['gender']
+            dob = request.form['dob']
+            place = request.form['place']
+            post = request.form['post']
+            pin = request.form['pin']
+            phone=request.form['phno']
+            email=request.form['email']
+            uname=request.form['uname']
+            Pwrd=request.form['pword']
+            qry = "INSERT INTO `login` VALUES(NULL,%s,%s,'user')"
+            val = (uname,Pwrd)
+            s = iud(qry, val)
+            qry="insert into `user` values(NULL,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            val=(str(s),fname,lname,gender,dob,place,post,pin,email,phone)
+            iud(qry,val)
+            return jsonify({'task': 'success'})
+     except Exception as e:
+            print(e)
+            return jsonify({'task': 'error'})
+
+
+
+@app.route('/sendfeedback',methods=['post'])
+def sendfeedback():
+    try:
+        print(request.form)
+
+        feedback=request.form['feedback']
+        print(feedback)
+        id=request.form['lid']
+        qry="INSERT INTO feedback VALUES(NULL,%s,%s,CURDATE())"
+        val=(id,feedback)
+        iud(qry,val)
+        return jsonify({'task': 'success'})
+    except Exception as e:
+        print(e)
+        return jsonify ({'task': 'error'})
+@app.route('/viewhospital',methods=['post'])
+def viewhospital():
+    lat=request.form['lat']
+    long=request.form['long']
+    print(lat)
+    print(long)
+    qry="SELECT `hospital`.*, (3959 * ACOS ( COS ( RADIANS(%s) ) * COS( RADIANS( latitude) ) * COS( RADIANS( longitude ) - RADIANS(%s) ) + SIN ( RADIANS(%s) ) * SIN( RADIANS( latitude ) ))) AS user_distance FROM `hospital` HAVING user_distance  < 31.068"
+    val=(lat,long,lat)
+    s=androidselectall(qry,val)
+    print(s)
+    return jsonify(s)
+@app.route('/viewtips',methods=['post'])
+def viewtips():
+    qry="SELECT * FROM tip"
+    s=androidselectallnew(qry)
+    print(s)
+    return jsonify(s)
+@app.route('/photoupload',methods=['post'])
+def photoupload():
+
+    photo = request.files['file']
+    print(photo)
+    file = secure_filename(photo.filename)
+    photo.save(os.path.join('static/teeth', file))
+
+    res = predictcnn(os.path.join("static/teeth", file))
+    print(res,"========================================================")
+    if res == 1:
+        result = "issues"
+    else:
+        result="no issues"
+    return jsonify({'task': result})
+if __name__ =="__main__":
+    app.run(host="0.0.0.0",port=5000)
